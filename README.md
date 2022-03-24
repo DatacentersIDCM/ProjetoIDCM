@@ -1,2 +1,2 @@
 # Projeto IDCM
-Projeto semestral SPTech.
+Projeto semestral realizado na SPTECH (Faculdade de tecnologia)
