@@ -1,2 +1,2 @@
-# ProjetoIDCM
+# Projeto IDCM
 Projeto semestral SPTech.
