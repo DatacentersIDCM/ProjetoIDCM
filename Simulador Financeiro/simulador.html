@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Simulador IDCM</title>
+
+</head>
+
+<body>
+    <div id="borda"></div>
+    <h1>Olá, seja bem vindo ao simulador financeiro da IDCM. <br></h1>
+    <div id="container">
+        <span><b>Para realizar seu orçamento, preencha as informações a abaixo:</b></span><br>
+        <br>
+
+        <b>Qual a metragem geral do data center (m²) : </b> <br><br> <input id="input_metragem_sala"> <br><br>
+        <b>Quantos servidores tem no geral:</a> <br> <br><input id="input_qnt_servidor"> <br><br>
+            <b>Localização da empresa (SP/Fora de SP):</b> <br><br> <input id="input_localizacao"> <br><br>
+            Escolha seu plano de assinatura: <br>
+            <b>(1 ano / 2 anos / 5 Anos)</b> <br><input type="text" id="input_assinatura">
+            <br><br>
+            <b> Calcular orçamento : </b><button onclick="Calcular()" id="btn">Calcular Orçamento</button><br><br>
+            <div id="resultadoOrcamento"></div>
+
+
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    function Calcular() {
+        var valorAssinatura = input_assinatura.value
+        var metragem_sala = Number(input_metragem_sala.value)
+        var frete = input_localizacao.value
+        var qnt_servidor = Number(input_qnt_servidor.value)
+        var custo_hardware = Number(200)
+        var valor_hardware = (qnt_servidor * custo_hardware) + (metragem_sala / 20 * custo_hardware)
+        var mao_de_obra = Number(valor_hardware * 0.65)
+        var valorFinal = Number(mao_de_obra + valor_hardware)
+
+        if (frete == 'SP') {
+            var Fretefinal = Number(50)
+
+        }
+        else if (frete == 'Fora de SP') {
+            var Fretefinal = Number(100)
+        }
+        if (valorAssinatura == "1 ano") {
+            var desconto1 = Number((valorFinal + Fretefinal) * 12) * 0.05
+            var orcamento = Number((valorFinal + Fretefinal) * 12) - desconto1
+        }
+        else if (valorAssinatura == "2 anos") {
+            var desconto2 = Number((valorFinal + Fretefinal) * 24) * 0.10
+            var orcamento = Number((valorFinal + Fretefinal) * 24)-desconto2
+        }
+        else if (valorAssinatura == "5 anos") {
+            var desconto5 = Number((valorFinal + Fretefinal) * 60) * 0.15
+            var orcamento = Number((valorFinal + Fretefinal) * 60)-desconto5
+
+        }
+
+        resultadoOrcamento.innerHTML = 'O valor do orçamento ficou no total de: <br>' + (orcamento).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+    }
+
+</script>
