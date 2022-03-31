@@ -31,3 +31,12 @@ Somos a IDCM, uma empresa especializada em monitoramento de Data Centers, atrav�
 - **Yohan Hudson** - [yohanhudson](https://github.com/yohanhudson)
 - **Yuri Martins** - [YuriMartins](https://github.com/YuriMartins)
 
+## Regras de condução do projeto
+
+- ** Respeito com os membros da equipe
+- ** Comprometimento 
+- ** Responsabilidade
+- ** Pontualidade
+
+
+
