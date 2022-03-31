@@ -33,10 +33,10 @@ Somos a IDCM, uma empresa especializada em monitoramento de Data Centers, atrav�
 
 ## Regras de condução do projeto
 
-- ** Respeito com os membros da equipe
-- ** Comprometimento 
-- ** Responsabilidade
-- ** Pontualidade
+- Respeito com os membros da equipe
+- Comprometimento 
+- Responsabilidade
+- Pontualidade
 
 
 
