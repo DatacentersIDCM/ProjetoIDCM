@@ -16,7 +16,9 @@ Somos a IDCM, uma empresa especializada em monitoramento de Data Centers, atrav�
 
 
 ## Tecnologias
-- HTML e Javascript - Estrutura do site
+- HTML - Estrutura do site
+- CSS - Estilização do site
+- JavaScript - Funcionalidades do site
 - C++ (Arduino) - Instalação de sensores de temperatura e umidade
 - NodeJs - Persistencia dos dados na base
 - MySQL - Sistema de gerenciamento de banco de dados
