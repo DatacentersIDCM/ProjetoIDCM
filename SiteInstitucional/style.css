@@ -236,7 +236,7 @@ nav ul{
 .card {
     
     width: 70%;
-    height: 80%;
+    height: 70%;
     background: #FFFFFF;
     border: 2px solid rgba(50, 50, 50, 0.2);
     box-sizing: border-box;
@@ -312,14 +312,24 @@ nav ul{
 
 
 
-@media(max-width:1300px){
+@media(max-width:1380px){
     .card h1{
-        font-size: 30px;
+        font-size: 40px;
     }
     .card h4{
         font-size: 20px;    
     }
+    .card .iconCard1 {
+        width: 40px;
+        margin-right: 6%;
+    }
+    .mission{
+        background: url('assets/missionBackgroundImg2.png') no-repeat;
+        background-position-y: 36vw;
+        background-position-x: center;
+    }
 }
+
 
 
 @media(max-width:1025px){
