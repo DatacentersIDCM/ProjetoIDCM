@@ -32,6 +32,7 @@ ol, ul, a {
     list-style: none;
     text-decoration: none;
     color: #383838;
+    cursor: pointer;
 }
 h1 {
     font-family: 'Poppins', sans-serif;
@@ -59,6 +60,11 @@ h4 {
     line-height: 36px;
     align-items: center;
     color: #000000;
+}
+a:hover {
+    color: #000000;
+    font-weight: 600;
+
 }
 blockquote, q {
     quotes: none;
@@ -99,6 +105,10 @@ nav ul{
     font-size: 24px;
     
 }
+.now{
+    color: #000000;
+    font-weight: 600;
+}
 
 
 .button1 {
@@ -115,10 +125,12 @@ nav ul{
     align-items: center;
     text-align: center;
     color: #FFFFFF;
+    cursor: pointer;
 }
 .button2{
     background-color: transparent;
     border-color: transparent;
+    cursor: pointer;
 }
 .home{
     padding-top: 10%;
@@ -295,6 +307,7 @@ nav ul{
     width: 18vw;
     height: 9.4vh;
     border: 3px solid #0282F8;
+    background-color: #fff;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
     font-style: normal;
@@ -304,6 +317,7 @@ nav ul{
     line-height: 40px;
     text-align: center;
     color: #0099FF;
+    cursor: pointer;
 }
 .iconCard1 {
     margin-right: 2%;
