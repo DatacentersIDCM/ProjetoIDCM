@@ -38,7 +38,7 @@ foreign key (FK_Assinatura)
 references Assinatura(ID_Assinatura)
 );
 
-create table Sensore(
+create table Sensor(
 ID_Sensor int primary key auto_increment,
 Localizacao varchar (50) not null,
 Quantidade int not null,
@@ -57,7 +57,7 @@ Valor_temperatura float,
 Valor_umidade float,
 FK_Sensor int,
 foreign key (FK_Sensor)
-references Sensore(ID_Sensor)
+references Sensor(ID_Sensor)
 );
 
 insert into Empresa (Nome_empresa, CNPJ, CEP, Endereco, Representante, Email, Telefone, Senha, FK_Assinatura)
@@ -74,7 +74,7 @@ values ('C6 Bank','61.364.200/0001-18','04913-129', ' AV Paulista - Paulista, 13
   
        
 
-insert into Sensore(Localizacao,Quantidade,Data_instalacao,Status_sensor, FK_Empresa)
+insert into Sensor(Localizacao,Quantidade,Data_instalacao,Status_sensor, FK_Empresa)
 values('Corredor 3','5','2022-02-18', false, 2),
 ('Corredor 4','4','2022-03-21',  true, 6),
 ('Corredor 7','3','2022-02-13',  true, 1),
@@ -82,8 +82,8 @@ values('Corredor 3','5','2022-02-18', false, 2),
 ('Servidor 1','1','2022-02-12',  true, 8),
 ('Servidor 7', 1, '2022-03-14',true, 9),
 ('Servidor 10 ', 1 , '2022-05-01',true, 10),
-('Corredor 11', 5 , '2022-02-20',true, 7),
-('Corredor 15' , 10 , '2022-10-31',false, 5),
+('Servidor 11', 5 , '2022-02-20',true, 7),
+('Servidor 15' , 10 , '2022-10-31',false, 5),
 ('Servidor 20', 1 , '2022-09-09',true, 4);
        
 
@@ -97,10 +97,11 @@ values  (132413,'2022-03-12','25.2','56', 2),
 
 select * from Empresa;
 select * from Assinatura;
-select * from Sensore;
+select * from Sensor;
 select * from Registro;
+
 desc Empresa;
-desc Sensore;
+desc Sensor;
 desc Registro;
 desc Assinatura;
 
@@ -112,4 +113,8 @@ select Nome_empresa, Representante from Empresa;
 
 select * from Empresa as E join Assinatura as A on A.ID_Assinatura = E.FK_Assinatura;
 
-select * from Empresa as E join Assinatura as A join Sensore as S join Registro as R on A.ID_Assinatura = E.FK_Assinatura and E.ID_Empresa = S.FK_Empresa and S.ID_Sensor = R.FK_Sensor;
+select * from Empresa as E join Sensor as S join Registro on E.ID_Empresa = S.FK_Empresa;
+
+select * from Empresa as E join Assinatura as A join Sensor as S on A.ID_Assinatura = E.FK_Assinatura and E.ID_Empresa = S.FK_Empresa;
+
+select * from Empresa as E join Assinatura as A join Sensor as S join Registro as R on A.ID_Assinatura = E.FK_Assinatura and E.ID_Empresa = S.FK_Empresa and S.ID_Sensor = R.FK_Sensor;
