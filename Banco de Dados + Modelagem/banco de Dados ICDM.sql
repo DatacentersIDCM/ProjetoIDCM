@@ -75,9 +75,9 @@ values ('C6 Bank','61.364.200/0001-18','04913-129', ' AV Paulista - Paulista, 13
        
 
 insert into Sensor(Localizacao,Quantidade,Data_instalacao,Status_sensor, FK_Empresa)
-values('Corredor 3','5','2022-02-18', false, 2),
-('Corredor 4','4','2022-03-21',  true, 6),
-('Corredor 7','3','2022-02-13',  true, 1),
+values('Servidor 3','5','2022-02-18', false, 2),
+('Servidor 4','4','2022-03-21',  true, 6),
+('Servidor 7','3','2022-02-13',  true, 1),
 ('Servidor 3','1','2022-03-14',  true, 3),
 ('Servidor 1','1','2022-02-12',  true, 8),
 ('Servidor 7', 1, '2022-03-14',true, 9),
@@ -92,7 +92,12 @@ values  (132413,'2022-03-12','25.2','56', 2),
         (183414,'2022-03-12','28.3','45', 1),
         (211443,'2022-03-12','24.2','61', 3),
         (221526,'2022-03-12','25.2','51', 4),
-        (235411,'2022-03-12','25.5','53', 5);
+        (235415,'2022-03-12','22.5','53', 5),
+        (235416,'2022-03-12','19.5','53', 6),
+        (235417,'2022-03-12','20.5','53', 7),
+        (235418,'2022-03-12','17.5','53', 8),
+        (235419,'2022-03-12','14.5','53', 9),
+        (235410,'2022-03-12','30.5','53', 10);
        
 
 select * from Empresa;
@@ -118,3 +123,4 @@ select * from Empresa as E join Sensor as S join Registro on E.ID_Empresa = S.FK
 select * from Empresa as E join Assinatura as A join Sensor as S on A.ID_Assinatura = E.FK_Assinatura and E.ID_Empresa = S.FK_Empresa;
 
 select * from Empresa as E join Assinatura as A join Sensor as S join Registro as R on A.ID_Assinatura = E.FK_Assinatura and E.ID_Empresa = S.FK_Empresa and S.ID_Sensor = R.FK_Sensor;
+
