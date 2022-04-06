@@ -323,6 +323,18 @@ nav ul{
     margin-right: 2%;
 
 }
+.contactTitle {
+    background-color: #0099FF;
+    width: 100%;
+}
+.contactTitle h1{
+    color: white;
+}
+.contactBackground{
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+}
 
 
 
