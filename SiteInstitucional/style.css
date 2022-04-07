@@ -241,7 +241,6 @@ nav ul{
     align-items: center;
     text-align: center;
     width: 100%;
-    height: 100vh;
     margin-top: 6%;
     gap: 80px;
 }
@@ -304,8 +303,8 @@ nav ul{
     margin-top: 14%;
 }
 .button3 {
-    width: 18vw;
-    height: 9.4vh;
+    width: 16vw;
+    height: 8.4vh;
     border: 3px solid #0282F8;
     background-color: #fff;
     font-family: 'Poppins', sans-serif;
@@ -319,22 +318,172 @@ nav ul{
     color: #0099FF;
     cursor: pointer;
 }
+.button3:hover {
+    background-color: #0099FF;
+    color: #fff;
+}
 .iconCard1 {
     margin-right: 2%;
 
 }
-.contactTitle {
+.contact {
+    margin-top: 8%;
     background-color: #0099FF;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
-.contactTitle h1{
+.contact h1{
     color: white;
 }
-.contactBackground{
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
+.iconContactTitle {
+    width: 8%;
 }
+.cardContact {
+    margin-top: 4%;
+    width: 74%;
+    height: 80vh;
+    background: url('assets/imgContact.svg') no-repeat;
+    background-position-y: 4vw;
+    background-position-x: left;
+    background-color: #FFFFFF;
+    border: 2px solid rgba(50, 50, 50, 0.2);
+    box-sizing: border-box;
+    border-radius: 40px;
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: row;
+}
+.contactLeft {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 6%;
+    width: 50%;
+    margin-bottom: 1%;
+}
+.contactRight {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.forms {
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    
+    
+}
+.inputContact {
+    margin-top: 2%;
+    width: 60%;
+    height: 30%;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-color: #0099FF;
+    background-color: transparent;
+    text-align: center;
+    font-size: 26px;
+}
+.inputContact2 {
+    margin-top: 2%;
+    width: 60%;
+    height: 60%;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-color: #0099FF;
+    background-color: transparent;
+    text-align: center;
+    font-size: 26px;
+    
+}
+.inputContact2::placeholder {
+    font-family: 'Poppins' ,sans-serif;
+    text-align: center;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 30px;
+}
+.inputContact::placeholder {
+    font-family: 'Poppins' ,sans-serif;
+    text-align: center;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 30px;
+}
+.contactRight h2 {
+    margin-top: 8%;
+    font-size: 24px;
+}
+.contactRight .button1 {
+    width: 15vw;
+    height: 19vh;
+    margin-top: 6%;
+}
+.button4 {
+    margin-top: 2%;
+    width: 15vw;
+    height: 19vh;
+    background: #161616;
+    border-radius: 40px;
+    border-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.5vw;
+    line-height: 36px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+footer {
+    margin-top: 2%;
+    background: url('assets/logotipoIDCM.svg') no-repeat;
+    background-position-y: top;
+    background-position-x: left;
+    background-color: #fff;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+}
+footer ul {
+    list-style:inside;
+    margin-top: 20%;
+    
+}
+footer li {
+    margin-top: 20%;
+    font-family: 'Poppins' ,sans-serif;
+    font-size: 14px;
+}
+.footerSubject1 {
+    margin-top: 3%;
+    margin-left: 20%;
+    
+}
+.footerSubject2 {
+    margin-top: 3%;
+ 
+}
+.footerSubject3 {
+    margin-top: 3%;
+ 
+}
+.footerSubject4 {
+    margin-top: 3%;
+ 
+}
+
 
 
 
@@ -361,6 +510,19 @@ nav ul{
         background-position-y: 36vw;
         background-position-x: center;
     }
+    .contactRight .button1 {
+        width: 10vw;
+        height: 16vh;
+    }
+    .button4 {
+        width: 10vw;
+        height: 16vh;
+    }
+    .contactLeft .button3 {
+        width: 16vw;
+        height: 8.4vh;
+        font-size: 20px;
+    }
 }
 
 
@@ -368,6 +530,7 @@ nav ul{
 @media(max-width:1025px){
     
     nav ul{
+        
         font-size: 14px;
     }
     .logo{
@@ -434,6 +597,18 @@ nav ul{
     }
     .imgCard {
         width: 200px;
+    }
+    .contactRight .button1 {
+        width: 8vw;
+        height: 14vh;
+    }
+    .button4 {
+        width: 8vw;
+        height: 14vh;
+    }
+    .contactLeft .button3 {
+        width: 12vw;
+        font-size: 14px;
     }
    
 }
@@ -504,6 +679,18 @@ nav ul{
         line-height: 10px;
         margin-top: 30%;
     }
+    .contactRight .button1 {
+        width: 12vw;
+        height: 14vh;
+    }
+    .button4 {
+        width: 12vw;
+        height: 14vh;
+    }
+    .contactLeft .button3 {
+        width: 16vw;
+        font-size: 8px;
+    }
     
    
 }
@@ -511,6 +698,10 @@ nav ul{
     
     nav ul{
         column-gap: 10px;
+        font-size: 8px;
+    }
+    .contactLeft .button3 {
+        width: 16vw;
         font-size: 8px;
     }
 
