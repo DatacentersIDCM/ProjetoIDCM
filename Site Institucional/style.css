@@ -84,6 +84,7 @@ header{
     position: fixed;
     background-color: rgb(255, 255, 255);
     border: 1px solid #383838; 
+    z-index: 3;
 }
 nav{
     display: flex;
@@ -103,12 +104,22 @@ nav ul{
     column-gap: 25px;
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
-    
 }
 .now{
     color: #000000;
     font-weight: 600;
 }
+.now:hover {
+    color: #000000;
+}
+.now2{
+    color: #383838;
+}
+.now2:hover {
+    color: #000000;
+}
+
+
 
 
 .button1 {
@@ -467,23 +478,23 @@ footer li {
 .footerSubject1 {
     margin-top: 3%;
     margin-left: 20%;
-    margin-right: 8%;
+    margin-right: 9%;
     float: left;
 }
 .footerSubject2 {
     margin-top: 3%;
     float: left;
-    margin-right: 8%;
+    margin-right: 9%;
 }
 .footerSubject3 {
     margin-top: 3%;
     float: left;
-    margin-right: 8%;
+    margin-right: 9%;
 }
 .footerSubject4 {
     margin-top: 3%;
     float: left;
-    margin-right: 8%;
+    margin-right: 9%;
 }
 
 
