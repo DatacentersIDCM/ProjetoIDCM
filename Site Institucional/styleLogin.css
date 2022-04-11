@@ -31,12 +31,13 @@ form h3 {
 form .left {
     margin-top: 10%;
     display: flex;
-    margin-left: 3%;
-    align-self: flex-start;
+    align-self:flex-start;
+    margin-left: 10%;
 }
 form .inputLogin   {
     width: 28vw;
     height: 9vh;
+    
     border: 1px solid #0099FF;
     box-sizing: border-box;
     border-radius: 5px;

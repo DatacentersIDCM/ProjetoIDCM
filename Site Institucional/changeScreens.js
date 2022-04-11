@@ -6,3 +6,6 @@
     function changeScreenSingUp() {
         window.location.href = "signUp.html";
     }
+    function changeDashboard() {
+        window.location.href = "dashboard.html";
+    }
