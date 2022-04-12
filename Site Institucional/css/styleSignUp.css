@@ -1,10 +1,21 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 .login {
     padding-top: 10%;
     width: 100%;
     height: flex;
-    background: url('assets/loginBackground.svg') no-repeat;
+    background: url('../assets/backgroundSignUp.svg') no-repeat;
     background-position-y: 24vh;
-    background-position-x: 4vw;
+    background-position-x: 50vw;
     display: flex;
     text-align: center;
     align-items: center;
@@ -16,7 +27,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 30%;
+    margin-right: 30%;
     margin-top: 5%;
     margin-bottom: 4%;
 }
@@ -31,13 +42,12 @@ form h3 {
 form .left {
     margin-top: 10%;
     display: flex;
-    align-self:flex-start;
-    margin-left: 10%;
+    margin-left: 3%;
+    align-self: flex-start;
 }
 form .inputLogin   {
     width: 28vw;
     height: 9vh;
-    
     border: 1px solid #0099FF;
     box-sizing: border-box;
     border-radius: 5px;

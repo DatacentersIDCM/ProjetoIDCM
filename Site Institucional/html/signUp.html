@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDCM</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styleSignUp.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styleSignUp.css">
 </head>
 
 <body>
@@ -25,7 +25,7 @@
             </ul>
             <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
             <button class="button2">
-                <img src="assets/darkMode.png" alt="darkMode">
+                <img src="../assets/darkMode.png" alt="darkMode">
             </button>
         </nav>
     </header>
@@ -44,7 +44,7 @@
                 <div class="left">
                     <h3>CNPJ:</h3>
                 </div>
-                    <input class="inputLogin" type="number">
+                    <input class="inputLogin" type="email">
                     <div class="left">
                         <h3>Email:</h3>
                     </div>
@@ -63,11 +63,12 @@
                 <h3>Já possui conta?  <a href="login.html"> <i style="color: #0099FF;">Entrar </i></a></h3>
             </form>
     </div>
-    <img class="wavesLogin" src="assets/wavesLogin.svg" alt="wavesLogin">
+    <img class="wavesLogin" src="../assets/wavesLogin.svg" alt="wavesLogin">
 
 
 <script>
     function changeScreenSingIn() {
+
         window.location.href = "login.html";
     }
     

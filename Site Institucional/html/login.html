@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDCM</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styleLogin.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styleLogin.css">
 </head>
 
 <body>
@@ -25,7 +25,7 @@
             </ul>
             <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
             <button class="button2">
-                <img src="assets/darkMode.png" alt="darkMode">
+                <img src="../assets/darkMode.png" alt="darkMode">
             </button>
         </nav>
     </header>
@@ -40,11 +40,11 @@
                 <div class="left">
                 <h3>Email:</h3>
             </div>
-                <input class="inputLogin" type="email">
+                <input class="inputLogin" type="email"  id="inputEmail">
                 <div class="left">
                 <h3>Senha:</h3>
             </div>
-                <input class="inputPassword" type="password">
+                <input class="inputPassword" type="password" id="inputPassword">
                 <div class="row3">
                 <div>
                     <input class="inputCheck" type="radio">Lembre me
@@ -53,11 +53,24 @@
                  <h3><a href="recoverPassword.html"><i style="color: #0099FF;"> Esqueci a senha</i>  </a></h3>
                 </div>
             </div>
-                <button onclick="changeDashboard()" class="button5">Entrar</button>
+                <button onclick="a()" class="button5">Entrar</button>
                 <h3>Não possui conta? <a href="signUp.html"> <i style="color: #0099FF;">Cadastre-se </i></a></h3>
             </form>
     </div>
-    <img class="wavesLogin" src="assets/wavesLogin.svg" alt="wavesLogin">
+    <img class="wavesLogin" src="../assets/wavesLogin.svg" alt="wavesLogin">
 
 
-    <script src="changeScreens.js"></script>
+    <script>
+        function a() {
+            var email = inputEmail.value
+            var password = inputPassword.value
+            if ( email == 'lucasbispo' && password == '1234') {
+            window.location.href = "dashboard.html";
+            }
+            else {
+                alert(`Digite um email valído`)
+            }
+        }
+
+
+    </script>
