@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDCM</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styleLogin.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+
+            <div class="logo"></div>
+
+            <ul>
+                <li><a class="now" href="login.html">login</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calculator.html">Calculadora</a></li>
+            </ul>
+            <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
+            <button class="button2">
+                <img src="../assets/darkMode.png" alt="darkMode">
+            </button>
+        </nav>
+    </header>
+
+    <div class="login">
+
+
+        
+           
+            <form action="">
+                <h1>Olá, Bem vindo</h1>
+                <div class="left">
+                <h3>Email:</h3>
+            </div>
+                <input class="inputLogin" type="email"  id="inputEmail">
+                <div class="left">
+                <h3>Senha:</h3>
+            </div>
+                <input class="inputPassword" type="password" id="inputPassword">
+                <div class="row3">
+                <div>
+                    <input class="inputCheck" type="radio">Lembre me
+                </div>
+                    <div>
+                 <h3><a href="recoverPassword.html"><i style="color: #0099FF;"> Esqueci a senha</i>  </a></h3>
+                </div>
+            </div>
+                <button onclick="a()" class="button5">Entrar</button>
+                <h3>Não possui conta? <a href="signUp.html"> <i style="color: #0099FF;">Cadastre-se </i></a></h3>
+            </form>
+    </div>
+    <img class="wavesLogin" src="../assets/wavesLogin.svg" alt="wavesLogin">
+
+
+    <script>
+        function a() {
+            var email = inputEmail.value
+            var password = inputPassword.value
+            if ( email == 'lucasbispo' && password == '1234') {
+            window.location.href = "dashboard.html";
+            }
+            else {
+                alert(`Digite um email valído`)
+            }
+        }
+
+
+    </script>
