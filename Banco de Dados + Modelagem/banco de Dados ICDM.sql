@@ -54,7 +54,7 @@ Email varchar (100),
 Telefone varchar (100),
 Cargo varchar (100),
 Login varchar (100),
-Senha varchar (100),
+Senha varchar (12),
 FK_Empresa int,
 foreign key (FK_Empresa)
 references Empresa(ID_Empresa)
@@ -62,24 +62,24 @@ references Empresa(ID_Empresa)
 
 insert into Usuario (Nome, Email, Telefone, Cargo, Login, Senha, FK_Empresa) values
 ('Yasmin', 'yasmin.silva@gmail.com', '99564-8241','Gestora', 'YasMin', 'STXCAE145', 1),
-('Jose', 'jose.alencar@gmail.com', '99124-1241','lider de equipe', 'josealncar', 'KaTarina46348', 1),
-('Mario', 'mario.ribes@gmail.com', '99828-8241','Supervisor', 'MarioR', 'STXsafsafasCAE145', 2),
-('Davi', 'davi.gomes@gmail.com', '99683-8241','Gerente de infra-estrutura', 'daviG', 'fsfsdCAE145', 2),
-('Renata','Renata.camillo@gmail.com', '995634-8241','Gestor', 'renataC', 'Sdfgdsf552AE145', 3),
-('Fabiano', 'fabio.front@gmail.com', '99664-6841','Lider de equipe', 'YasMin', 'S55684AE145', 3),
-('Antonio','antonio.vente@gmail.com', '99123-8242','Assistente', 'AnToNio43', 'sdsg6846545', 4),
+('Jose', 'jose.alencar@gmail.com', '99124-1241','lider de equipe', 'josealncar', 'KaTa48', 1),
+('Mario', 'mario.ribes@gmail.com', '99828-8241','Supervisor', 'MarioR', 'STAE145', 2),
+('Davi', 'davi.gomes@gmail.com', '99683-8241','Gerente de infra-estrutura', 'daviG', 'fsAE145', 2),
+('Renata','Renata.camillo@gmail.com', '995634-8241','Gestor', 'renataC', 'SdfE145', 3),
+('Fabiano', 'fabio.front@gmail.com', '99664-6841','Lider de equipe', 'YasMin', 'S5145', 3),
+('Antonio','antonio.vente@gmail.com', '99123-8242','Assistente', 'AnToNio43', 'sds545', 4),
 ('Nicky','niky.rosa@gmail.com', '99697-8789','Gerente de processo', 'NickY231', 'ok145', 4),
 ('Erick','erick.lorenzo@gmail.com', '993674-8241','Lider de equipes', 'EricK764', 'sdfsaqe', 5),
-('Alice', 'alice.@gmail.com', '99974-8241','Gestora', 'Alice563', 'fdgsdrt4bd', 5),
+('Alice', 'alice.@gmail.com', '99974-8241','Gestora', 'Alice563', 'fdgsbd', 5),
 ('Geraldo', 'geraldo.roder@gmail.com', '99694-8241','Lider de equipe', 'GeraLdo', 'asfsaa', 6),
-('Vinicios', 'vini.souza@gmail.com', '99774-6541','Assistente', 'ViNNISouza', 'Sasdfsdaqrwervvz', 6),
-('Guilherme' , 'guilherme.hype@gmail.com', '9959-96441','Gestor', 'GuIHyyp', 'Sdsfgdsfg45', 7),
-('Gustavo','gustavo.filho@gmail.com', '9999548-8241','Assistente', 'Gugustavo', 'StrsfsoAE145', 7),
-('Diana','diana.annabeth@gmail.com', '99564-8999','Gestora', 'Di@n@', 'aferg34weasdf', 8),
+('Vinicios', 'vini.souza@gmail.com', '99774-6541','Assistente', 'ViNNISouza', 'aqrvvz', 6),
+('Guilherme' , 'guilherme.hype@gmail.com', '9959-96441','Gestor', 'GuIHyyp', 'Sdssfg45', 7),
+('Gustavo','gustavo.filho@gmail.com', '9999548-8241','Assistente', 'Gugustavo', 'StrE145', 7),
+('Diana','diana.annabeth@gmail.com', '99564-8999','Gestora', 'Di@n@', '4weasdf', 8),
 ('Gwen' ,'grewn.silva@gmail.com', '99564-8241','Gestora', 'GwenAzul', 'STXCAE145', 9),
 ('Leonardo', 'leonardo.myles@gmail.com', '99774-8241','Assitente', 'LeoNardo', '54654E', 9),
-('Sebastian', 'sebastian.romero@gmail.com', '99564-5551','Gestor', 'Sebastian', '486254895E145', 10),
-('Igor', 'igor.ferraz@gmail.com', '99564-4111','Assitente', 'FeRRazIgor', '584158145', 10);
+('Sebastian', 'sebastian.romero@gmail.com', '99564-5551','Gestor', 'Sebastian', '4862E145', 10),
+('Igor', 'igor.ferraz@gmail.com', '99564-4111','Assitente', 'FeRRazIgor', '5841145', 10);
 
 
 create table Sensor(
