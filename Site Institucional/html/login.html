@@ -53,7 +53,7 @@
                  <h3><a href="recoverPassword.html"><i style="color: #0099FF;"> Esqueci a senha</i>  </a></h3>
                 </div>
             </div>
-                <button onclick="a()" class="button5">Entrar</button>
+                <button type="button" onclick="a()" class="button5">Entrar</button>
                 <h3>Não possui conta? <a href="signUp.html"> <i style="color: #0099FF;">Cadastre-se </i></a></h3>
             </form>
     </div>
@@ -64,13 +64,28 @@
         function a() {
             var email = inputEmail.value
             var password = inputPassword.value
-            if ( email == 'lucasbispo' && password == '1234') {
-            window.location.href = "dashboard.html";
+
+            var logins = ['lucasbispo@gmail.com', 'jack123@gmail.com', 'yuri_martins@gmail.com'];
+
+
+            var lucas = email == logins[0] && password == '123' ? true : false;
+            var jaque = email == logins[1] && password == '123' ? true : false;
+            var yuri = email == logins[2] && password == '123' ? true : false;
+
+            if(lucas || jaque || yuri){
+                window.location.href = './dashboard.html';
+            }else {
+                alert('Dados incorretos!')
             }
-            else {
-                alert(`Digite um email valído`)
+
+          
+                    
+
+           
             }
-        }
+
+           
+        
 
 
     </script>
