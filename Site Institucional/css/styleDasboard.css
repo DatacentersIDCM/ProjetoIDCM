@@ -84,12 +84,14 @@
  .dash1 {
     background-color: #fff;
     width: 24%;
-    height: 120%;
+    height: flex;
     border: 1px solid rgba(50, 50, 50, 0.2);
     box-sizing: border-box;
     border-radius: 40px;
     display: flex;
     flex-direction: column;
+    text-align: center;
+    justify-items: center;
     align-items: center;
  }
  .rowDash {
@@ -100,7 +102,7 @@
  .dash2 {
     background-color: #fff;
     width: 24%;
-    height: 120%;
+    height: flex;
     border: 1px solid rgba(50, 50, 50, 0.2);
     box-sizing: border-box;
     border-radius: 40px;
@@ -111,7 +113,7 @@
  .dash3 {
     background-color: #fff;
     width: 24%;
-    height: 120%;
+    height: flex;
     border: 1px solid rgba(50, 50, 50, 0.2);
     box-sizing: border-box;
     border-radius: 40px;
@@ -128,10 +130,3 @@
     text-align: center;
     align-items: center;
 }
-.dash4 {
-   
-}
-.dash5 {
-
-    
-} 
