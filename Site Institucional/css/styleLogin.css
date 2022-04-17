@@ -2,7 +2,7 @@
     padding-top: 10%;
     width: 100%;
     height: flex;
-    background: url('assets/loginBackground.svg') no-repeat;
+    background: url('../assets/loginBackground.svg') no-repeat;
     background-position-y: 24vh;
     background-position-x: 4vw;
     display: flex;
@@ -31,12 +31,13 @@ form h3 {
 form .left {
     margin-top: 10%;
     display: flex;
-    margin-left: 3%;
-    align-self: flex-start;
+    align-self:flex-start;
+    margin-left: 10%;
 }
 form .inputLogin   {
     width: 28vw;
     height: 9vh;
+    
     border: 1px solid #0099FF;
     box-sizing: border-box;
     border-radius: 5px;

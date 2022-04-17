@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDCM</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styleSignUp.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+
+            <div class="logo"></div>
+
+            <ul>
+                <li><a class="now" href="login.html">Cadastre-se</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calculator.html">Calculadora</a></li>
+            </ul>
+            <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
+            <button class="button2">
+                <img src="../assets/darkMode.png" alt="darkMode">
+            </button>
+        </nav>
+    </header>
+
+    <div class="login">
+
+
+
+
+        <form action="">
+            <h1>Criar Conta</h1>
+            <div class="left">
+                <h3 id="1h3">Empresa:</h3>
+            </div>
+            <input class="inputLogin" type="text" id="changeInput">
+            <input class="inputLogin" type="hidden" id="changeHidden">
+            <div class="left">
+                <h3 id="2h3">CNPJ:</h3>
+            </div>
+            <input class="inputLogin" type="text" id="changeInput2">
+            <input class="inputLogin" type="hidden" id="changeHidden2">
+
+            <div class="left">
+                <h3 id="3h3">Email:</h3>
+            </div>
+            <input class="inputLogin" type="email" id="changeInput3">
+            <input class="inputLogin" type="hidden" id="changeHidden3">
+            <div class="left">
+                <h3 id="4h3">Telefone:</h3>
+            </div>
+            <input class="inputPassword" type="number" id="changeInput4">
+            <input class="inputLogin" type="hidden" id="changeHidden4">
+            <div class="row3">
+                <div>
+                    <input class="inputCheck" type="radio">Lembre me
+                </div>
+
+            </div>
+            <button id="btn" type="button" class="button5">Continuar</button>
+            <button id="btn2" onclick="changeScreenSingIn()" style="display: none;" type="button" class="button5">Entrar</button>
+            <h3>Já possui conta? <a href="login.html"> <i style="color: #0099FF;">Entrar </i></a></h3>
+        </form>
+    </div>
+    <img class="wavesLogin" src="../assets/wavesLogin.svg" alt="wavesLogin">
+
+
+    <script src="../js/changeScreens.js"></script>
+    <script>
+
+        let btn = document.querySelector('#btn');
+        let btn2 = document.querySelector('#btn2');
+        let input = document.querySelector('#changeInput');
+        let input2 = document.querySelector('#changeInput2');
+        let input3 = document.querySelector('#changeInput3');
+        let input4 = document.querySelector('#changeInput4');
+
+        let inputHidden = document.querySelector('#changeHidden');
+        let inputHidden2 = document.querySelector('#changeHidden2');
+        let inputHidden3 = document.querySelector('#changeHidden3');
+        let inputHidden4 = document.querySelector('#changeHidden4');
+
+        var Ah3 = document.getElementById("1h3");
+        var Bh3 = document.getElementById("2h3");
+        var Ch3 = document.getElementById("3h3");
+        var Dh3 = document.getElementById("4h3");
+
+
+        btn.addEventListener('click', () => {
+
+
+
+            if (input.type === "text" || input2.type === "number" || input3.type === "email" || input4.type === "number") {
+
+
+
+                Ah3.innerHTML = "Cargo:"
+                input.type = "hidden"
+                inputHidden.type = "text"
+
+                Bh3.innerHTML = "Assinatura:"
+                input2.type = "hidden"
+                inputHidden2.type = "range"
+                inputHidden2.min = "0"
+                inputHidden2.value = "0"
+                inputHidden2.max = "3"
+                inputHidden2.step = "0.01"
+
+                Ch3.innerHTML = "Senha:"
+                input3.type = "hidden"
+                inputHidden3.type = "password"
+
+                Dh3.innerHTML = "Confirme a senha:"
+                input4.type = "hidden"
+                inputHidden4.type = "password"
+
+
+         
+                btn.style.display="none"
+                btn2.style.display=""
+                function changeScreenSingIn() {
+        window.location.href = "login.html";
+       
+    }
+                // btn2.addEventListener('click', changeScreenSingIn(), {})
+        
+
+            }
+        })
+        inputHidden2.addEventListener('click', () => {
+            if (inputHidden2.value <= 1.2) {
+                Bh3.style.color = 'green'
+                Bh3.style.fontSize = "x-large"
+                Bh3.innerHTML = `Assinatura: Gratis!`
+
+            }
+            else if (inputHidden2.value <= 1.8) {
+                Bh3.style.color = 'orange'
+                Bh3.style.fontSize = "x-large"
+                Bh3.innerHTML = "Assinatura: dataNormal!"
+
+            }
+            else {
+                Bh3.style.color = '#0099FF'
+                Bh3.style.fontSize = "x-large"
+                Bh3.innerHTML = "Assinatura: data+"
+            }
+        })
+
+    </script>

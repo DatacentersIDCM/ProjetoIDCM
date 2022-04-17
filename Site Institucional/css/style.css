@@ -95,7 +95,7 @@ nav{
  }
 .logo {
     margin-left: 2%;
-    background: url('assets/logotipoIDCM.png') no-repeat;
+    background: url('../assets/logotipoIDCM.png') no-repeat;
     width: 220px;
     height: 100px;
 } 
@@ -147,7 +147,7 @@ nav ul{
     padding-top: 10%;
     width: 100%;
     height: flex;
-    background: url('assets/homeBackgroundImg.png') no-repeat;
+    background: url('../assets/homeBackgroundImg.png') no-repeat;
     background-position-y: -1vw;
     background-position-x: 47vw;
 }
@@ -179,7 +179,7 @@ nav ul{
     margin-top: 4%;
     width: 100%;
     height: flex;
-    background: url('assets/missionBackgroundImg.png') no-repeat;
+    background: url('../assets/missionBackgroundImg.png') no-repeat;
     background-position-y: 30vw;
     background-position-x: center;
 }
@@ -235,7 +235,7 @@ nav ul{
     text-align: center;
     width: 100%;
     height: 54vh;
-    background: url('assets/valuesWaves.svg') no-repeat;
+    background: url('../assets/valuesWaves.svg') no-repeat;
     background-size: 1800px;
     background-position-y: 0vw;
     background-position-x: center;
@@ -305,14 +305,14 @@ nav ul{
     align-items: center;
     margin-top: 4%;
 }
-.row2 {
+.row6 {
     width: 100%;
-    height: 40vh;
+    height: 10vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    margin-top: 14%;
+    
 }
 .button3 {
     width: 16vw;
@@ -357,7 +357,7 @@ nav ul{
     margin-top: 4%;
     width: 74%;
     height: 80vh;
-    background: url('assets/imgContact.svg') no-repeat;
+    background: url('../assets/imgContact.svg') no-repeat;
     background-position-y: 4vw;
     background-position-x: left;
     background-color: #FFFFFF;
@@ -397,6 +397,7 @@ nav ul{
     border-left: transparent;
     border-right: transparent;
     border-color: #0099FF;
+   
     background-color: transparent;
     text-align: center;
     font-size: 26px;
@@ -458,7 +459,7 @@ nav ul{
 }
 footer {
     margin-top: 2%;
-    background: url('assets/logotipoIDCM.svg') no-repeat;
+    background: url('../assets/logotipoIDCM.svg') no-repeat;
     background-position-y: top;
     background-position-x: left;
     background-color: #fff;
@@ -531,10 +532,11 @@ footer li {
         margin-bottom: 1%;
     }
     .row2 {
+       
         margin-bottom: 2%;
     }
     .mission{
-        background: url('assets/missionBackgroundImg2.png') no-repeat;
+        background: url('../assets/missionBackgroundImg2.png') no-repeat;
         background-position-y: 36vw;
         background-position-x: center;
     }
@@ -569,7 +571,7 @@ footer li {
         font-size: 14px;
     }
     .logo{
-        background: url('assets/logotipoIDCMsmall.png') no-repeat;
+        background: url('../assets/logotipoIDCMsmall.png') no-repeat;
         width: 90px;
         height: 30px;
      }
@@ -605,7 +607,7 @@ footer li {
         margin-bottom: 10%;
      }
      .mission{
-        background: url('assets/missionBackgroundImg2.png') no-repeat;
+        background: url('../assets/missionBackgroundImg2.png') no-repeat;
         background-position-y: 40vw;
         background-position-x: center;
     }
@@ -649,7 +651,7 @@ footer li {
 }
 @media(max-width:653px){
     .logo{
-        background: url('assets/logotipoIDCMverySmall.png') no-repeat;
+        background: url('../assets/logotipoIDCMverySmall.png') no-repeat;
         width: 54px;
         height: 30px;
      }
@@ -676,7 +678,7 @@ footer li {
          height: 6vh;
      }
      .mission{
-        background: url('assets/missionBackgroundImg3.png') no-repeat;
+        background: url('../assets/missionBackgroundImg3.png') no-repeat;
         background-position-y: 60vw;
         background-position-x: center;
         height: 100vh;

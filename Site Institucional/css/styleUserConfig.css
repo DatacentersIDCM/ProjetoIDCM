@@ -1,0 +1,87 @@
+.main {
+    padding-top: 10%;
+    width: 100%;
+    height: flex;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+}
+.titleUser {
+    margin-left: 15%;
+}
+.titleUser h1 {
+    font-size: 40px;
+}
+
+.mainCard {
+    background-color: bisque;
+    width: 100%;
+    height: flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.userConfig {
+    width: 25vw;
+    background-color: aqua;
+    height: 60vh;
+}
+.button5 {
+    margin-top: 4%;
+    width: 14vw;
+    margin-bottom: 6%;
+    height: 6vh;
+    background: #0099FF;
+    border-radius: 40px;
+    border-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1vw;
+    line-height: 36px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.h2Small {
+    font-size: 20px;
+}
+.row2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+.column1 {
+    height: flex;
+}
+.h4Small {
+    font-size: 18px;
+}
+.column2 {
+    height: flex;
+    padding-left: 4%;
+    padding-right: 4%;
+    border: solid 1px;
+    border-top: transparent;
+    border-bottom: transparent;
+}
+.column3 {
+    height: flex;
+}
+
+.myProfile {
+    margin-top: 8%;
+    width: 25vw;
+    background-color: red;
+    height: flex;
+}
+.subscription {
+    width: 25vw;
+    background-color: black;
+    height: 30vh; 
+}

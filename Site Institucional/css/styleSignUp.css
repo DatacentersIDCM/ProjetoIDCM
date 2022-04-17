@@ -1,7 +1,21 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 .login {
     padding-top: 10%;
     width: 100%;
     height: flex;
+    background: url('../assets/backgroundSignUp.svg') no-repeat;
+    background-position-y: 24vh;
+    background-position-x: 50vw;
     display: flex;
     text-align: center;
     align-items: center;
@@ -9,14 +23,11 @@
 }
 
 form {
-
+   
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid rgba(50, 50, 50, 0.2);
-    box-sizing: border-box;
-    border-radius: 40px;
-    padding: 5%;
+    margin-right: 30%;
     margin-top: 5%;
     margin-bottom: 4%;
 }
@@ -28,15 +39,13 @@ form h3 {
     line-height: 19px;
     color: #000000;
 }
-
 form .left {
     margin-top: 10%;
     display: flex;
-    margin-left: 11%;
+    margin-left: 3%;
     align-self: flex-start;
 }
-
-form .inputLogin {
+form .inputLogin   {
     width: 28vw;
     height: 9vh;
     border: 1px solid #0099FF;
@@ -45,8 +54,7 @@ form .inputLogin {
     text-align: center;
     font-size: 26px;
 }
-
-form .inputPassword {
+form .inputPassword   {
     width: 28vw;
     height: 9vh;
     border: 1px solid #0099FF;
@@ -55,7 +63,6 @@ form .inputPassword {
     text-align: center;
     font-size: 26px;
 }
-
 .row3 {
     width: 90%;
     display: flex;
@@ -64,7 +71,6 @@ form .inputPassword {
     align-items: center;
     margin-top: 4%;
 }
-
 .button5 {
     margin-top: 8%;
     width: 20vw;
@@ -83,7 +89,6 @@ form .inputPassword {
     color: #FFFFFF;
     cursor: pointer;
 }
-
 .wavesLogin {
     width: 100%;
 }

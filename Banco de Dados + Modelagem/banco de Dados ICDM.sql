@@ -2,7 +2,6 @@ create database IDCM;
 
 use IDCM;
 
-
 create table Assinatura(
 ID_Assinatura int primary key auto_increment not null,
 Plano enum ('Anual','Bianual','Quinquenal') not null,
@@ -29,14 +28,59 @@ Nome_empresa varchar(100) not null,
 CNPJ varchar(18) not null,
 CEP varchar(20), 
 Endereco varchar(100) not null,
-Representante varchar(80) not null,
-Email varchar(200) not null,
-Telefone varchar(20) not null,
-Senha varchar(200) not null,
 FK_Assinatura int,
 foreign key (FK_Assinatura)
 references Assinatura(ID_Assinatura)
 );
+
+insert into Empresa (Nome_empresa, CNPJ, CEP, Endereco, FK_Assinatura)
+values ('C6 Bank','61.364.200/0001-18','04913-129', ' AV Paulista - Paulista, 133', 1),
+	   ('Alpe', '11.161.200/0001-66', '04312-159', 'AV Aricanduva - Aricanduva, 181', 1),
+	   ('Santander', '22.124.540/0001-44', '01113-553', 'AV Cantagalo - Carrão, 2498', 2),
+	   ('Itau', '64.364.300/0001-14', '04911-226', 'AV Rebouças - Paulista, 5419', 3),
+	   ('Safra', '62.444.220/0001-38', '03412-133', 'AV Estado - Centro, 1231', 4),
+       ('Ambev', '44.945.370/0001-77', '14407-380', 'AV Paulista - Paulista, 51', 2),
+	   ('Vivo', '56.471.326/0001-51', '06711-450', 'AV Cantagalo - Carrão, 120', 2),
+	   ('Natura', '69.289.357/0001-38', '12503-055', 'AV Republica - Republica, 46', 5),
+       ('Magazine Luiza', '32.992.976/0001-84', "02226-290", 'AV Liberdade - Liberdade, 200', 3),
+       ('Casas Bahia','87.396.779/0001-94', '15502-223', 'AV Republica - Republica, 128', 4);
+
+
+
+create table Usuario(
+ID_Usuario int primary key auto_increment,
+Nome varchar (100),
+Email varchar (100),
+Telefone varchar (100),
+Cargo varchar (100),
+Login varchar (100),
+Senha varchar (12),
+FK_Empresa int,
+foreign key (FK_Empresa)
+references Empresa(ID_Empresa)
+);
+
+insert into Usuario (Nome, Email, Telefone, Cargo, Login, Senha, FK_Empresa) values
+('Yasmin', 'yasmin.silva@gmail.com', '99564-8241','Gestora', 'YasMin', 'STXCAE145', 1),
+('Jose', 'jose.alencar@gmail.com', '99124-1241','lider de equipe', 'josealncar', 'KaTa48', 1),
+('Mario', 'mario.ribes@gmail.com', '99828-8241','Supervisor', 'MarioR', 'STAE145', 2),
+('Davi', 'davi.gomes@gmail.com', '99683-8241','Gerente de infra-estrutura', 'daviG', 'fsAE145', 2),
+('Renata','Renata.camillo@gmail.com', '995634-8241','Gestor', 'renataC', 'SdfE145', 3),
+('Fabiano', 'fabio.front@gmail.com', '99664-6841','Lider de equipe', 'YasMin', 'S5145', 3),
+('Antonio','antonio.vente@gmail.com', '99123-8242','Assistente', 'AnToNio43', 'sds545', 4),
+('Nicky','niky.rosa@gmail.com', '99697-8789','Gerente de processo', 'NickY231', 'ok145', 4),
+('Erick','erick.lorenzo@gmail.com', '993674-8241','Lider de equipes', 'EricK764', 'sdfsaqe', 5),
+('Alice', 'alice.@gmail.com', '99974-8241','Gestora', 'Alice563', 'fdgsbd', 5),
+('Geraldo', 'geraldo.roder@gmail.com', '99694-8241','Lider de equipe', 'GeraLdo', 'asfsaa', 6),
+('Vinicios', 'vini.souza@gmail.com', '99774-6541','Assistente', 'ViNNISouza', 'aqrvvz', 6),
+('Guilherme' , 'guilherme.hype@gmail.com', '9959-96441','Gestor', 'GuIHyyp', 'Sdssfg45', 7),
+('Gustavo','gustavo.filho@gmail.com', '9999548-8241','Assistente', 'Gugustavo', 'StrE145', 7),
+('Diana','diana.annabeth@gmail.com', '99564-8999','Gestora', 'Di@n@', '4weasdf', 8),
+('Gwen' ,'grewn.silva@gmail.com', '99564-8241','Gestora', 'GwenAzul', 'STXCAE145', 9),
+('Leonardo', 'leonardo.myles@gmail.com', '99774-8241','Assitente', 'LeoNardo', '54654E', 9),
+('Sebastian', 'sebastian.romero@gmail.com', '99564-5551','Gestor', 'Sebastian', '4862E145', 10),
+('Igor', 'igor.ferraz@gmail.com', '99564-4111','Assitente', 'FeRRazIgor', '5841145', 10);
+
 
 create table Sensor(
 ID_Sensor int primary key auto_increment,
@@ -49,31 +93,6 @@ foreign key FK_Empresa(FK_Empresa)
 references Empresa(ID_Empresa)
 );
 
-create table Registro(
-ID_Registro int primary key auto_increment,
-Hora_registro time not null,
-Data_registro  date,
-Valor_temperatura float,
-Valor_umidade float,
-FK_Sensor int,
-foreign key (FK_Sensor)
-references Sensor(ID_Sensor)
-);
-
-insert into Empresa (Nome_empresa, CNPJ, CEP, Endereco, Representante, Email, Telefone, Senha, FK_Assinatura)
-values ('C6 Bank','61.364.200/0001-18','04913-129', ' AV Paulista - Paulista, 133', 'Caio Messias Aguiar', 'caioc6Bank@c6bank.com', '11 95512-2121', 'csixbank', 1),
-	   ('Alpe', '11.161.200/0001-66', '04312-159', 'AV Aricanduva - Aricanduva, 181', 'Joana Silva Soares', 'contatoalpe@alpe.com', '11 92522-2525', 'this1isAlpe', 1),
-	   ('Santander', '22.124.540/0001-44', '01113-553', 'AV Cantagalo - Carrão, 2498', 'Jonas Malaquias Santos', 'Jonassantander@santander.com', '11 95311-5331', 's4ant4and3rr', 2),
-	   ('Itau', '64.364.300/0001-14', '04911-226', 'AV Rebouças - Paulista, 5419', 'Angela Merkel Silva', 'angelaitatu_contato@itau.com', '11 95177-7521', 'itau2341', 3),
-	   ('Safra', '62.444.220/0001-38', '03412-133', 'AV Estado - Centro, 1231', 'Paulo dos Anjos Oliveira', 'paulo_contatoSafra@safra.com', '11 96332-7513', '5afr4tradic4ao', 4),
-       ('Ambev', '44.945.370/0001-77', '14407-380', 'AV Paulista - Paulista, 51', 'Marcio Lopes Santos', 'Marcio_sl@outloook.com', '16 2851-5316', 'Amb@ve', 2),
-	   ('Vivo', '56.471.326/0001-51', '06711-450', 'AV Cantagalo - Carrão, 120', 'Alexandre Gomes Almeida', 'Alexandrego5a@gmail.com', '13 2854-7322', 'v1v0', 2),
-	   ('Natura', '69.289.357/0001-38', '12503-055', 'AV Republica - Republica, 46', 'Jessica Dantas Leite', 'Jessicadl01@hotmail.com', '13 2848-9532', 'natura#01', 5),
-       ('Magazine Luiza', '32.992.976/0001-84', "02226-290", 'AV Liberdade - Liberdade, 200', 'Isabela Motta', 'isabelamo10@outlook.com', '11 2099-5602', 'luizam@', 3),
-       ('Casas Bahia','87.396.779/0001-94', '15502-223', 'AV Republica - Republica, 128', 'Carlos Santos Silva','carlos_ss@outlook.com', '19 3285-8408', 'bahia_@', 4);
-  
-       
-
 insert into Sensor(Localizacao,Quantidade,Data_instalacao,Status_sensor, FK_Empresa)
 values('Servidor 3','5','2022-02-18', false, 2),
 ('Servidor 4','4','2022-03-21',  true, 6),
@@ -85,8 +104,18 @@ values('Servidor 3','5','2022-02-18', false, 2),
 ('Servidor 11', 5 , '2022-02-20',true, 7),
 ('Servidor 15' , 10 , '2022-10-31',false, 5),
 ('Servidor 20', 1 , '2022-09-09',true, 4);
-       
 
+create table Registro(
+ID_Registro int primary key auto_increment,
+Hora_registro time not null,
+Data_registro  date,
+Valor_temperatura float,
+Valor_umidade float,
+FK_Sensor int,
+foreign key (FK_Sensor)
+references Sensor(ID_Sensor)
+);  
+       
 insert into Registro(Hora_registro,Data_registro,Valor_temperatura,Valor_umidade, FK_Sensor)
 values  (132413,'2022-03-12','25.2','56', 2),
         (183414,'2022-03-12','28.3','45', 1),
@@ -113,8 +142,9 @@ desc Assinatura;
 #Select para a tabela Empresa
 select ID_empresa from Empresa ;
 select Nome_empresa from Empresa;
-select Representante from Empresa;
-select Nome_empresa, Representante from Empresa;
+select * from Usuario;
+
+select * from Usuario join Empresa on Usuario.FK_Empresa = Empresa.ID_Empresa;
 
 select * from Empresa as E join Assinatura as A on A.ID_Assinatura = E.FK_Assinatura;
 
