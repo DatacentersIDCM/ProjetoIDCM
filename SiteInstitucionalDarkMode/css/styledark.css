@@ -96,7 +96,7 @@ nav{
  }
 header .logo {
     margin-left: 2%;
-    background: url('assets/LogotipoDark.png') no-repeat;
+    background: url('../assets/LogotipoParaDarkMode.png') no-repeat;
     width: 220px;
     height: 100px;
 } 
@@ -151,7 +151,7 @@ li a{
     padding-top: 10%;
     width: 100%;
     height: flex;
-    background: url('assets/homeBackgroundImg.png') no-repeat;
+    background: url('../assets/homeBackgroundImg.png') no-repeat;
     background-position-y: -1vw;
     background-position-x: 47vw;
 }
@@ -183,10 +183,11 @@ li a{
     margin-top: 4%;
     width: 100%;
     height: flex;
-    background: url('assets/missionBackgroundImg.png') no-repeat;
+    background: url('../assets/missionBackgroundImg.png') no-repeat;
     background-position-y: 30vw;
     background-position-x: center;
 }
+
 .missionCenter {
     width: 100%;
     height: 60vh;
@@ -194,7 +195,14 @@ li a{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  
+
+}
+.missionCenter h1 {
+    color: #0099FF;
+}
+
+.missionCenter h2 {
+    color: #0099FF;
 }
 .missionCenter h4{
     width: 48%;
@@ -212,10 +220,12 @@ li a{
     justify-content: space-between;  
 
 }
+
 .containerMission h1 {
     color: #0099FF;
-    
 }
+
+
 .containerMission h4 {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -239,7 +249,7 @@ li a{
     text-align: center;
     width: 100%;
     height: 54vh;
-    background: url('assets/valuesWaves.svg') no-repeat;
+    background: url('../assets/valuesWaves.svg') no-repeat;
     background-size: 1800px;
     background-position-y: 0vw;
     background-position-x: center;
@@ -365,7 +375,7 @@ li a{
     align-items: center;
 }
 .contact h1{
-    color: white;
+    color: #0099FF;
 }
 .iconContactTitle {
     width: 8%;
@@ -374,7 +384,7 @@ li a{
     margin-top: 4%;
     width: 74%;
     height: 80vh;
-    background: url('assets/imgContact.svg') no-repeat;
+    background: url('../assets/imgContact.svg') no-repeat;
     background-position-y: 4vw;
     background-position-x: left;
     background-color: #fffdd0;
@@ -476,15 +486,19 @@ li a{
 }
 footer {
     margin-top: 2%;
-    background: url('assets/darkMode.png') no-repeat;
-    background-position-y: top;
+    background-image: url('../assets/LogotipoParaDarkMode.png')  no-repeat;
+    background-position-y: -10vh;
     background-position-x: left;
     background-color: #000000;
     width: 100%;
     height: 40vh;    
     flex-direction: row;
+   
 
 }
+
+
+
 footer ul {
     list-style:inside;
     margin-top: 20%;
