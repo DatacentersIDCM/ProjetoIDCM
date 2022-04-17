@@ -1,5 +1,4 @@
 create database IDCM;
-
 use IDCM;
 
 create table Assinatura(
