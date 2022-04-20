@@ -28,6 +28,20 @@ body {
     line-height: 1;
     height:  100vh;
 }
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(0, 0, 0);        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #0099FF;    /* color of the scroll thumb */
+  border-radius: 120px;       /* roundness of the scroll thumb */
+  border: 3px solid white;  /* creates padding around scroll thumb */
+}
+
 ol, ul, a {
     list-style: none;
     text-decoration: none;
