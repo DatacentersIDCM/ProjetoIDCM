@@ -1,12 +1,12 @@
 
 
     function changeScreenSingIn() {
-        window.location.href = "login.html";
+        window.location.href = "loginDark.html";
        
     }
     function changeScreenSingUp() {
-        window.location.href = "signUp.html";
+        window.location.href = "signUpDark.html";
     }
     function changeDashboard() {
-        window.location.href = "dashboard.html";
+        window.location.href = "dashboardDark.html";
     }

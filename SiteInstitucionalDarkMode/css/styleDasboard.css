@@ -4,10 +4,10 @@
     height: flex;
     display: flex;
     flex-direction: row;
-    background-color: #F5F5F5;
+    background-color: #161616;
  }
  .sidebar {
-     background-color: #FFFFFF;
+     background-color: #161616;
      border-radius: 50px;
      width: 26vw;
      height: flex;
@@ -24,12 +24,17 @@
  }
  .sidebar h2{
      font-size: 26px;
+    
  }
  .row {
     height: 7vh;
     width: 90%;
     justify-content: flex-start;
     margin-top: 8%;
+ }
+
+ .rowDash h2 {
+    color:#000000;
  }
  
 
@@ -72,6 +77,7 @@
 }
 .dashboard h4 {
     font-size: 16px;
+    color: #000000;
 }
 .row8 {
     height: 18vh;
@@ -129,4 +135,8 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
+
+}
+.dash h2 {
+   color:#000000;
 }
