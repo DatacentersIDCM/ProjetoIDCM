@@ -6,13 +6,14 @@ input::-webkit-inner-spin-button {
 }
 body {
     font-family: 'Poppins', sans-serif;
+    
 }
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
 }
 .login {
-    padding-top: 10%;
+    padding-top: 4%;
     width: 100%;
     height: flex;
     background: url('../assets/backgroundSignUp.svg') no-repeat;
@@ -25,13 +26,14 @@ input[type=number] {
 }
 
 form {
-   
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-right: 30%;
     margin-top: 5%;
     margin-bottom: 4%;
+    
 }
 
 form h3 {
@@ -39,12 +41,13 @@ form h3 {
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
+    
     color: #000000;
 }
 form .left {
     margin-top: 10%;
     display: flex;
-    margin-left: 3%;
+    margin-left: 1%;
     align-self: flex-start;
 }
 form .inputLogin   {
@@ -56,7 +59,8 @@ form .inputLogin   {
     text-align: center;
     font-size: 26px;
 }
-form .inputPassword   {
+
+form .inputPassword  {
     width: 28vw;
     height: 9vh;
     border: 1px solid #0099FF;
@@ -66,12 +70,14 @@ form .inputPassword   {
     font-size: 26px;
 }
 .row3 {
-    width: 90%;
+    width: 60%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    justify-content:left;
+    align-items: left;
     margin-top: 4%;
+}
+.divRadio {
+    width: 100%;
 }
 .button5 {
     margin-top: 8%;

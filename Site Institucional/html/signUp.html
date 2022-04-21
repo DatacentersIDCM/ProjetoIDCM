@@ -54,18 +54,21 @@
             <input class="inputLogin" type="email" id="changeInput3">
             <input class="inputLogin" type="hidden" id="changeHidden3">
             <div class="left">
-                <h3 id="4h3">Telefone:</h3>
+                <h3 id="4h3">Endereço:</h3>
             </div>
-            <input class="inputPassword" type="number" id="changeInput4">
+            <input class="inputLogin" type="text" id="changeInput4">
             <input class="inputLogin" type="hidden" id="changeHidden4">
-            <div class="row3">
-                <div>
-                    <input class="inputCheck" type="radio">Lembre me
-                </div>
 
+            
+            <div class="row3">            
+                    <input class="inputCheck" type="hidden" id="changeHidden6">
+                    <div class="divRadio" id="divRadio">
+
+                    </div>
             </div>
             <button id="btn" type="button" class="button5">Continuar</button>
-            <button id="btn2" onclick="changeScreenSingIn()" style="display: none;" type="button" class="button5">Entrar</button>
+            <button id="btn2" onclick="changeScreenSingIn()" style="display: none;" type="button"
+                class="button5">Entrar</button>
             <h3>Já possui conta? <a href="login.html"> <i style="color: #0099FF;">Entrar </i></a></h3>
         </form>
     </div>
@@ -81,11 +84,13 @@
         let input2 = document.querySelector('#changeInput2');
         let input3 = document.querySelector('#changeInput3');
         let input4 = document.querySelector('#changeInput4');
+        
 
         let inputHidden = document.querySelector('#changeHidden');
         let inputHidden2 = document.querySelector('#changeHidden2');
         let inputHidden3 = document.querySelector('#changeHidden3');
         let inputHidden4 = document.querySelector('#changeHidden4');
+        let inputHidden6 = document.querySelector('#changeHidden6');
 
         var Ah3 = document.getElementById("1h3");
         var Bh3 = document.getElementById("2h3");
@@ -101,11 +106,13 @@
 
 
 
-                Ah3.innerHTML = "Cargo:"
+                Ah3.innerHTML = "Nome:"
+                Ah3.style.marginLeft = "54px"
                 input.type = "hidden"
                 inputHidden.type = "text"
 
                 Bh3.innerHTML = "Assinatura:"
+                Bh3.style.marginLeft = "54px"
                 input2.type = "hidden"
                 inputHidden2.type = "range"
                 inputHidden2.min = "0"
@@ -114,23 +121,26 @@
                 inputHidden2.step = "0.01"
 
                 Ch3.innerHTML = "Senha:"
+                Ch3.style.marginLeft = "54px"
                 input3.type = "hidden"
                 inputHidden3.type = "password"
 
                 Dh3.innerHTML = "Confirme a senha:"
+                Dh3.style.marginLeft = "54px"
                 input4.type = "hidden"
                 inputHidden4.type = "password"
 
+                inputHidden6.type = "radio"
+                divRadio.innerHTML = "Eu li e concordo com os termos de serviço e política de privacidade"
 
-         
-                btn.style.display="none"
-                btn2.style.display=""
+                btn.style.display = "none"
+                btn2.style.display = ""
                 function changeScreenSingIn() {
-        window.location.href = "login.html";
-       
-    }
+                    window.location.href = "login.html";
+
+                }
                 // btn2.addEventListener('click', changeScreenSingIn(), {})
-        
+
 
             }
         })
