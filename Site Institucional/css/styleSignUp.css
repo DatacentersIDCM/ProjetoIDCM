@@ -4,7 +4,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
+body {
+    font-family: 'Poppins', sans-serif;
+}
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;

@@ -39,9 +39,21 @@
 
         <div class="mainCard">
             <div class="userConfig">
-                <img src="../assets/userConfigImage.svg" alt="imgUser">
+
+                <div class="centerImg">
+                    <div class="imgCircle">
+                        <img class="upload_img" id="file_upload">
+                    </div>
+                </div>
+
                 <h2>Lucas Bispo</h2>
-                <button class="button5">Alterar foto</button>
+
+                <div class="upload-btn">
+               <button class="labelInput">Alterar Imagem</button>
+                <input  name="inputFile" type="file" id="upfile"  onchange="readURL(this); ">
+            </div>
+
+
                 <h2 class="h2Small">Infromações da Assinatura</h2>
                 <div class="row2">
                     <div class="column1">
@@ -63,16 +75,101 @@
 
 
             <div class="myProfile">
-                <h2>Meu perfil</h2>
+                <h2 class="h2Profile">Meu perfil</h2>
+                <div class="row3">
+                    <div class="rowCenter">
+                        <h4 class="h4Small">Nome:</h4>
+                    </div>
+                    <div class="rowCenter2">
+                        <h4 class="h4Small">Sobrenome:</h4>
+                    </div>
+                </div>
+                <div class="row3">
+                    <div class="rowCenter">
+                        <input class="input" type="text">
+                    </div>
+                    <div class="rowCenter2">
+                        <input class="input" type="text">
+                    </div>
+                </div>
+
+                <div class="row3">
+                    <div class="rowCenter">
+                        <h4 class="h4Small">Empresa:</h4>
+                    </div>
+                    <div class="rowCenter2">
+                        <h4 class="h4Small">CNPJ:</h4>
+                    </div>
+                </div>
+                <div class="row3">
+                    <div class="rowCenter">
+                        <input class="input" type="text">
+                    </div>
+                    <div class="rowCenter2">
+                        <input class="input" type="text">
+                    </div>
+                </div>
+
+                <div class="row3">
+                    <div class="rowCenter">
+                        <h4 class="h4Small">E-mail:</h4>
+                    </div>
+                    <div class="rowCenter2">
+                        <h4 class="h4Small">Telefone:</h4>
+                    </div>
+                </div>
+                <div class="row3">
+                    <div class="rowCenter">
+                        <input class="input" type="text">
+                    </div>
+                    <div class="rowCenter2">
+                        <input class="input" type="text">
+                    </div>
+                </div>
+
+                <div class="row3">
+                    <div class="rowCenter">
+                        <h4 class="h4Small">Senha atual:</h4>
+                    </div>
+                    <div class="rowCenter2">
+                        <h4 class="h4Small">Nova senha:</h4>
+                    </div>
+                </div>
+                <div class="row3">
+                    <div class="rowCenter">
+                        <input class="input" type="text">
+                    </div>
+                    <div class="rowCenter2">
+                        <input class="input" type="text">
+                    </div>
+                </div>
+
+                <button class="button5">Atualizar informações</button>
+            </div>
+
+            <div class="subscription">
+                <h4>Assinatura:<br>data+</h4>
+                <h2 class="h2Sub">$666666,66</h2>
+
+                <ul class="ul">
+                    <h4 class="li"><span style="color: #0099FF;">◉</span> Suporte 24 hrs</h4>
+                    <h4 class="li"><span style="color: #0099FF;">◉</span> + Dashboards</h4>
+                    <h4 class="li"><span style="color: #0099FF;">◉</span> Relatórios ilimitados</h4>
+                    <h4 class="li"><span style="color: #0099FF;">◉</span> Manutenção 2x por mês</h4>
+                </ul>
+
+                <button class="button5">Alterar plano</button>
 
             </div>
-            <div class="subscription"></div>
 
         </div>
 
 
 
     </div>
+
+
+    <img class="wavesLogin" src="../assets/wavesLogin.svg" alt="wavesLogin">
 
 
 </body>
@@ -82,3 +179,21 @@
 
 
 <script src="../js/changeScreens.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous"></script>
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#file_upload')
+                    .attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

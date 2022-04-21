@@ -1,3 +1,7 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
 .main {
     padding-top: 10%;
     width: 100%;
@@ -9,31 +13,36 @@
     justify-content: center;
 
 }
+
 .titleUser {
     margin-left: 15%;
 }
+
 .titleUser h1 {
     font-size: 40px;
 }
 
 .mainCard {
-    background-color: bisque;
+
     width: 100%;
     height: flex;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
 .userConfig {
     width: 25vw;
-    background-color: aqua;
     height: 60vh;
+    margin-left: 1%;
+    
 }
+
 .button5 {
     margin-top: 4%;
     width: 14vw;
-    margin-bottom: 6%;
-    height: 6vh;
+    margin-bottom: 2%;
+    height: 7vh;
     background: #0099FF;
     border-radius: 40px;
     border-color: transparent;
@@ -45,23 +54,85 @@
     align-items: center;
     text-align: center;
     color: #FFFFFF;
+    cursor: pointer; 
+}
+.centerImg {
+    display: flex;
+    justify-content: center;
+    
+}
+.imgCircle {
+   
+    width: 50%;
+    height: 26vh;
+    border-radius: 120px;
+
+}
+.upload_img {
+    display: inline-block;
+    border: 3px solid #0099FF;
+    width: 100%;
+    height: 100%;
+    border-radius: 120px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    vertical-align: middle;
+    
+}
+
+.labelInput {
+    padding: 16px 10px;
+    width: 14vw;
+    background-color: #0099FF;
+    color: #FFF;
+    border-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1vw;
+    align-items: center;
+    text-align: center;
+    display: block;
+    border-radius: 40px;
+    margin-top: 4%;
+    margin-bottom: 6%;
+    margin-left: 20%;
     cursor: pointer;
 }
+
+.upload-btn {
+    margin-right: 20%;
+    position: relative;
+    display: inline-block;
+}
+
+.upload-btn input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
 .h2Small {
     font-size: 20px;
 }
+
 .row2 {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    
+
 }
+
 .column1 {
     height: flex;
 }
+
 .h4Small {
     font-size: 18px;
 }
+
 .column2 {
     height: flex;
     padding-left: 4%;
@@ -70,18 +141,96 @@
     border-top: transparent;
     border-bottom: transparent;
 }
+
 .column3 {
     height: flex;
 }
 
 .myProfile {
-    margin-top: 8%;
-    width: 25vw;
-    background-color: red;
+    margin-top: 6%;
+    width: 30vw;
     height: flex;
+    border: 1px solid rgba(50, 50, 50, 0.2);
+    box-sizing: border-box;
+    box-shadow: 0px 10px 20px rgba(0, 40, 100, 0.25);
+    border-radius: 40px;
 }
+
+.h2Profile {
+    margin-top: 4%;
+    margin-bottom: 8%;
+}
+
+
+.row3 {
+    display: flex;
+    flex-direction: row;
+}
+
+.rowCenter {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.rowCenter2 {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.input {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #0099FF;
+    box-sizing: border-box;
+    margin-bottom: 4%;
+    text-align: center;
+    border-radius: 7px;
+    height: 5vh;
+}
+
+.myProfile .h2Small {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.myProfile .button5 {
+    margin-top: 10%;
+}
+
+
 .subscription {
+    margin-top: 6%;
+    margin-right: 10%;
     width: 25vw;
-    background-color: black;
-    height: 30vh; 
+    height: flex;
+    border: 1px solid rgba(50, 50, 50, 0.2);
+    box-sizing: border-box;
+    box-shadow: 0px 10px 20px rgba(0, 40, 100, 0.25);
+    border-radius: 40px;
+    padding: 1%;
+}
+.h2Sub {
+    margin-top: 4%;
+}
+.ul {
+    width: 100%;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 30%;
+    margin-left: 6%;
+}
+.li {
+    font-style: normal;
+    font-weight: 275;
+    font-size: 20px;
+    line-height: 36px;
+    margin-bottom: 10%;
+}
+.wavesLogin {
+    width: 100%;
 }
