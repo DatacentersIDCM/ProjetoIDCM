@@ -33,7 +33,7 @@ Cargo varchar (100),
 FK_Assinatura int,
 foreign key (FK_Assinatura)
 references Assinatura(ID_Assinatura),
-Imagem varchar(100),
+Imagem text(12000),
 Senha varchar (12)
 );
 
