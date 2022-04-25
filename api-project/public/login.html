@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IDCM</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/styleLogin.css" />
+    <link rel="stylesheet" href="./css/styleModal.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="logo"></div>
+
+        <ul>
+          <li><a class="now" href="login.html">login</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="calculator.html">Calculadora</a></li>
+        </ul>
+        <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
+        <button onclick="changeScreenLoginDark()" class="button2">
+          <img src="./assets/darkMode.png" alt="darkMode" />
+        </button>
+      </nav>
+    </header>
+
+    <div class="login">
+      <form action="">
+        <h1>Olá, Bem vindo</h1>
+        <div class="left">
+          <h3>Email:</h3>
+        </div>
+        <input class="inputLogin" type="email" id="inputEmail" />
+        <div class="left">
+          <h3>Senha:</h3>
+        </div>
+        <input class="inputPassword" type="password" id="inputPassword" />
+        <div class="row3">
+          <div>
+            <input
+              class="inputCheck"
+              onclick="remember()"
+              id="rememberInput"
+              type="radio"
+            />Lembre me
+          </div>
+          <div>
+            <h3>
+              <a href="recoverPassword.html"
+                ><i style="color: #0099ff"> Esqueci a senha</i>
+              </a>
+            </h3>
+          </div>
+        </div>
+        <button type="button" onclick="logar()" class="button5">Entrar</button>
+        <h3>
+          Não possui conta?
+          <a href="signUp.html"> <i style="color: #0099ff">Cadastre-se </i></a>
+        </h3>
+      </form>
+    </div>
+    <img class="wavesLogin" src="./assets/wavesLogin.svg" alt="wavesLogin" />
+
+    <div id="modal" class="modalBody">
+      <div class="modalReadPlus">
+        <div class="containerReadPlus">
+          <div class="modalCheck">
+            <img src="./assets/modalCheck.svg" alt="check" />
+          </div>
+          <button onclick="buttonBack()" class="modalBack">&times;</button>
+        </div>
+        <h2 id="campo_alerta"></h2>
+        <button class="button8" onclick="buttonBack()">Fechar</button>
+      </div>
+    </div>
+
+  </body>
+</html>
+
+<script>
+  //  function remember() {
+  //      var inputRemember = document.getElementById(rememberInput)
+  //      inputRemember.disable = "true"
+  //  }
+
+  function buttonBack() {
+    modal.style.display = "none";
+  }
+</script>
+
+<script>
+  function logar() {
+    const email = inputEmail.value;
+    const password = inputPassword.value;
+
+    fetch("http://localhost:3333/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        MyEmail: email,
+        MySenha: password,
+      }),
+    }).then((response) => {
+
+      response.json().then((json) => {
+        console.log(json);
+
+        if (json.mensagem == "success") {
+        const idUser = json.resultado[0].ID_Usuario;
+          sessionStorage.ID_USUARIO = idUser;
+          modal.style.display = "block";
+          campo_alerta.innerHTML = "Login efetuado com sucesso!";
+          setTimeout(() => {
+            window.location.href = "./dashboard.html";
+          }, 2000);
+        } else if (json.mensagem == "email_undefined") {
+
+          modal.style.display = "block";
+          campo_alerta.innerHTML = "Campo e-mail está vazio.";
+        } else if (json.mensagem == "senha_undefined") {
+          modal.style.display = "block";
+          campo_alerta.innerHTML = "Campo senha está vazio.";
+        } else if (json.mensagem == "email_senha_invalidos") {
+          modal.style.display = "block";
+          campo_alerta.innerHTML = "Email ou Senha inválidos.";
+        } else {
+        }
+      });
+    });
+  }
+</script>
