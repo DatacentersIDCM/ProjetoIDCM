@@ -1,4 +1,6 @@
-
+    function changeScreenSingIn() {
+        window.location.href = "../../Site Institucional/html/login.html";
+    }
 
     function changeScreenSingInDark() {
         window.location.href = "loginDark.html";
