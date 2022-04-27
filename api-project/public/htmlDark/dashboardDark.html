@@ -8,8 +8,8 @@
 
     <title>IDCM</title>
 
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/styleDasboard.css">
+    <link rel="stylesheet" href="../css/styledark.css">
+    <link rel="stylesheet" href="../css/styleDasboardDark.css">
 </head>
 
 <body>
@@ -17,39 +17,42 @@
     <header>
         <nav>
 
-            <div class="logo"></div>
+            <div class="logo">
+                <img src="../assets/logoDark.png" class="imgLogoDark" alt="logoLight">
+            </div>
 
             <ul>
-                <li><a class="now" href="dashboard.html">Dashboard</a></li>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="calculator.html">Calculadora</a></li>
+                <li><a class="now" href="dashboardDark.html">Dashboard</a></li>
+                <li><a href="indexDark.html">Home</a></li>
+                <li><a href="calculatorDark.html">Calculadora</a></li>
             </ul>
             <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
             <button class="button2">
-                <img onclick="changeScreenDashboardDark()" src="./assets/darkMode.png" alt="darkMode">
+                <img src="../assets/VectorSol.png"class="iconLightMode"  alt="LightMode">
             </button>
         </nav>
     </header>
 
     <div class="main">
         <div class="sidebar">
-            <div id="imgUser"></div>
-            <h2 id="nome_usuario"></h2>
-            <h4 id="cargo_usuario"></h4>
-            <h2 id="assinatura_usuario"></h2>
-                <div class="row">
-                    <h2>Setor do servidor:</h2>
-                    <img src="./assets/help.svg" alt="help">
-                </div>
-                <div class="row6 r-absulute">
-                    <button class="button5">1</button>
-                    <button class="button5">2</button>
-                    <button class="button5">3</button>
-                    <button class="button5">4</button>
+            <img class="imgUser" src="../assets/userImg.svg" alt="userImg">
+            <h2>Lucas Bispo</h2>
+            <h4>Gerente Administração</h4>
+            <h2>Assinatura data+</h2>
+            <div class="row">
+                <h2>Setor do servidor:</h2>
+                <img src="../assets/help.svg" alt="help">
+            </div>
+            <div class="row6">
+                <button class="button5">1</button>
+                <button class="button5">2</button>
+                <button class="button5">3</button>
+                <button class="button5">4</button>
 
-                </div>
-                <button class="button7"></button>
-                <h4><u><i><a href="userConfig.html">Configurações Usuario</a></i></u></h4>
+            </div>
+            <button class="button7"></button>
+            <h4><u><i><a href="userConfig.html">Configurações Usuario</a></i></u></h4>
+
 
         </div>
         <div class="dashboard">
@@ -58,10 +61,10 @@
                     <h4>Temperatura Atual:</h4>
                     <div class="rowDash">
                         <h2>24°</h2>
-                        <img src="./assets/iconDash1.svg" alt="iconDash1">
+                        <img src="../assets/iconDash1.svg" alt="iconDash1">
                     </div>
                     <div class="rowDash">
-                        <img src="./assets/icon2Dash1.svg" alt="icon2Dash1">
+                        <img src="../assets/icon2Dash1.svg" alt="icon2Dash1">
                         <h4>Temperatura ALTA</h4>
                     </div>
                 </div>
@@ -69,10 +72,10 @@
                     <h4>Umidade Atual:</h4>
                     <div class="rowDash">
                         <h2>55%</h2>
-                        <img src="./assets/iconDash2.svg" alt="iconDash2">
+                        <img src="../assets/iconDash2.svg" alt="iconDash2">
                     </div>
                     <div class="rowDash">
-                        <img src="./assets/icon2Dash2.svg" alt="icon2Dash2">
+                        <img src="../assets/icon2Dash2.svg" alt="icon2Dash2">
                         <h4>Temperatura ALTA</h4>
                     </div>
                 </div>
@@ -80,10 +83,10 @@
                     <h4>Temperatura máxima hoje:</h4>
                     <div class="rowDash">
                         <h2>28°</h2>
-                        <img src="./assets/iconDash1.svg" alt="iconDash1">
+                        <img src="../assets/iconDash1.svg" alt="iconDash1">
                     </div>
                     <div class="rowDash">
-                        <img src="./assets/icon2Dash1.svg" alt="icon2Dash1">
+                        <img src="../assets/icon2Dash1.svg" alt="icon2Dash1">
                         <h4>Temperatura ALTA</h4>
                     </div>
                 </div>
@@ -113,99 +116,8 @@
 </html>
 
 
-<script src="./js/changeScreens.js"></script>
+<script src="../js/changeScreens.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
-     
-     imgUser.innerHTML = `<img class="reloader" src="./assets/reload.gif" alt="FotoPerfil">`
-    var imagemUsuario = false;
-    var urlImagem = "";    
-
-    listarInformations();
-
-    // Reload a cada 2 Segundo
-    setInterval(() => {
-        ImagemUndefine();
-        ListarAssinatura();
-        listarInformations();
-    }, 2000);
-
-
-    function listarInformations() { 
-        const idUser = sessionStorage.ID_USUARIO;
-
-        fetch(`http://localhost:3333/usuarios/myinformation/${idUser}`, {
-            method: 'GET',
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then((response) => {
-
-            response.json().then((data) => {
-
-                const nomeUser = data.response[0].Nome;
-                const CargoUser = data.response[0].Cargo;
-                const ImagemUser = data.response[0].Imagem;
-                const IdEmpresa = data.response[0].FK_Empresa;
-                sessionStorage.setItem("fk_empresa", IdEmpresa);
-
-                setInterval(() => {
-                    nome_usuario.innerHTML = nomeUser;
-                    cargo_usuario.innerHTML = CargoUser;
-                    
-                }, 2000);
-          
-                ImagemUser == null || ImagemUser == "" ? imagemUsuario = true : imagemUsuario = false;
-                urlImagem = ImagemUser;
-
-            })
-        })
-    }
-
-
-    function ListarAssinatura() {
-        const idEmpresa = sessionStorage.getItem("fk_empresa")
-
-
-        fetch(`http://localhost:3333/usuarios/myassinature/${idEmpresa}`, {
-            method: 'GET',
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then((response) => {
-
-            response.json().then((data) => {
-
-                const plano_empresa = data.response[0].Plano;
-                const status_assinatura = data.response[0].Status_assinatura;
-
-                if(status_assinatura == 1){
-
-                    if(plano_empresa == "Anual"){
-                        assinatura_usuario.innerHTML = "Assinatura: Gratis!"
-                    }else if(plano_empresa == "Bianual"){
-                        assinatura_usuario.innerHTML = "Assinatura: dataNormal!"
-                    }else {
-                        assinatura_usuario.innerHTML = "Assinatura: data+"
-                    }
-
-                }else {
-
-                }
-                
-            })
-        })
-    }
-
-    function ImagemUndefine(){
-        if(imagemUsuario){
-            imgUser.innerHTML = `<img class="imgUser" src="./assets/user_undefined.png" alt="FotoPerfil">`
-        }else {
-            imgUser.innerHTML = `<img class="imgUser" src="${urlImagem}" alt="FotoPerfil">`
-        }
-    }
-</script>
 
 <script>
     const labels = [

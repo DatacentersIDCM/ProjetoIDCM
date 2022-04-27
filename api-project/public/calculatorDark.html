@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styleCalculator.css">
-    <link rel="stylesheet" href="../css/styledark.css">
+    <link rel="stylesheet" href="./cssDark/styleCalculator.css">
+    <link rel="stylesheet" href="./cssDark/styledark.css">
    
     
     <!-- You MUST include jQuery before Fomantic -->
@@ -16,9 +16,11 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="navCalculator">
 
-            <div class="logo"></div>
+            <div class="logo">
+                <img src="assets/logoDark.png" class="imgLogoDark" alt="logoLight">
+            </div>
 
             <ul>
                 <li><a class="now2" href="indexDark.html">Home</a></li>
@@ -26,7 +28,7 @@
             </ul>
             <button onclick="changeScreenSingInDark()" class="button1">Entrar</button>
             <button onclick="changeScreenCalculator()" class="button2">
-                <img src="../assets/VectorSol.png" alt="LightMode">
+                <img src="./assets/VectorSol.png" class="iconLightMode" alt="LightMode">
             </button>
         </nav>
     </header>
@@ -96,5 +98,5 @@
 </body>
 </html>
 
-<script src="../js/script.js"></script>
-<script src="../js/changeScreens.js"></script>
+<script src="./js/script.js"></script>
+<script src="./js/changeScreens.js"></script>

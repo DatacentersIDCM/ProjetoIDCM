@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDCM</title>
 
-    <link rel="stylesheet" href="../css/styleDark.css">
-    <link rel="stylesheet" href="../css/styleSignUpDark.css">
+    <link rel="stylesheet" href="./cssDark/styleDark.css">
+    <link rel="stylesheet" href="./cssDark/styleSignUpDark.css">
 </head>
 
 <body>
@@ -16,7 +16,9 @@
     <header>
         <nav>
 
-            <div class="logo"></div>
+            <div class="logo">
+                <img src="assets/logoDark.png" class="imgLogoDark" alt="logoLight">
+            </div>
 
             <ul>
                 <li><a class="now" href="loginDark.html">Cadastre-se</a></li>
@@ -25,7 +27,7 @@
             </ul>
             <button onclick="changeScreenSingInDark()" class="button1">Entrar</button>
             <button onclick="changeScreenSignUp()" class="button2">
-                <img src="../assets/VectorSol.png" alt="LightMode">
+                <img src="assets/VectorSol.png" class="iconLightMode" alt="LightMode">
             </button>
         </nav>
     </header>
@@ -65,14 +67,14 @@
 
             </div>
             <button id="btn" type="button" class="button5">Continuar</button>
-            <button id="btn2" onclick="changeScreenSingIn()" style="display: none;" type="button" class="button5">Entrar</button>
+            <button id="btn2" onclick="changeScreenSingInDark()" style="display: none;" type="button" class="button5">Entrar</button>
             <h3>Já possui conta? <a href="loginDark.html"> <i style="color: #0099FF;">Entrar </i></a></h3>
         </form>
     </div>
-    <img class="wavesLogin" src="../assets/wavesLogin.svg" alt="wavesLogin">
+    <img class="wavesLogin" src="assets/wavesLogin.svg" alt="wavesLogin">
 
 
-    <script src="../js/changeScreens.js"></script>
+    <script src="js/changeScreens.js"></script>
     <script>
 
         let btn = document.querySelector('#btn');
