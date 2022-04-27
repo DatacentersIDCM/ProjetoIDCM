@@ -11,8 +11,7 @@ function changeScreenIndexDark() {
 }
 
 function changeScreenCalculatorDark() {
-  window.location.href =
-    "../../SiteInstitucionalDarkMode/html/calculatorDark.html";
+  window.location.href = "../../SiteInstitucionalDarkMode/html/calculatorDark.html";
 }
 
 function changeScreenSingInDark() {
@@ -29,6 +28,11 @@ function changeScreenSignUpDark() {
 
 function changeScreenSingUp() {
 window.location.href = "signUp.html";
+}
+
+function changeScreenUserConfig() {
+
+  window.location.href = "../../SiteInstitucionalDarkMode/html/userConfigDark.html";;
 }
 
 

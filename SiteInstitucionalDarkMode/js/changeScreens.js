@@ -28,3 +28,8 @@
     function changeScreenSignUp() {
         window.location.href = "../../Site Institucional/html/SignUp.html";
     }
+
+    function changeScreenUserConfigDark() {
+
+        window.location.href = "../../Site Institucional/html/userConfig.html";
+    }
