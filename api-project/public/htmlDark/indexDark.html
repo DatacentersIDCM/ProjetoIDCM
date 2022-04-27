@@ -7,12 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDCM</title>
 
-
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/styleModal.css">
-
-    <link rel="stylesheet"  href="../css/style.css">
-
+    <link rel="stylesheet" href="../css/styledark.css">
 </head>
 
 <body>
@@ -20,20 +15,22 @@
     <header>
         <nav>
 
-            <div class="logo"></div>
+            <div class="logo">
+                <img src="../assets/logoDark.png" class="imgLogoDark" alt="logoLight">
+            </div>
 
             <ul>
-                <li><a class="now" href="index.html">Home</a></li>
+                <li><a class="now" href="indexDark.html">Home</a></li>
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#values">Valores</a></li>
                 <li><a href="#contact">Contato</a></li>
-                <li><a href="calculator.html">Calculadora</a></li>
+                <li><a href="calculatorDark.html">Calculadora</a></li>
             </ul>
-            <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
-            <button onclick="changeScreenIndexDark()" class="button2">
-                <img src="../assets/darkMode.png" alt="darkMode">
+            <button onclick="changeScreenSingInDark()" class="button1">Entrar</button>
+            <button class="button2" onclick="changeScreenIndex()">
+                <img src="../assets/VectorSol.png" class="iconLightMode" alt="LightMode">
             </button>
-        </nav>  
+        </nav>
     </header>
 
     <div class="home">
@@ -41,7 +38,7 @@
         <div class="containerHome">
             <h1>Tenha o melhor Data Center</h1>
             <h4>Controlamos e monitoramos a Temperatura e umidade do seu Data Center.</h4>
-            <button class="button1" onclick="openModalReadPlusHome()">Saber Mais</button>
+            <button class="button1">Saber Mais</button>
             <button class="button2">
                 <img src="../assets/iconLinkedin.png" alt="Linkedin">
             </button>
@@ -104,13 +101,11 @@
                     nossa empresa do inicio ao fim.
                 </h4>
                 <div class="row">
-                    <button class="button3" onclick="openModalReadPlusInnovation()">Saber Mais</button>
+                    <button class="button3">Saber Mais</button>
                     <img class="iconCard1" src="../assets/iconCard1.png" alt="iconCard1">
                 </div>
             </div>
         </div>
-
-       
 
 
         <div class="card">
@@ -122,8 +117,8 @@
                 <h4> <button class="space"></button>
                     Nos propomos a realizar todas as tarefas e demandas exigidas de maneira eficaz e produtiva.
                 </h4>
-                <div class="row">
-                    <button class="button3" onclick="openModalReadPlusCommitment()">Saber Mais</button>
+                <div class="row2">
+                    <button class="button3">Saber Mais</button>
                     <img class="iconCard1" src="../assets/iconCard2.svg" alt="iconCard2">
                 </div>
             </div>
@@ -139,8 +134,8 @@
                     Criamos pontes para aproximar nossos cliente e fazer com que eles se sintam seguros e confortaveis
                     com o nossos serviços.
                 </h4>
-                <div class="row">
-                    <button class="button3" onclick="openModalReadPlusConfidence()">Saber Mais</button>
+                <div class="row2">
+                    <button class="button3">Saber Mais</button>
                     <img class="iconCard1" src="../assets/iconCard3.svg" alt="iconCard3">
                 </div>
             </div>
@@ -161,12 +156,11 @@
             <div class="contactRight">
                 <h2>Mande uma mensagem para nós!</h2>
 
-                <form action="mailto:contactIDCM@gmail.com" class="forms" method="post" enctype="text/plain">
-                    <input type="text" name="Nome:" class="inputContact" placeholder="Seu Nome:" type="text">
-                    <input type="email" name="E-mail:" class="inputContact" placeholder="Seu Email:" type="text">
-                    <input class="inputContact2" name="Assunto:" placeholder="Escreva para nós:" type="text">
-
-                    <button type="submit" onclick="openModalReadPlusContact()" class="button1">Enviar</button>
+                <form class="forms">
+                    <input type="text" class="inputContact" placeholder="Seu Nome:" type="text">
+                    <input type="email" class="inputContact" placeholder="Seu Email:" type="text">
+                    <input class="inputContact2" placeholder="Escreva para nós:" type="text">
+                    <button type="submit" class="button1">Enviar</button>
                     <button type="reset" class="button4">Limpar</button>
                 </form>
 
@@ -220,126 +214,7 @@
 
 </body>
 
-<div id="modalInnovation" class="modalBody">
-    <div class="modalReadPlus">
-        <div class="containerReadPlus">
-            <div class="modalCheck">
-                <img src="../assets/modalCheck.svg" alt="check">
-            </div>
-            <button onclick="buttonBack()" class="modalBack">&times;</button>
-
-        </div>
-        <h2>
-            Inovar é criar algo novo, é introduzir novidades, renovar, recriar. A inovação é sempre tida como
-            sinônimo de mudanças e/ou melhorias de algo já existente. Um dos grandes pensadores da inovação, o
-            economista e cientista político austríaco Joseph Schumpeter, tinha claro que a inovação é o motor do
-            crescimento econômico.</h2>
-        <button class="button8" onclick="buttonBack()">Fechar</button>
-
-    </div>
-</div>
-
-<div id="modalCommitment" class="modalBody">
-    <div class="modalReadPlus">
-        <div class="containerReadPlus">
-            <div class="modalCheck">
-                <img src="../assets/modalCheck.svg" alt="check">
-            </div>
-            <button onclick="buttonBack()" class="modalBack">&times;</button>
-
-        </div>
-        <h2>
-            Qual o significado do comprometimento?
-O que é Comprometimento:
-
-Comprometimento é um substantivo masculino que signifca a ação de comprometer ou se comprometer com alguém ou alguma coisa. A palavra comprometimento tem origem no termo em latim compromissus, que indicava o ato de fazer uma promessa recíproca.</h2>
-        <button class="button8" onclick="buttonBack()">Fechar</button>
-
-    </div>
-</div>
-
-<div id="modalConfidence" class="modalBody">
-    <div class="modalReadPlus">
-        <div class="containerReadPlus">
-            <div class="modalCheck">
-                <img src="../assets/modalCheck.svg" alt="check">
-            </div>
-            <button onclick="buttonBack()" class="modalBack">&times;</button>
-
-        </div>
-        <h2>A confiança é uma característica da personalidade e pode ser entendida como acreditar, estar seguro ou ter certeza sobre algo, ou em alguém. A confiança, então, seria a hipótese que formulamos sobre o comportamento futuro de algo ou alguém, e que não depende de nós.</h2>
-        <button class="button8" onclick="buttonBack()">Fechar</button>
-
-    </div>
-</div>
-
-<div id="modalContact" class="modalBody">
-    <div class="modalReadPlus">
-        <div class="containerReadPlus">
-            <div class="modalCheck">
-                <img src="../assets/modalCheck.svg" alt="check">
-            </div>
-            <button onclick="buttonBack()" class="modalBack">&times;</button>
-
-        </div>
-        <h2>Contato enviado com sucesso!</h2>
-        <button class="button8" onclick="buttonBack()">Fechar</button>
-
-    </div>
-</div>
-
-<div id="modalHome" class="modalBody">
-    <div class="modalReadPlus">
-        <div class="containerReadPlus">
-            <div class="modalCheck">
-                <img src="../assets/modalCheck.svg" alt="check">
-            </div>
-            <button onclick="buttonBack()" class="modalBack">&times;</button>
-
-        </div>
-        <h2>Um data center é uma instalação física centralizada onde se encontram computadores corporativos, rede, armazenamento e outros equipamentos de TI que dão suporte às operações de negócios. Os computadores em um data center contêm ou manipulam aplicativos, serviços e dados importantes para os negócios.</h2>
-        <button class="button8" onclick="buttonBack()">Fechar</button>
-
-    </div>
-</div>
-
-
 </html>
 
 
 <script src="../js/changeScreens.js"></script>
-
-<script>
-
-
-
-    
-  
-    function buttonBack() {
-
-        modalHome.style.display = 'none'
-        modalInnovation.style.display = 'none'
-        modalCommitment.style.display = 'none'
-        modalConfidence.style.display = 'none'
-        modalContact.style.display = 'none'
-      
-    }
-    
-    function openModalReadPlusInnovation() {
-        modalInnovation.style.display = 'block'
-        
-    }
-    function openModalReadPlusCommitment() {
-        modalCommitment.style.display = 'block'
-    }
-    function openModalReadPlusConfidence() {
-        modalConfidence.style.display = 'block'
-    }
-    function openModalReadPlusContact() {
-        modalContact.style.display = 'block'
-    }
-    function openModalReadPlusHome() {
-        modalHome.style.display = 'block'
-        
-    }
-</script>

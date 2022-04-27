@@ -1,4 +1,6 @@
-
+    function changeScreenSingIn() {
+        window.location.href = "../../Site Institucional/html/login.html";
+    }
 
     function changeScreenSingInDark() {
         window.location.href = "loginDark.html";
@@ -25,4 +27,9 @@
 
     function changeScreenSignUp() {
         window.location.href = "../../Site Institucional/html/SignUp.html";
+    }
+
+    function changeScreenUserConfigDark() {
+
+        window.location.href = "../../Site Institucional/html/userConfig.html";
     }

@@ -9,6 +9,17 @@ body{
 
 }
 
+.navCalculator {
+    margin-top: 1%;
+    height: 70%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+}
+
+
 #container{
     display: flex;
     justify-content: space-around;

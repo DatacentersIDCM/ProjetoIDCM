@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDCM</title>
 
-    <link rel="stylesheet" href="../css/styleUserConfigDark.css">
-    <link rel="stylesheet" href="../css/styledark.css">
+    <link rel="stylesheet" href="./cssDark/styleUserConfigDark.css">
+    <link rel="stylesheet" href="./cssDark/styledark.css">
 
 </head>
 
@@ -17,7 +17,9 @@
     <header>
         <nav>
 
-            <div class="logo"></div>
+            <div class="logo">
+                <img src="../assets/logoDark.png" class="imgLogoDark" alt="logoLight">
+            </div>
 
             <ul>
                 <li><a class="now" href="userConfig.html">Usuário</a></li>
@@ -26,8 +28,8 @@
                 <li><a href="calculatorDark.html">Calculadora</a></li>
             </ul>
             <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
-            <button class="button2">
-                <img src="../assets/VectorSol.png" alt="darkMode">
+            <button onclick="changeScreenUserConfigDark()" class="button2">
+                <img src="../assets/VectorSol.png" class="iconLightMode" alt="darkMode">
             </button>
         </nav>
     </header>

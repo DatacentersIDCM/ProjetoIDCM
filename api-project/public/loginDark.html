@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDCM</title>
 
-    <link rel="stylesheet" href="../css/styledark.css">
-    <link rel="stylesheet" href="../css/styleLoginDark.css">
+    <link rel="stylesheet" href="./cssDark/styledark.css">
+    <link rel="stylesheet" href="./cssDark/styleLoginDark.css">
 </head>
 
 <body>
@@ -16,7 +16,9 @@
     <header>
         <nav>
 
-            <div class="logo"></div>
+            <div class="logo">
+                <img src="assets/logoDark.png" class="imgLogoDark" alt="logoLight">
+            </div>
 
             <ul>
                 <li><a class="now" href="loginDark.html">login</a></li>
@@ -24,16 +26,13 @@
                 <li><a href="calculatorDark.html">Calculadora</a></li>
             </ul>
             <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
-            <button onclick="changeScreenLogin()" class="button2">
-                <img src="../assets/VectorSol.png" alt="LightMode">
+            <button class="button2" onclick="changeScreenSingIn()">
+                <img src="assets/VectorSol.png" class="iconLightMode" alt="LightMode">
             </button>
         </nav>
     </header>
 
     <div class="login">
-
-
-        
            
             <form action="">
                 <h1>Olá, Bem vindo</h1>
@@ -57,33 +56,14 @@
                 <h3>Não possui conta? <a href="signUpDark.html"> <i style="color: #0099FF;">Cadastre-se </i></a></h3>
             </form>
     </div>
-    <img class="wavesLogin" src="../assets/wavesLogin.svg" alt="wavesLogin">
+    <img class="wavesLogin" src="assets/wavesLogin.svg" alt="wavesLogin">
 
+    <script src="./js/changeScreens.js"></script>
 
     <script>
-        function a() {
-            var email = inputEmail.value
-            var password = inputPassword.value
-
-            var logins = ['lucasbispo@gmail.com', 'jack123@gmail.com', 'yuri_martins@gmail.com'];
-
-
-            var lucas = email == logins[0] && password == '123' ? true : false;
-            var jaque = email == logins[1] && password == '123' ? true : false;
-            var yuri = email == logins[2] && password == '123' ? true : false;
-
-            if(lucas || jaque || yuri){
-                window.location.href = './dashboard.html';
-            }else {
-                alert('Dados incorretos!')
-            }
-
-          
-                    
-
-           
-            }
-
+       function changeScreenLogin() {
+        window.location.href = "../../Site Institucional/html/login.html";
+    }
            
         
 
