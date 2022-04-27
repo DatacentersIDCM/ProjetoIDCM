@@ -527,7 +527,7 @@ footer li {
 
 
 
-@media(max-width:1380px){
+@media(max-width:1380px){ 
     .card h1{
         font-size: 40px;
         margin-bottom: 0%;
