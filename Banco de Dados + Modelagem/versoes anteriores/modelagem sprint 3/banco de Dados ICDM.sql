@@ -54,7 +54,7 @@ Telefone varchar (100),
 Cargo varchar (100),
 Imagem text (12000),
 Login varchar (100),
-Senha varchar (12),
+Senha varchar (20),
 FK_Empresa int,
 foreign key (FK_Empresa)
 references Empresa(ID_Empresa)
