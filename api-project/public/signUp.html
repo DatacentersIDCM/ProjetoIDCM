@@ -7,11 +7,22 @@
     <title>IDCM</title>
 
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/preloader.css" />
     <link rel="stylesheet" href="./css/styleSignUp.css" />
     <link rel="stylesheet" href="./css/styleModal.css" />
   </head>
 
   <body>
+    <div id="preloader">
+      <div class="inner">
+        <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
+        <div class="bolas">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
     <header>
       <nav>
         <div class="logo"></div>
@@ -90,6 +101,8 @@
 </html>
 
 <script src="./js/changeScreens.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./js//preloader.js"></script>
 <script>
   let btn = document.querySelector("#btn");
   let btn2 = document.querySelector("#btn2");

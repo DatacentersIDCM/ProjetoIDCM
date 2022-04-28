@@ -1,17 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -19,37 +88,52 @@ time, mark, audio, video {
     font: inherit;
     vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
     display: block;
 }
-html {
-    scroll-behavior: smooth;
-    
-}
+
 body {
     line-height: 1;
-    height:  100vh;
+    height: 100vh;
+    width: 99.1vw;
+    background-color: #161616;
 }
+
 body::-webkit-scrollbar {
-  width: 12px;               /* width of the entire scrollbar */
+    width: 12px;
+    /* width of the entire scrollbar */
 }
-
-
 
 body::-webkit-scrollbar-thumb {
-  background-color: #0099FF;    /* color of the scroll thumb */
-  border-radius: 120px;       /* roundness of the scroll thumb */
-  border: 3px solid white;  /* creates padding around scroll thumb */
+    background-color: #0099FF;
+    /* color of the scroll thumb */
+    border-radius: 120px;
+    /* roundness of the scroll thumb */
+    border: 3px solid white;
+    /* creates padding around scroll thumb */
 }
 
-ol, ul, a {
+ol,
+ul,
+a {
     list-style: none;
     text-decoration: none;
     color: #383838;
     cursor: pointer;
 }
+
 h1 {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -57,17 +141,19 @@ h1 {
     font-size: 60px;
     line-height: 90px;
     align-items: center;
-    color: #000000;
+    color: white;
 }
-h2{
+
+h2 {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 800;
     font-size: 32px;
     line-height: 48px;
     align-items: center;
-    color: #000000;
+    color: white;
 }
+
 h4 {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -75,69 +161,95 @@ h4 {
     font-size: 24px;
     line-height: 36px;
     align-items: center;
-    color: #000000;
+    color: white;
 }
+
 a:hover {
-    color: #000000;
+    color: #0099FF;
     font-weight: 600;
 
 }
-blockquote, q {
+
+blockquote,
+q {
     quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
     content: '';
     content: none;
 }
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
 }
 
-header{
+header {
     width: 100%;
     height: 14%;
     position: fixed;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid #383838; 
+    background-color: #000000;
+    border-bottom: 1px solid #0099FF;
     z-index: 3;
 }
-nav{
+
+nav {
+  
     height: 70%;
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: space-between;
     padding: 1%;
- }
+}
+
 .logo {
     margin-left: 2%;
-    background: url('../assets/logotipoIDCM.svg') no-repeat;
+
     width: 220px;
     height: 110px;
-} 
-nav ul{
+}
+
+.imgLogoDark {
+    margin-top: -10%;
+    width: 160px;
+}
+
+nav ul {
     display: flex;
     column-gap: 25px;
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
 }
-.now{
-    color: #000000;
+
+li a {
+    color: white;
+}
+
+.now {
+    color: #0099FF;
     font-weight: 600;
 }
+
 .now:hover {
-    color: #000000;
+    color: #0099FF;
 }
-.now2{
-    color: #383838;
+
+.now2 {
+    color: #0099FF;
 }
+
 .now2:hover {
-    color: #000000;
+    color: #0099FF;
 }
 
-
+.iconLightMode {
+    width: 60px;
+}
 
 
 .button1 {
@@ -156,12 +268,14 @@ nav ul{
     color: #FFFFFF;
     cursor: pointer;
 }
-.button2{
+
+.button2 {
     background-color: transparent;
     border-color: transparent;
     cursor: pointer;
 }
-.home{
+
+.home {
     padding-top: 10%;
     width: 100%;
     height: flex;
@@ -169,20 +283,24 @@ nav ul{
     background-position-y: -1vw;
     background-position-x: 47vw;
 }
+
 .containerHome {
     margin-top: 8%;
     margin-left: 10%;
     margin-right: 8%;
     width: 32%;
 }
+
 .containerHome h1 {
-    margin-left: 4%;  
+    margin-left: 4%;
 }
+
 .containerHome h4 {
     margin-left: 4%;
     margin-top: 4%;
     margin-bottom: 10%;
 }
+
 .containerHome .button1 {
     width: 50%;
     height: 10vh;
@@ -190,10 +308,12 @@ nav ul{
     margin-left: 4%;
     margin-bottom: 10%;
 }
+
 .containerHome .button2 {
     margin-right: -2.8%;
 }
-.mission{
+
+.mission {
     margin-top: 4%;
     width: 100%;
     height: flex;
@@ -201,6 +321,7 @@ nav ul{
     background-position-y: 30vw;
     background-position-x: center;
 }
+
 .missionCenter {
     width: 100%;
     height: 60vh;
@@ -208,11 +329,20 @@ nav ul{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  
+
 }
-.missionCenter h4{
+
+.missionCenter h1 {
+    color: #0099FF;
+}
+
+.missionCenter h2 {
+    color: #0099FF;
+}
+
+.missionCenter h4 {
     width: 48%;
-    text-align:center;
+    text-align: center;
     margin-top: 4%;
     margin-bottom: 6%;
     font-style: normal;
@@ -223,13 +353,15 @@ nav ul{
 
 .containerMission {
     display: flex;
-    justify-content: space-between;  
+    justify-content: space-between;
 
 }
+
 .containerMission h1 {
     color: #0099FF;
-    
 }
+
+
 .containerMission h4 {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -238,14 +370,17 @@ nav ul{
     line-height: 36px;
     margin-bottom: 36%;
 }
+
 .containerMission1 {
     margin-left: 6%;
-  
+
 }
+
 .containerMission2 {
     margin-right: 4%;
 }
-.values { 
+
+.values {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -257,14 +392,16 @@ nav ul{
     background-size: 1800px;
     background-position-y: 0vw;
     background-position-x: center;
-  
+
 }
+
 .values h1 {
-    
+
     margin-left: 4%;
-    color: #FFFFFF;
-    
+    color: #000;
+
 }
+
 .valuesCard {
     display: flex;
     flex-direction: column;
@@ -274,46 +411,62 @@ nav ul{
     margin-top: 6%;
     gap: 80px;
 }
+
 .card {
-    
+
     width: 70%;
     height: 60vh;
-    background: #FFFFFF;
-    border: 2px solid rgba(50, 50, 50, 0.2);
+    background: #000;
+    border: 2px solid #0099FF;
     box-sizing: border-box;
     border-radius: 40px;
     display: flex;
     flex-direction: row;
 }
+
 .cardPositionLeft {
-    background: #f2f2f2;
+    background: #000;
     border-radius: 40px;
     width: 70%;
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
+
 }
+
 .cardPositionRight {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-left: 6%;
     margin-top: 0%;
+    background-color: #fff;
+    border: 1px solid #0099FF;
+    border-radius: 40px;
+    padding-left: 20px;
+
+
 }
+
 .cardPositionRight h1 {
     font-size: 50px;
- 
+    color: #000;
+
 }
+
 .cardPositionRight h4 {
     width: 90%;
     text-align: justify;
     font-size: 25px;
+    color: #000;
 }
+
 .space {
     background-color: transparent;
     border-color: transparent;
 }
+
 .row {
     width: 100%;
     height: 40vh;
@@ -323,15 +476,17 @@ nav ul{
     align-items: center;
     margin-top: 4%;
 }
-.row6 {
+
+.row2 {
     width: 100%;
-    height: 10vh;
+    height: 40vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    
+    margin-top: 14%;
 }
+
 .button3 {
     width: 16vw;
     height: 8.4vh;
@@ -348,44 +503,54 @@ nav ul{
     color: #0099FF;
     cursor: pointer;
 }
+
 .button3:hover {
     background-color: #0099FF;
     color: #fff;
 }
+
 .iconCard1 {
     margin-right: 2%;
 
 }
+
 .contact {
     margin-top: 8%;
     background-color: #0099FF;
+    border-radius: 10px;
+    padding-top: 50px;
     width: 100%;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
 }
-.contact h1{
-    color: white;
+
+.contact h1 {
+    color: #000;
 }
+
 .iconContactTitle {
     width: 8%;
 }
+
 .cardContact {
     margin-top: 4%;
     width: 74%;
     height: 80vh;
     background: url('../assets/imgContact.svg') no-repeat;
     background-position-y: 4vw;
-    background-position-x: left;
-    background-color: #FFFFFF;
-    border: 2px solid rgba(50, 50, 50, 0.2);
+    background-position-x: -4vh;
+    background-color: #161616;
+
+    border: 2px solid #0282F8;
     box-sizing: border-box;
     border-radius: 40px;
     margin-bottom: 2%;
     display: flex;
     flex-direction: row;
 }
+
 .contactLeft {
     display: flex;
     justify-content: center;
@@ -394,19 +559,22 @@ nav ul{
     width: 50%;
     margin-bottom: 1%;
 }
+
 .contactRight {
     display: flex;
     flex-direction: column;
     width: 50%;
 }
+
 .forms {
     display: flex;
-    
+
     flex-direction: column;
     align-items: center;
-    
-    
+
+
 }
+
 .inputContact {
     margin-top: 2%;
     width: 60%;
@@ -414,55 +582,67 @@ nav ul{
     border-top: transparent;
     border-left: transparent;
     border-right: transparent;
-    border-color: #0099FF;
-   
+    border-color: #fff;
+    color: #fff;
     background-color: transparent;
     text-align: center;
     font-size: 26px;
 }
+
 .inputContact2 {
     margin-top: 2%;
     width: 60%;
     height: 60%;
+    color: #fff;
     border-top: transparent;
     border-left: transparent;
     border-right: transparent;
-    border-color: #0099FF;
+    border-color: #fff;
     background-color: transparent;
     text-align: center;
     font-size: 26px;
-    
+
 }
+
 .inputContact2::placeholder {
-    font-family: 'Poppins' ,sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     font-style: normal;
     font-weight: 800;
     font-size: 20px;
     line-height: 30px;
 }
+
 .inputContact::placeholder {
-    font-family: 'Poppins' ,sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     font-style: normal;
     font-weight: 800;
     font-size: 20px;
     line-height: 30px;
 }
+
 .contactRight h2 {
     margin-top: 8%;
     font-size: 24px;
+    color: #fff;
 }
+
 .contactRight .button1 {
     width: 15vw;
     height: 19vh;
     margin-top: 6%;
 }
+
+.contact .button3 {
+    background-color: #161616;
+}
+
 .button4 {
     margin-top: 2%;
     width: 15vw;
     height: 19vh;
-    background: #161616;
+    background: #fff;
     border-radius: 40px;
     border-color: transparent;
     font-family: 'Poppins', sans-serif;
@@ -472,45 +652,58 @@ nav ul{
     line-height: 36px;
     align-items: center;
     text-align: center;
-    color: #FFFFFF;
+    color: #0099FF;
     cursor: pointer;
 }
+
 footer {
     margin-top: 2%;
-    background: url('../assets/logotipoIDCM.svg') no-repeat;
-    background-position-y: top;
+    background-image: url('../assets/LogotipoParaDarkMode.png') no-repeat;
+    background-position-y: -10vh;
     background-position-x: left;
-    background-color: #fff;
+    background-color: #000000;
     width: 100%;
-    height: 40vh;    
+    height: 40vh;
     flex-direction: row;
+
+
 }
+
+
+
 footer ul {
-    list-style:inside;
+    list-style: inside;
     margin-top: 20%;
-    
+    color: white;
+
 }
+
 footer li {
     margin-top: 20%;
-    font-family: 'Poppins' ,sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
+    color: white;
 }
+
 .footerSubject1 {
     margin-top: 3%;
     margin-left: 20%;
     margin-right: 9%;
     float: left;
 }
+
 .footerSubject2 {
     margin-top: 3%;
     float: left;
     margin-right: 9%;
 }
+
 .footerSubject3 {
     margin-top: 3%;
     float: left;
     margin-right: 9%;
 }
+
 .footerSubject4 {
     margin-top: 3%;
     float: left;
@@ -527,45 +720,53 @@ footer li {
 
 
 
-@media(max-width:1380px){
-    .card h1{
+@media(max-width:1380px) {
+    .card h1 {
         font-size: 40px;
         margin-bottom: 0%;
     }
-    .card h4{
-        
-        font-size: 20px;    
+
+    .card h4 {
+
+        font-size: 20px;
     }
+
     .card .iconCard1 {
         width: 45px;
         margin-right: 6%;
     }
+
     .card .button3 {
         width: 16vw;
         height: 10vh;
         font-size: 20px;
-        text-align: center;        
+        text-align: center;
     }
+
     .row {
         margin-bottom: 1%;
     }
+
     .row2 {
-       
         margin-bottom: 2%;
     }
-    .mission{
-        background: url('../assets/missionBackgroundImg2.png') no-repeat;
+
+    .mission {
+        background: url('assets/missionBackgroundImg2.png') no-repeat;
         background-position-y: 36vw;
         background-position-x: center;
     }
+
     .contactRight .button1 {
         width: 10vw;
         height: 16vh;
     }
+
     .button4 {
         width: 10vw;
         height: 16vh;
     }
+
     .contactLeft .button3 {
         width: 16vw;
         height: 8.4vh;
@@ -573,196 +774,241 @@ footer li {
     }
 }
 
-@media(max-width:1240px){
+@media(max-width:1240px) {
     footer h2 {
         font-size: 20px;
     }
+
     footer li {
         font-size: 10px;
     }
 }
 
-@media(max-width:1025px){
-    
-    nav ul{
-        
+@media(max-width:1025px) {
+
+    nav ul {
+
         font-size: 14px;
     }
-    .logo{
-        background: url('../assets/logotipoIDCMsmall.png') no-repeat;
+
+    .logo {
+        background-image: url('../assets/LogotipoParaDarkMode.png');
         width: 90px;
         height: 30px;
-     }
-     .button1 {
+    }
+
+    .button1 {
         width: 10%;
         height: 6vh;
-     }
-     .home{
+    }
+
+    .home {
         background-size: 600px;
     }
+
     .containerHome h1 {
-        font-size: 34px;  
+        font-size: 34px;
         line-height: 40px;
-     }
-     .containerHome h4 {
-         font-size: 16px;  
+    }
+
+    .containerHome h4 {
+        font-size: 16px;
         line-height: 20px;
-     }
-     .containerHome .button1 {
-         width: 50%;
-         height: 6vh;
-     }
-     .missionCenter h1{
-        font-size: 30px;  
+    }
+
+    .containerHome .button1 {
+        width: 50%;
+        height: 6vh;
+    }
+
+    .missionCenter h1 {
+        font-size: 30px;
         line-height: 40px;
-     }
-     .missionCenter h4{
-        font-size: 16px;  
+    }
+
+    .missionCenter h4 {
+        font-size: 16px;
         line-height: 20px;
-     }
-     .missionCenter h2{
-        font-size: 24px;  
+    }
+
+    .missionCenter h2 {
+        font-size: 24px;
         margin-bottom: 10%;
-     }
-     .mission{
-        background: url('../assets/missionBackgroundImg2.png') no-repeat;
+    }
+
+    .mission {
+        background: url('assets/missionBackgroundImg2.png') no-repeat;
         background-position-y: 40vw;
         background-position-x: center;
     }
+
     .containerMission h1 {
         font-size: 30px;
     }
+
     .containerMission h4 {
         font-size: 15px;
         margin-bottom: 10%;
     }
-    .card h1{
+
+    .card h1 {
         font-size: 20px;
     }
-    .card h4{
-        font-size: 10px;    
+
+    .card h4 {
+        font-size: 10px;
     }
+
     .card .button3 {
         width: 12vw;
         font-size: 14px;
     }
+
     .card .iconCard1 {
         width: 20px;
         margin-right: 8%;
     }
+
     .imgCard {
         width: 200px;
     }
+
     .contactRight .button1 {
         width: 8vw;
         height: 14vh;
     }
+
     .button4 {
         width: 8vw;
         height: 14vh;
     }
+
     .contactLeft .button3 {
         width: 12vw;
         font-size: 14px;
     }
-   
+
 }
-@media(max-width:653px){
-    .logo{
-        background: url('../assets/logotipoIDCMverySmall.png') no-repeat;
+
+@media(max-width:653px) {
+    .logo {
+        background: url('../assets/LogotipoParaDarkMode.png') no-repeat;
         width: 54px;
         height: 30px;
-     }
-     nav ul{
+    }
+
+    nav ul {
         font-size: 8px;
     }
+
     .button1 {
         width: 12%;
         height: 6vh;
     }
-    .home{
+
+    .home {
         background-size: 400px;
     }
+
     .containerHome h1 {
-        font-size: 20px;  
+        font-size: 20px;
         line-height: 24px;
-     }
-     .containerHome h4 {
-         font-size: 10px;  
+    }
+
+    .containerHome h4 {
+        font-size: 10px;
         line-height: 14px;
-     }
-     .containerHome .button1 {
-         width: 50%;
-         height: 6vh;
-     }
-     .mission{
-        background: url('../assets/missionBackgroundImg3.png') no-repeat;
+    }
+
+    .containerHome .button1 {
+        width: 50%;
+        height: 6vh;
+    }
+
+    .mission {
+        background: url('assets/missionBackgroundImg3.png') no-repeat;
         background-position-y: 60vw;
         background-position-x: center;
         height: 100vh;
     }
+
     .containerMission h1 {
         font-size: 14px;
         height: 12%;
         line-height: 1px;
     }
+
     .containerMission h4 {
         font-size: 10px;
-    }    
-    .missionCenter h1{
-        font-size: 20px;  
+    }
+
+    .missionCenter h1 {
+        font-size: 20px;
         line-height: 30px;
     }
-    .missionCenter h4{
-        font-size: 8px;  
+
+    .missionCenter h4 {
+        font-size: 8px;
         line-height: 10px;
     }
-    .missionCenter h2{
-        font-size: 14px;  
+
+    .missionCenter h2 {
+        font-size: 14px;
         margin-bottom: 50%;
     }
+
     .card .button3 {
         width: 16vw;
         height: 7vh;
         font-size: 8px;
     }
-    .card h1{
+
+    .card h1 {
         font-size: 14px;
     }
-    .card h4{
-        font-size: 10px;  
+
+    .card h4 {
+        font-size: 10px;
         line-height: 10px;
         margin-top: 30%;
     }
-    .contactRight h2{
+
+    .contactRight h2 {
         font-size: 14px;
     }
+
     .contactRight .button1 {
         width: 12vw;
         height: 14vh;
     }
+
     .button4 {
         width: 12vw;
         height: 14vh;
     }
+
     .contactLeft .button3 {
         width: 16vw;
         font-size: 8px;
     }
+
     footer h2 {
         font-size: 15px;
     }
+
     footer li {
         font-size: 5px;
     }
-   
+
 }
-@media(max-width:565px){
-    
-    nav ul{
+
+@media(max-width:565px) {
+
+    nav ul {
         column-gap: 10px;
         font-size: 8px;
     }
+
     .contactLeft .button3 {
         width: 16vw;
         font-size: 8px;

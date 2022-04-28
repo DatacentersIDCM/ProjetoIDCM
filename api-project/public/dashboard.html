@@ -9,10 +9,21 @@
     <title>IDCM</title>
 
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/preloader.css">
     <link rel="stylesheet" href="./css/styleDasboard.css">
 </head>
 
 <body>
+    <div id="preloader">
+        <div class="inner">
+           <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
+           <div class="bolas">
+              <div></div>
+              <div></div>
+              <div></div>                    
+           </div>
+        </div>
+    </div>
 
     <header>
         <nav>
@@ -24,7 +35,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="calculator.html">Calculadora</a></li>
             </ul>
-            <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
+            <button onclick="LoginOff()" class="button1">Sair</button>
             <button class="button2">
                 <img src="./assets/darkMode.png" alt="darkMode">
             </button>
@@ -73,7 +84,7 @@
                     </div>
                     <div class="rowDash">
                         <img src="./assets/icon2Dash2.svg" alt="icon2Dash2">
-                        <h4>Temperatura ALTA</h4>
+                        <h4>Umidade ALTA</h4>
                     </div>
                 </div>
                 <div class="dash3">
@@ -115,14 +126,19 @@
 
 <script src="./js/changeScreens.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./js/preloader.js"></script>
 
 <script>
+    listarInformations();
+
+
+   
      
      imgUser.innerHTML = `<img class="reloader" src="./assets/reload.gif" alt="FotoPerfil">`
     var imagemUsuario = false;
     var urlImagem = "";    
 
-    listarInformations();
 
     // Reload a cada 2 Segundo
     setInterval(() => {
@@ -133,7 +149,8 @@
 
 
     function listarInformations() { 
-        const idUser = sessionStorage.ID_USUARIO;
+    const idUser = sessionStorage.ID_USUARIO;
+        
 
         fetch(`http://localhost:3333/usuarios/myinformation/${idUser}`, {
             method: 'GET',
@@ -168,7 +185,7 @@
         const idEmpresa = sessionStorage.getItem("fk_empresa")
 
 
-        fetch(`http://localhost:3333/usuarios/myassinature/${idEmpresa}`, {
+        fetch(`http://localhost:3333/empresa/myassinature/${idEmpresa}`, {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json"

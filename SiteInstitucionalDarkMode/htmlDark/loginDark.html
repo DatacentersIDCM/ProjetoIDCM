@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDCM</title>
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/styleLogin.css">
+    <link rel="stylesheet" href="../css/styledark.css">
+    <link rel="stylesheet" href="../css/styleLoginDark.css">
 </head>
 
 <body>
@@ -16,16 +16,18 @@
     <header>
         <nav>
 
-            <div class="logo"></div>
+            <div class="logo">
+                <img src="../assets/logoDark.png" class="imgLogoDark" alt="logoLight">
+            </div>
 
             <ul>
-                <li><a class="now" href="login.html">login</a></li>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="calculator.html">Calculadora</a></li>
+                <li><a class="now" href="loginDark.html">login</a></li>
+                <li><a href="indexDark.html">Home</a></li>
+                <li><a href="calculatorDark.html">Calculadora</a></li>
             </ul>
             <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
-            <button onclick="changeScreenSingInDark()" class="button2">
-                <img src="../assets/darkMode.png" alt="darkMode">
+            <button class="button2" onclick="changeScreenLogin()">
+                <img src="../assets/VectorSol.png" class="iconLightMode" alt="LightMode">
             </button>
         </nav>
     </header>
@@ -47,32 +49,23 @@
                 <input class="inputPassword" type="password" id="inputPassword">
                 <div class="row3">
                 <div>
-                    <input class="inputCheck" onclick="remember()"  id="rememberInput" type="radio">Lembre me
+                    <input class="inputCheck" type="radio">Lembre me
                 </div>
                     <div>
-                 <h3><a href="recoverPassword.html"><i style="color: #0099FF;"> Esqueci a senha</i>  </a></h3>
+                 <h3><a href="recoverPasswordDark.html"><i style="color: #0099FF;"> Esqueci a senha</i>  </a></h3>
                 </div>
             </div>
                 <button type="button" onclick="a()" class="button5">Entrar</button>
-                <h3>Não possui conta? <a href="signUp.html"> <i style="color: #0099FF;">Cadastre-se </i></a></h3>
+                <h3>Não possui conta? <a href="signUpDark.html"> <i style="color: #0099FF;">Cadastre-se </i></a></h3>
             </form>
     </div>
     <img class="wavesLogin" src="../assets/wavesLogin.svg" alt="wavesLogin">
 
 
     <script>
-
-        //  function remember() {
-        //      var inputRemember = document.getElementById(rememberInput)
-        //      inputRemember.disable = "true"
-        //  }
-    </script>
-
-
-    <script>
-        function changeScreenSingInDark() {
-  window.location.href = "../../SiteInstitucionalDarkMode/html/loginDark.html";
-}
+       function changeScreenLogin() {
+        window.location.href = "../../Site Institucional/html/login.html";
+    }
            
         
 

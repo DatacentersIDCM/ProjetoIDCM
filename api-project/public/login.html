@@ -8,10 +8,21 @@
 
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/styleLogin.css" />
+    <link rel="stylesheet" href="./css/preloader.css" />
     <link rel="stylesheet" href="./css/styleModal.css" />
   </head>
 
   <body>
+    <div id="preloader">
+      <div class="inner">
+        <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
+        <div class="bolas">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
     <header>
       <nav>
         <div class="logo"></div>
@@ -64,7 +75,6 @@
       </form>
     </div>
     <img class="wavesLogin" src="./assets/wavesLogin.svg" alt="wavesLogin" />
-
     <div id="modal" class="modalBody">
       <div class="modalReadPlus">
         <div class="containerReadPlus">
@@ -77,15 +87,22 @@
         <button class="button8" onclick="buttonBack()">Fechar</button>
       </div>
     </div>
-
   </body>
 </html>
+
+<script src="./js/changeScreens.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./js//preloader.js"></script>
 
 <script>
   //  function remember() {
   //      var inputRemember = document.getElementById(rememberInput)
   //      inputRemember.disable = "true"
   //  }
+
+  var loggIn = Number(sessionStorage.getItem("ID_USUARIO"));
+
+  loggIn > 0 ? inLoggin() : null;
 
   function buttonBack() {
     modal.style.display = "none";
@@ -107,12 +124,11 @@
         MySenha: password,
       }),
     }).then((response) => {
-
       response.json().then((json) => {
         console.log(json);
-
         if (json.mensagem == "success") {
-        const idUser = json.resultado[0].ID_Usuario;
+          const idUser = json.resultado[0].ID_Usuario;
+
           sessionStorage.ID_USUARIO = idUser;
           modal.style.display = "block";
           campo_alerta.innerHTML = "Login efetuado com sucesso!";
@@ -120,7 +136,6 @@
             window.location.href = "./dashboard.html";
           }, 2000);
         } else if (json.mensagem == "email_undefined") {
-
           modal.style.display = "block";
           campo_alerta.innerHTML = "Campo e-mail está vazio.";
         } else if (json.mensagem == "senha_undefined") {

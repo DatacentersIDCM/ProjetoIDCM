@@ -13,7 +13,11 @@ CREATE TABLE IF NOT EXISTS `assinatura` (
   `FK_empresa` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_Assinatura`),
   KEY `FK_empresa` (`FK_empresa`)
+<<<<<<< HEAD
 );
+=======
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+>>>>>>> bf26975886c0c3c31039b581420281d77a215259
 
 -- Exportação de dados foi desmarcado.
 
@@ -23,10 +27,14 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   `Nome_empresa` varchar(100) NOT NULL,
   `CNPJ` varchar(20) NOT NULL,
   `CEP` varchar(20) DEFAULT NULL,
-  `Endereco` varchar(100) DEFAULT NULL,
+  `Endereco` varchar(100) NOT NULL,
   PRIMARY KEY (`ID_Empresa`),
   UNIQUE KEY `CNPJ` (`CNPJ`)
+<<<<<<< HEAD
 );
+=======
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+>>>>>>> bf26975886c0c3c31039b581420281d77a215259
 
 -- Exportação de dados foi desmarcado.
 
@@ -34,13 +42,17 @@ CREATE TABLE IF NOT EXISTS `empresa` (
 CREATE TABLE IF NOT EXISTS `registro` (
   `ID_Registro` int(11) NOT NULL AUTO_INCREMENT,
   `Hora_registro` time NOT NULL,
-  `Data_registro` date DEFAULT NULL,
-  `Valor_temperatura` float DEFAULT NULL,
-  `Valor_umidade` float DEFAULT NULL,
-  `FK_Sensor` int(11) DEFAULT NULL,
+  `Data_registro` date NOT NULL,
+  `Valor_temperatura` float NOT NULL,
+  `Valor_umidade` float NOT NULL,
+  `FK_Sensor` int(11) NOT NULL,
   PRIMARY KEY (`ID_Registro`),
   KEY `FK_Sensor` (`FK_Sensor`)
+<<<<<<< HEAD
 );
+=======
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+>>>>>>> bf26975886c0c3c31039b581420281d77a215259
 
 -- Exportação de dados foi desmarcado.
 
@@ -54,7 +66,11 @@ CREATE TABLE IF NOT EXISTS `sensor` (
   `FK_Empresa` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_Sensor`),
   KEY `FK_Empresa` (`FK_Empresa`)
+<<<<<<< HEAD
 );
+=======
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+>>>>>>> bf26975886c0c3c31039b581420281d77a215259
 
 -- Exportação de dados foi desmarcado.
 
@@ -70,7 +86,18 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `Senha` varchar(25) DEFAULT NULL,
   `FK_Empresa` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_Usuario`),
-  UNIQUE KEY `Email` (`Email`),
   UNIQUE KEY `Telefone` (`Telefone`),
+  UNIQUE KEY `Email` (`Email`),
   KEY `FK_Empresa` (`FK_Empresa`)
+<<<<<<< HEAD
 );
+=======
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- Exportação de dados foi desmarcado.
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+>>>>>>> bf26975886c0c3c31039b581420281d77a215259

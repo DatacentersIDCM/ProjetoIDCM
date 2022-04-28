@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="./css/styleUserConfig.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/styleModal.css" />
   </head>
 
   <body>
@@ -21,7 +22,7 @@
           <li><a href="dashboard.html">dashboard</a></li>
           <li><a href="calculator.html">Calculadora</a></li>
         </ul>
-        <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
+        <button onclick="LoginOff()" class="button1">Sair</button>
         <button class="button2">
           <img src="./assets/darkMode.png" alt="darkMode" />
         </button>
@@ -38,7 +39,6 @@
           <div class="centerImg">
             <div id="imgCircle"></div>
             <div id="carregando"></div>
-
           </div>
           <h2 id="nome_sobrenome"></h2>
 
@@ -59,15 +59,15 @@
           <div class="row2">
             <div class="column1">
               <h2 class="h2Small">Plano</h2>
-              <h4 class="h4Small">3 anos</h4>
+              <h4 id="anos_assinatura" class="h4Small"></h4>
             </div>
             <div class="column2">
-              <h2 class="h2Small">Adesão do plano</h2>
-              <h4 class="h4Small">15/04/2022</h4>
+              <h2 class="h2Small">Renovação do plano</h2>
+              <h4 id="data_renovacao" class="h4Small"></h4>
             </div>
             <div class="column3">
               <h2 class="h2Small">Status</h2>
-              <h4 class="h4Small">Ativo</h4>
+              <h4 id="status_assis" class="h4Small"></h4>
             </div>
           </div>
         </div>
@@ -101,10 +101,20 @@
           </div>
           <div class="row3">
             <div class="rowCenter">
-              <input id="campo_nome_empresa" class="input" type="text" />
+              <input
+                id="campo_nome_empresa"
+                readonly="true"
+                class="input"
+                type="text"
+              />
             </div>
             <div class="rowCenter2">
-              <input id="campo_cnpj" class="input" type="text" />
+              <input
+                id="campo_cnpj"
+                readonly="true"
+                class="input"
+                type="text"
+              />
             </div>
           </div>
 
@@ -127,10 +137,10 @@
 
           <div class="row3">
             <div class="rowCenter">
-              <h4 class="h4Small">Senha atual:</h4>
+              <h4 class="h4Small">Nova senha:</h4>
             </div>
             <div class="rowCenter2">
-              <h4 class="h4Small">Nova senha:</h4>
+              <h4 class="h4Small">Repita a senha:</h4>
             </div>
           </div>
           <div class="row3">
@@ -169,6 +179,19 @@
       </div>
     </div>
 
+    <div id="modal" class="modalBody">
+      <div class="modalReadPlus">
+        <div class="containerReadPlus">
+          <div class="modalCheck">
+            <img src="./assets/modalCheck.svg" alt="check" />
+          </div>
+          <button onclick="buttonBack()" class="modalBack">&times;</button>
+        </div>
+        <h2 id="campo_alerta"></h2>
+        <button class="button8" onclick="buttonBack()">Fechar</button>
+      </div>
+    </div>
+
     <img class="wavesLogin" src="./assets/wavesLogin.svg" alt="wavesLogin" />
   </body>
 </html>
@@ -182,6 +205,8 @@
 ></script>
 
 <script>
+  var ImagemUser = false;
+  var urlImagem = "";
   carregando.innerHTML = `<img class="reloader" src="./assets/reload.gif" alt="FotoPerfil">`;
   setTimeout(() => {
     carregando.style.display = "none";
@@ -189,9 +214,11 @@
 
   listarInformations();
   myEmpresa();
+  ListarAssinatura();
 
-  var ImagemUser = false;
-  var urlImagem = "";
+  function buttonBack() {
+    modal.style.display = "none";
+  }
 
   const imagem_de_perfil = setInterval(() => {
     ImagemUndefine();
@@ -220,10 +247,10 @@
         campo_email.value = EmailUser;
         campo_telefone.value = TelefoneUser;
 
+        const sobrenome = sobrenomeUser == null ? "" : sobrenomeUser;
+
         setTimeout(() => {
-          var sobrenome =
-            sobrenomeUser != null && sobrenomeUser != "" ? sobrenomeUser : "";
-            nome_sobrenome.innerHTML = `${nomeUser} ${sobrenome}`;
+          nome_sobrenome.innerHTML = `${nomeUser}  ${sobrenome}`;
         }, 1000);
 
         ImagemUser == null || ImagemUser == ""
@@ -237,7 +264,7 @@
   function myEmpresa() {
     const idEmpresa = sessionStorage.getItem("fk_empresa");
 
-    fetch(`http://localhost:3333/usuarios/myempresa/${idEmpresa}`, {
+    fetch(`http://localhost:3333/empresa/myempresa/${idEmpresa}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -256,7 +283,7 @@
   function ListarAssinatura() {
     const idEmpresa = sessionStorage.getItem("fk_empresa");
 
-    fetch(`http://localhost:3333/usuarios/myassinature/${idEmpresa}`, {
+    fetch(`http://localhost:3333/empresa/myassinature/${idEmpresa}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -265,13 +292,33 @@
       response.json().then((data) => {
         const plano_empresa = data.response[0].Plano;
         const status_assinatura = data.response[0].Status_assinatura;
+        const vencimento = data.response[0].Vencimento;
+
+        const myDate = new Date(vencimento);
+
+        const day = myDate.getDate();
+        const mes = myDate.getMonth() + 1;
+        const ano = myDate.getFullYear();
+
+        data_renovacao.innerHTML = `${day}/0${mes}/${ano}`;
+
+        if (plano_empresa == "Anual") {
+          anos_assinatura.innerHTML = "1 Ano";
+        } else if (plano_empresa == "Bianual") {
+          anos_assinatura.innerHTML = "2 Anos";
+        } else {
+          anos_assinatura.innerHTML = "5 Anos";
+        }
+
+        status_assinatura == 1
+          ? (status_assis.innerHTML = "Ativo")
+          : (status_assis.innerHTML = "Desativado");
       });
     });
   }
 
   function ImagemUndefine() {
     if (imagemUsuario) {
-      console.log("entrou");
       imgCircle.innerHTML = `<img class="imgUser" src="./assets/user_undefined.png" alt="FotoPerfil">`;
     } else {
       imgCircle.innerHTML = `<img class="imgUser" src="${urlImagem}" alt="FotoPerfil">`;
@@ -282,8 +329,38 @@
     const urlImg = attImg.value;
     const idUser = sessionStorage.getItem("ID_USUARIO");
 
-    if (urlImg != "" && urlImg != null) {
-      // Atualizar Imagem
+    if (
+      (urlImg != "" &&
+        urlImg != null &&
+        urlImg.length > 0 &&
+        urlImg.endsWith(".png")) ||
+      urlImg.endsWith(".jpg") ||
+      urlImg.endsWith(".jpeg")
+    ) {
+      fetch("http://localhost:3333/usuarios/atualizar/imagem", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: idUser,
+          img: urlImg,
+        }),
+      }).then((response) => {
+        response.json().then((data) => {
+          const mensagem = data.mensagem;
+
+          if (mensagem == "success") {
+            modal.style.display = "block";
+            campo_alerta.innerHTML = "Imagem de perfil atualizada!";
+            attImg.value = "";
+            listarInformations();
+            setTimeout(() => {
+              imgCircle.innerHTML = `<img class="imgUser" src="${urlImagem}" alt="FotoPerfil">`;
+            }, 1000);
+          }
+        });
+      });
     }
   }
 
@@ -291,13 +368,21 @@
     clearInterval(imagem_de_perfil);
     const urlImg = attImg.value;
 
-
     if (urlImg == "") {
-      imagemUsuario = true;
+      imagemUsuario == true ? (imagemUsuario = true) : (imagemUsuario = false);
+      urlImagem != "" ? (imagemUsuario = false) : (imagemUsuario = true);
       listarInformations();
       ImagemUndefine();
     } else {
-      imgCircle.innerHTML = `<img class="imgUser" src="${urlImg}" alt="Carregando...">`;
+      if (
+        urlImg.endsWith(".png") ||
+        urlImg.endsWith(".jpg") ||
+        urlImg.endsWith(".jpeg")
+      ) {
+        imgCircle.innerHTML = `<img class="imgUser" src="${urlImg}" alt="Carregando...">`;
+      } else {
+        imgCircle.innerHTML = `<h1> URL Inválida! </h1>`;
+      }
     }
   }
 </script>
