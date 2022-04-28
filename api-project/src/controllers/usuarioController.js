@@ -1,4 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
+var empresaModel = require("../models/empresaModel");
 
 var sessoes = [];
 
@@ -112,12 +113,12 @@ function cadastrar(req, res) {
   var dateTime_atual = `${ano_atual}/${mesFormat}/${dia_atual}`;
   var dateTime_renovacao = `${renovacao}/${mesFormat}/${dia_atual}`;
 
-  usuarioModel
+  empresaModel
     .cadastrarEmpresa(empresa, cnpj, cep)
     .then((response) => {
       const tamanho = response.affectedRows;
       if (tamanho > 0) {
-        usuarioModel
+        empresaModel
           .listarUnicEmpresa(empresa)
           .then((dadosEmpresa) => {
             const idEmpresa = dadosEmpresa[0].ID_Empresa;
@@ -126,7 +127,7 @@ function cadastrar(req, res) {
               .then((insertUser) => {
                 const tamanhoUser = insertUser.affectedRows;
                 if (tamanhoUser > 0) {
-                  usuarioModel
+                  empresaModel
                     .CreateAssinatura(
                       nome_assinature,
                       dateTime_atual,
@@ -178,23 +179,22 @@ function myInformations(req, res) {
   });
 }
 
-function myAssinature(req, res) {
-  const idEmpresa = req.params.id;
+function atualizarImg(req, res) {
+  const idUser = req.body.id;
+  const img = req.body.img;
 
-  usuarioModel.listarMyAssinature(idEmpresa).then((response) => {
-    res.json({
-      response,
-    });
-  });
-}
+  usuarioModel.atualizarImg(idUser, img).then((response) => {
+    const tamanho = response.affectedRows;
 
-function myEmpresa(req, res) {
-  const idEmpresa = req.params.id;
-
-  usuarioModel.listarMyEmpresa(idEmpresa).then((response) => {
-    res.json({
-      response,
-    });
+    if (tamanho > 0) {
+      res.json({
+        mensagem: "success",
+      });
+    } else {
+      res.json({
+        mensagem: "error",
+      });
+    }
   });
 }
 
@@ -203,7 +203,6 @@ module.exports = {
   cadastrar,
   listar,
   testar,
-  myEmpresa,
-  myAssinature,
+  atualizarImg,
   myInformations,
 };

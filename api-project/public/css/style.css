@@ -113,7 +113,7 @@ nav{
  }
 .logo {
     margin-left: 2%;
-    background: url('../assets/logotipoIDCM.png') no-repeat;
+    background: url('../assets/logotipoIDCM.svg') no-repeat;
     width: 220px;
     height: 110px;
 } 
@@ -527,7 +527,7 @@ footer li {
 
 
 
-@media(max-width:1380px){ 
+@media(max-width:1380px){
     .card h1{
         font-size: 40px;
         margin-bottom: 0%;

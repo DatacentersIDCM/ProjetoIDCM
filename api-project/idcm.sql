@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `assinatura` (
   `FK_empresa` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_Assinatura`),
   KEY `FK_empresa` (`FK_empresa`)
-) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Exportação de dados foi desmarcado.
 
@@ -37,10 +37,10 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   `Nome_empresa` varchar(100) NOT NULL,
   `CNPJ` varchar(20) NOT NULL,
   `CEP` varchar(20) DEFAULT NULL,
-  `Endereco` varchar(100) DEFAULT NULL,
+  `Endereco` varchar(100) NOT NULL,
   PRIMARY KEY (`ID_Empresa`),
   UNIQUE KEY `CNPJ` (`CNPJ`)
-) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Exportação de dados foi desmarcado.
 
@@ -48,13 +48,13 @@ CREATE TABLE IF NOT EXISTS `empresa` (
 CREATE TABLE IF NOT EXISTS `registro` (
   `ID_Registro` int(11) NOT NULL AUTO_INCREMENT,
   `Hora_registro` time NOT NULL,
-  `Data_registro` date DEFAULT NULL,
-  `Valor_temperatura` float DEFAULT NULL,
-  `Valor_umidade` float DEFAULT NULL,
-  `FK_Sensor` int(11) DEFAULT NULL,
+  `Data_registro` date NOT NULL,
+  `Valor_temperatura` float NOT NULL,
+  `Valor_umidade` float NOT NULL,
+  `FK_Sensor` int(11) NOT NULL,
   PRIMARY KEY (`ID_Registro`),
   KEY `FK_Sensor` (`FK_Sensor`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Exportação de dados foi desmarcado.
 
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `sensor` (
   `FK_Empresa` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_Sensor`),
   KEY `FK_Empresa` (`FK_Empresa`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Exportação de dados foi desmarcado.
 
@@ -84,10 +84,10 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `Senha` varchar(25) DEFAULT NULL,
   `FK_Empresa` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_Usuario`),
-  UNIQUE KEY `Email` (`Email`),
   UNIQUE KEY `Telefone` (`Telefone`),
+  UNIQUE KEY `Email` (`Email`),
   KEY `FK_Empresa` (`FK_Empresa`)
-) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Exportação de dados foi desmarcado.
 
