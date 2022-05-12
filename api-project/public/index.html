@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/styleModal.css">
 
-    <link rel="stylesheet"  href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 
 </head>
 
@@ -33,7 +33,7 @@
             <button onclick="changeScreenIndexDark()" class="button2">
                 <img src="./assets/darkMode.png" alt="darkMode">
             </button>
-        </nav>  
+        </nav>
     </header>
 
     <div class="home">
@@ -42,17 +42,17 @@
             <h1>Tenha o melhor Data Center</h1>
             <h4>Controlamos e monitoramos a Temperatura e umidade do seu Data Center.</h4>
             <button class="button1" onclick="openModalReadPlusHome()">Saber Mais</button>
-            <a href= "https://www.linkedin.com/in/idcm-monitoring-708b54238/"> <button class="button2">
-                <img src="../assets/iconLinkedin.png" alt="Linkedin">
-            </button> </a>
+            <a href="https://www.linkedin.com/in/idcm-monitoring-708b54238/"> <button class="button2">
+                    <img src="../assets/iconLinkedin.png" alt="Linkedin">
+                </button> </a>
 
-            <a href= "https://instagram.com/intelligentdatacenter?igshid=YmMyMTA2M2Y="><button class="button2">
-                <img src="../assets/iconInsta.png" alt="Instagram">
-            </button> </a>
+            <a href="https://instagram.com/intelligentdatacenter?igshid=YmMyMTA2M2Y="><button class="button2">
+                    <img src="../assets/iconInsta.png" alt="Instagram">
+                </button> </a>
 
             <a href="https://www.facebook.com/IDCM-116460881039593"><button class="button2">
-                <img src="../assets/iconFace.png" alt="Facebook">
-            </button></a> 
+                    <img src="../assets/iconFace.png" alt="Facebook">
+                </button></a>
 
         </div>
 
@@ -112,7 +112,7 @@
             </div>
         </div>
 
-       
+
 
 
         <div class="card">
@@ -248,9 +248,11 @@
         </div>
         <h2>
             Qual o significado do comprometimento?
-O que é Comprometimento:
+            O que é Comprometimento:
 
-Comprometimento é um substantivo masculino que signifca a ação de comprometer ou se comprometer com alguém ou alguma coisa. A palavra comprometimento tem origem no termo em latim compromissus, que indicava o ato de fazer uma promessa recíproca.</h2>
+            Comprometimento é um substantivo masculino que signifca a ação de comprometer ou se comprometer com alguém
+            ou alguma coisa. A palavra comprometimento tem origem no termo em latim compromissus, que indicava o ato de
+            fazer uma promessa recíproca.</h2>
         <button class="button8" onclick="buttonBack()">Fechar</button>
 
     </div>
@@ -265,7 +267,9 @@ Comprometimento é um substantivo masculino que signifca a ação de comprometer
             <button onclick="buttonBack()" class="modalBack">&times;</button>
 
         </div>
-        <h2>A confiança é uma característica da personalidade e pode ser entendida como acreditar, estar seguro ou ter certeza sobre algo, ou em alguém. A confiança, então, seria a hipótese que formulamos sobre o comportamento futuro de algo ou alguém, e que não depende de nós.</h2>
+        <h2>A confiança é uma característica da personalidade e pode ser entendida como acreditar, estar seguro ou ter
+            certeza sobre algo, ou em alguém. A confiança, então, seria a hipótese que formulamos sobre o comportamento
+            futuro de algo ou alguém, e que não depende de nós.</h2>
         <button class="button8" onclick="buttonBack()">Fechar</button>
 
     </div>
@@ -295,7 +299,9 @@ Comprometimento é um substantivo masculino que signifca a ação de comprometer
             <button onclick="buttonBack()" class="modalBack">&times;</button>
 
         </div>
-        <h2>Um data center é uma instalação física centralizada onde se encontram computadores corporativos, rede, armazenamento e outros equipamentos de TI que dão suporte às operações de negócios. Os computadores em um data center contêm ou manipulam aplicativos, serviços e dados importantes para os negócios.</h2>
+        <h2>Um data center é uma instalação física centralizada onde se encontram computadores corporativos, rede,
+            armazenamento e outros equipamentos de TI que dão suporte às operações de negócios. Os computadores em um
+            data center contêm ou manipulam aplicativos, serviços e dados importantes para os negócios.</h2>
         <button class="button8" onclick="buttonBack()">Fechar</button>
 
     </div>
@@ -308,11 +314,33 @@ Comprometimento é um substantivo masculino que signifca a ação de comprometer
 <script src="./js/changeScreens.js"></script>
 
 <script>
+    window.addEventListener('mouseover', initLandbot, { once: true });
+    window.addEventListener('touchstart', initLandbot, { once: true });
+    var myLandbot;
+    function initLandbot() {
+      if (!myLandbot) {
+        var s = document.createElement('script');s.type = 'text/javascript';s.async = true;
+        s.addEventListener('load', function() {
+          var myLandbot = new Landbot.Livechat({
+            configUrl: 'https://chats.landbot.io/v3/H-1242088-PWSKKR49TDBMD997/index.json',
+          });
+        });
+        s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.js';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      }
+    }
+    </script>
 
 
 
-    
-  
+
+<script>
+
+
+
+
+
     function buttonBack() {
 
         modalHome.style.display = 'none'
@@ -320,12 +348,12 @@ Comprometimento é um substantivo masculino que signifca a ação de comprometer
         modalCommitment.style.display = 'none'
         modalConfidence.style.display = 'none'
         modalContact.style.display = 'none'
-      
+
     }
-    
+
     function openModalReadPlusInnovation() {
         modalInnovation.style.display = 'block'
-        
+
     }
     function openModalReadPlusCommitment() {
         modalCommitment.style.display = 'block'
@@ -338,6 +366,6 @@ Comprometimento é um substantivo masculino que signifca a ação de comprometer
     }
     function openModalReadPlusHome() {
         modalHome.style.display = 'block'
-        
+
     }
 </script>
