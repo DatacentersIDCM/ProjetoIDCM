@@ -89,7 +89,7 @@
       <div class="modalReadPlus">
         <div class="containerReadPlus">
           <div class="modalCheck">
-            <img src="./assets/modalCheck.svg" alt="check" />
+            <img src="./assets/dangerModal.svg" id="imgModal" alt="check" />
           </div>
           <button onclick="buttonBack()" class="modalBack">&times;</button>
         </div>
@@ -97,6 +97,8 @@
         <button class="button8" onclick="buttonBack()">Fechar</button>
       </div>
     </div>
+
+    
   </body>
 </html>
 
@@ -276,6 +278,7 @@
 
             if (mensagem == "success") {
               modal.style.display = "block";
+              imgModal.src = `./assets/modalCheck.svg`
               campo_alerta.innerHTML = "Cadastro efetuado com sucesso!";
               setTimeout("location.href = 'login.html';", 2000);
             } else if (mensagem == "error_empresa") {
