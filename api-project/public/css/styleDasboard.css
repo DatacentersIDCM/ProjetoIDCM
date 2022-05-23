@@ -76,6 +76,7 @@ body {
 }
 .dashboard h4 {
   font-size: 16px;
+  line-height: 20px;
 }
 .row8 {
   height: 18vh;
@@ -87,7 +88,7 @@ body {
 }
 .dash1 {
   background-color: #fff;
-  width: 24%;
+  width: 26%;
   height: flex;
   border: 1px solid rgba(50, 50, 50, 0.2);
   box-sizing: border-box;
