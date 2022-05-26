@@ -13,11 +13,10 @@ CREATE TABLE IF NOT EXISTS `assinatura` (
   `FK_empresa` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_Assinatura`),
   KEY `FK_empresa` (`FK_empresa`)
-<<<<<<< HEAD
+
 );
-=======
+
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
->>>>>>> bf26975886c0c3c31039b581420281d77a215259
 
 -- Exportação de dados foi desmarcado.
 
@@ -30,11 +29,10 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   `Endereco` varchar(100) NOT NULL,
   PRIMARY KEY (`ID_Empresa`),
   UNIQUE KEY `CNPJ` (`CNPJ`)
-<<<<<<< HEAD
+
 );
-=======
+
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
->>>>>>> bf26975886c0c3c31039b581420281d77a215259
 
 -- Exportação de dados foi desmarcado.
 
@@ -48,11 +46,10 @@ CREATE TABLE IF NOT EXISTS `registro` (
   `FK_Sensor` int(11) NOT NULL,
   PRIMARY KEY (`ID_Registro`),
   KEY `FK_Sensor` (`FK_Sensor`)
-<<<<<<< HEAD
+
 );
-=======
+
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
->>>>>>> bf26975886c0c3c31039b581420281d77a215259
 
 -- Exportação de dados foi desmarcado.
 
@@ -66,11 +63,10 @@ CREATE TABLE IF NOT EXISTS `sensor` (
   `FK_Empresa` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_Sensor`),
   KEY `FK_Empresa` (`FK_Empresa`)
-<<<<<<< HEAD
+
 );
-=======
+
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
->>>>>>> bf26975886c0c3c31039b581420281d77a215259
 
 -- Exportação de dados foi desmarcado.
 
@@ -89,9 +85,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   UNIQUE KEY `Telefone` (`Telefone`),
   UNIQUE KEY `Email` (`Email`),
   KEY `FK_Empresa` (`FK_Empresa`)
-<<<<<<< HEAD
 );
-=======
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Exportação de dados foi desmarcado.
