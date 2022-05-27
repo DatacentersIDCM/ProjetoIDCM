@@ -4,6 +4,20 @@ body {
   flex-direction: row;
 }
 
+.sidebar::-webkit-scrollbar {
+  width: 12px;
+  /* width of the entire scrollbar */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #0099FF;
+  /* color of the scroll thumb */
+  border-radius: 120px;
+  /* roundness of the scroll thumb */
+  border: 3px solid white;
+  /* creates padding around scroll thumb */
+}
+
 .sidebar {
   width: 30vw;
   height: flex;
@@ -16,6 +30,7 @@ body {
   background: #FFFFFF;
   border-radius: 16px;
   overflow-y: scroll;
+  padding-top: 20%;
 }
 
 h1 {
@@ -25,6 +40,17 @@ h1 {
   font-size: 32px;
   line-height: 48px;
   color: #000000;
+}
+.rowImg {
+  display: flex;
+  flex-direction: row;
+}
+.rowTitle {
+  display: flex;
+  justify-content: right;
+  margin-left: 10%;
+  margin-bottom: 40%;
+
 }
 
 .alignTitles {
@@ -51,7 +77,11 @@ h1 {
   align-items: center;
   justify-content: center;
   margin-top: 10%;
+  transition: 200ms;
+  cursor: pointer;
+  transition-delay: 100ms;
 }
+
 .rack h1 {
   color: #FFFFFF;
 }
@@ -64,18 +94,88 @@ h1 {
   justify-content: center;
   gap: 8%;
 }
+.rack:hover {
+  background-color: #0099FF;
+  
+}
+
 .buttonSidebarConfig {
   width: 100%;
-  height: 18vh;
+  height: 16vh;
   margin-bottom: 30%;
   border-radius: 16px;
   background-color: #000000;
   color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   font-size: 30px;
-  
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 48px;
+  color: #FFFFFF;
+  gap: 10%;
+  transition: 200ms;
+  cursor: pointer;
+  transition-delay: 100ms;
 }
+.buttonSidebarConfig:hover {
+  background-color:#0099FF;
+  border-color: transparent;
+}
+
+.divButton {
+  width: 100%;
+  height: 16vh;
+  margin-bottom: 6%;
+}
+
+.main::-webkit-scrollbar {
+  width: 12px;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background-color: #0099FF;
+  border-radius: 120px;
+  border: 3px solid white;
+}
+
 .main {
   width: 70vw;
-  background-color: black;
+  background-color: #F4F6F8;
+  border-radius: 16px;
+  overflow-y: scroll;
+  padding-top: 5%;
+  padding-left: 8%;
+}
+
+.card {
+  margin-top: 4%;
+  width: 28vw;
+  height: 28vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+.rowCard {
+  display: flex;
+  flex-direction: row;
+  gap: 4%;
+}
+
+.cardDashboard {
+  margin-top: 5%;
+  width: 58.5vw;
+  height: 50vh;
+  background: #FFFFFF;
+  border: 2px solid rgba(50, 50, 50, 0.2);
+  box-sizing: border-box;
+  border-radius: 40px;
+  margin-bottom: 2%;
 }
