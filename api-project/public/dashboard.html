@@ -24,7 +24,7 @@
                 <h4>lucas@gmail.com</h4>
             </div>
             <div class="rowTitle">
-                <img src="assets/iconFoto.svg" width="100" alt="">
+                <img src="assets/iconFoto.svg" width="80" alt="">
             </div>
         </div>
         <h1 class="h1Admin">Admin</h1>
@@ -50,14 +50,14 @@
         </div>
 
         <div class="divButton">
-            <button class="buttonSidebarConfig">
+            <button class="buttonSidebarConfig" onclick="screenConfig()">
                 <img src="assets/iconConfig2.svg" alt="">
                 Configurações
             </button>
         </div>
 
         <div class="divButton">
-            <button class="buttonSidebarConfig">
+            <button class="buttonSidebarConfig" onclick="screenLogin()">
                 <img src="assets/iconExit.svg" alt="">
                 Sair
             </button>
@@ -140,3 +140,13 @@
 </body>
 
 </html>
+
+<script>
+    function screenConfig() {
+        window.location.href = `userConfig.html`
+    }
+    function screenLogin() {
+        sessionStorage.clear() 
+        window.location.href = `login.html`
+    }
+</script>
