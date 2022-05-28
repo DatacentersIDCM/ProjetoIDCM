@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDCM</title>
 
-    <link rel="stylesheet" href="../css/styleUserConfigDark.css">
-    <link rel="stylesheet" href="../css/styledark.css">
+    <link rel="stylesheet" href="./dark/cssDark/styledark.css">
+    <link rel="stylesheet" href="./dark/cssDark/styleUserConfigDark.css">
 
 </head>
 
@@ -18,7 +18,7 @@
         <nav>
 
             <div class="logo">
-                <img src="../assets/logoDark.png" class="imgLogoDark" alt="logoLight">
+                <img src="./assets/logoDark.png" class="imgLogoDark" alt="logoLight">
             </div>
 
             <ul>
@@ -28,8 +28,8 @@
                 <li><a href="calculatorDark.html">Calculadora</a></li>
             </ul>
             <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
-            <button onclick="changeScreenUserConfigDark()" class="button2">
-                <img src="../assets/VectorSol.png" class="iconLightMode" alt="darkMode">
+            <button onclick="changeScreenUserConfig()" class="button2">
+                <img src="./assets/VectorSol.png" class="iconLightMode" alt="darkMode">
             </button>
         </nav>
     </header>
@@ -171,7 +171,7 @@
     </div>
 
 
-    <img class="wavesLogin" src="../assets/wavesLogin.svg" alt="wavesLogin">
+    <img class="wavesLogin" src="./assets/wavesLogin.svg" alt="wavesLogin">
 
 
 </body>
@@ -180,22 +180,200 @@
 
 
 
-<script src="../js/changeScreens.js"></script>
+<script src="./js/changeScreens.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
     crossorigin="anonymous"></script>
 
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $('#file_upload')
-                    .attr('src', e.target.result);
-            };
-            reader.readAsDataURL(input.files[0]);
+<script>
+  var ImagemUser = false;
+  var urlImagem = "";
+  carregando.innerHTML = `<img class="reloader" src="./assets/reload.gif" alt="FotoPerfil">`;
+  setTimeout(() => {
+    carregando.style.display = "none";
+    myEmpresa();
+    ListarAssinatura();
+  }, 1000);
+
+  listarInformations();
+
+  function buttonBack() {
+    modal.style.display = "none";
+  }
+
+  const imagem_de_perfil = setInterval(() => {
+    ImagemUndefine();
+  }, 1000);
+
+  function listarInformations() {
+    const idUser = sessionStorage.id;
+
+    fetch(`http://localhost:3333/usuarios/myinformation/${idUser}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      response.json().then((data) => {
+        const nomeUser = data.response[0].nome;
+        const sobrenomeUser = data.response[0].sobrenome;
+        const CargoUser = data.response[0].cargo;
+        const EmailUser = data.response[0].email;
+        const TelefoneUser = data.response[0].telefone;
+        const ImagemUser = data.response[0].imagem;
+        const IdEmpresa = data.response[0].fk_empresa;
+        sessionStorage.setItem("fk_empresa", IdEmpresa);
+        campo_nome.value = nomeUser;
+        campo_sobrenome.value = sobrenomeUser;
+        campo_email.value = EmailUser;
+        campo_telefone.value = TelefoneUser;
+
+        const sobrenome = sobrenomeUser == null ? "" : sobrenomeUser;
+
+        setTimeout(() => {
+          nome_sobrenome.innerHTML = `${nomeUser}  ${sobrenome}`;
+        }, 1000);
+
+        ImagemUser == null || ImagemUser == ""
+          ? (imagemUsuario = true)
+          : (imagemUsuario = false);
+        urlImagem = ImagemUser;
+      });
+    });
+  }
+
+  function myEmpresa() {
+    const idEmpresa = sessionStorage.getItem("fk_empresa");
+
+    fetch(`http://localhost:3333/empresa/myempresa/${idEmpresa}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      response.json().then((data) => {
+        const nomeEmpresa = data.response[0].nome;
+        const CnpjEmpresa = data.response[0].cnpj;
+
+        campo_nome_empresa.value = nomeEmpresa;
+        campo_cnpj.value = CnpjEmpresa;
+      });
+    });
+  }
+
+  function ListarAssinatura() {
+    const idEmpresa = sessionStorage.getItem("fk_empresa");
+
+    fetch(`http://localhost:3333/empresa/myassinature/${idEmpresa}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      response.json().then((data) => {
+        console.log(data);
+        const plano_empresa = data.response[0].fk_assinatura;
+        const status_assinatura = data.response[0].status_ass;
+        const vencimento = data.response[0].renovacao;
+
+        const myDate = new Date(vencimento);
+
+        const day = myDate.getDate();
+        const mes = myDate.getMonth() + 1;
+        const ano = myDate.getFullYear();
+
+        data_renovacao.innerHTML = `${day}/0${mes}/${ano}`;
+
+        if (plano_empresa == "Anual") {
+          anos_assinatura.innerHTML = "1 Ano";
+        } else if (plano_empresa == "Bianual") {
+          anos_assinatura.innerHTML = "2 Anos";
+        } else {
+          anos_assinatura.innerHTML = "5 Anos";
         }
+
+        status_assinatura == 1
+          ? (status_assis.innerHTML = "Ativo")
+          : (status_assis.innerHTML = "Desativado");
+      });
+    });
+  }
+
+  function ImagemUndefine() {
+    if (imagemUsuario) {
+      imgCircle.innerHTML = `<img class="imgUser" src="./assets/user_undefined.png" alt="FotoPerfil">`;
+    } else {
+      imgCircle.innerHTML = `<img class="imgUser" src="${urlImagem}" alt="FotoPerfil">`;
     }
+  }
+
+  function salvarImagem() {
+    const urlImg = attImg.value;
+    const idUser = sessionStorage.getItem("id");
+
+    if (
+      (urlImg != "" &&
+        urlImg != null &&
+        urlImg.length > 0 &&
+        urlImg.endsWith(".png")) ||
+      urlImg.endsWith(".jpg") ||
+      urlImg.endsWith(".jpeg")
+    ) {
+      fetch("http://localhost:3333/usuarios/atualizar/imagem", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: idUser,
+          img: urlImg,
+        }),
+      }).then((response) => {
+        response.json().then((data) => {
+          const mensagem = data.mensagem;
+
+          if (mensagem == "success") {
+            modal.style.display = "block";
+            campo_alerta.innerHTML = "Imagem de perfil atualizada!";
+            attImg.value = "";
+            listarInformations();
+            setTimeout(() => {
+              imgCircle.innerHTML = `<img class="imgUser" src="${urlImagem}" alt="FotoPerfil">`;
+            }, 1000);
+          }
+        });
+      });
+    }
+  }
+
+  function mostrarImagem() {
+    clearInterval(imagem_de_perfil);
+    const urlImg = attImg.value;
+
+    if (urlImg == "") {
+      imagemUsuario == true ? (imagemUsuario = true) : (imagemUsuario = false);
+      urlImagem != "" ? (imagemUsuario = false) : (imagemUsuario = true);
+      listarInformations();
+      ImagemUndefine();
+    } else {
+      if (
+        urlImg.endsWith(".png") ||
+        urlImg.endsWith(".jpg") ||
+        urlImg.endsWith(".jpeg")
+      ) {
+        imgCircle.innerHTML = `<img class="imgUser" src="${urlImg}" alt="Carregando...">`;
+      } else {
+        imgCircle.innerHTML = `<h1> URL Inválida! </h1>`;
+      }
+    }
+  }
+
+  function AtualizarInformations() {
+    const nome = campo_nome.value;
+    const sobrenome = campo_sobrenome.value;
+    const email = campo_email.value;
+    const telefone = campo_telefone.value;
+  }
 </script>
