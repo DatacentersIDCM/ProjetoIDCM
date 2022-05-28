@@ -41,10 +41,12 @@ h1 {
   line-height: 48px;
   color: #000000;
 }
+
 .rowImg {
   display: flex;
   flex-direction: row;
 }
+
 .rowTitle {
   display: flex;
   justify-content: right;
@@ -71,20 +73,59 @@ h1 {
   width: 7vw;
   height: 14vh;
   border-radius: 16px;
-  background-color: #000000;
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin-top: 10%;
-  transition: 200ms;
+  position: relative;
+  background: transparent;
   cursor: pointer;
-  transition-delay: 100ms;
+  transition: all 0.3s ease;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+    7px 7px 20px 0px rgba(0, 0, 0, .1),
+    4px 4px 5px 0px rgba(0, 0, 0, .1);
+  outline: none;
 }
 
 .rack h1 {
   color: #FFFFFF;
 }
+
+.rack {
+  background-color: #000000;
+  border: none;
+  z-index: 1;
+}
+
+.rack:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 16px;
+  background-color: #0099FF;
+  background-image: linear-gradient(315deg, #0099FF 0%, #0099FF 74%);
+  box-shadow: transparent;
+  transition: all 0.3s ease;
+}
+
+.rack:hover {
+  color: rgb(255, 255, 255);
+}
+
+.rack:hover:after {
+  top: auto;
+  bottom: 0;
+  height: 100%;
+}
+
+.rack:active {
+  top: 2px;
+}
+
 
 .rowRacks {
   display: flex;
@@ -93,10 +134,7 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 8%;
-}
-.rack:hover {
-  background-color: #0099FF;
-  
+  margin-bottom: 10%;
 }
 
 .buttonSidebarConfig {
@@ -104,7 +142,6 @@ h1 {
   height: 16vh;
   margin-bottom: 30%;
   border-radius: 16px;
-  background-color: #000000;
   color: #FFFFFF;
   display: flex;
   flex-direction: row;
@@ -119,19 +156,53 @@ h1 {
   line-height: 48px;
   color: #FFFFFF;
   gap: 10%;
-  transition: 200ms;
+  position: relative;
+  background: transparent;
   cursor: pointer;
-  transition-delay: 100ms;
+  transition: all 0.3s ease;
+  background-color: #000000;
+  border: none;
+  z-index: 1;
 }
+.buttonSidebarConfig h1 {
+  color: #FFFFFF;
+}
+
+.buttonSidebarConfig:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  border-radius: 16px;
+  background-color: #0099FF;
+  background-image: linear-gradient(315deg, #0099FF 0%, #0099FF 74%);
+  box-shadow: transparent;
+  transition: all 0.3s ease;
+}
+
 .buttonSidebarConfig:hover {
-  background-color:#0099FF;
-  border-color: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.buttonSidebarConfig:hover:after {
+  left: 0;
+  width: 100%;
+}
+
+.buttonSidebarConfig:active {
+  top: 2px;
 }
 
 .divButton {
   width: 100%;
   height: 16vh;
   margin-bottom: 6%;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .main::-webkit-scrollbar {
@@ -163,12 +234,14 @@ h1 {
   justify-content: space-between;
   text-align: center;
 }
+
 .rowCard {
   display: flex;
   flex-direction: row;
   gap: 4%;
 }
-.rowCard h1{
+
+.rowCard h1 {
   font-size: 1.6em;
 }
 
