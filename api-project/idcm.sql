@@ -10,9 +10,9 @@ CREATE TABLE IF NOT EXISTS `assinatura` (
   `Status_assinatura` tinyint(1) NOT NULL,
   `Inicio` date DEFAULT NULL,
   `Vencimento` date DEFAULT NULL,
-  `FK_empresa` int(11) DEFAULT NULL,
+  `fk_empresa` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_Assinatura`),
-  KEY `FK_empresa` (`FK_empresa`)
+  KEY `fk_empresa` (`fk_empresa`)
 
 );
 
@@ -22,12 +22,12 @@ CREATE TABLE IF NOT EXISTS `assinatura` (
 
 -- Copiando estrutura para tabela idcm.empresa
 CREATE TABLE IF NOT EXISTS `empresa` (
-  `ID_Empresa` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `Nome_empresa` varchar(100) NOT NULL,
   `CNPJ` varchar(20) NOT NULL,
   `CEP` varchar(20) DEFAULT NULL,
   `Endereco` varchar(100) NOT NULL,
-  PRIMARY KEY (`ID_Empresa`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `CNPJ` (`CNPJ`)
 
 );
@@ -60,9 +60,9 @@ CREATE TABLE IF NOT EXISTS `sensor` (
   `Quantidade` int(11) NOT NULL,
   `Data_instalacao` date DEFAULT NULL,
   `Status_sensor` tinyint(1) DEFAULT NULL,
-  `FK_Empresa` int(11) DEFAULT NULL,
+  `fk_empresa` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_Sensor`),
-  KEY `FK_Empresa` (`FK_Empresa`)
+  KEY `fk_empresa` (`fk_empresa`)
 
 );
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `sensor` (
 
 -- Copiando estrutura para tabela idcm.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
-  `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) DEFAULT NULL,
   `Sobrenome` varchar(100) DEFAULT NULL,
   `Telefone` varchar(100) DEFAULT NULL,
@@ -80,11 +80,11 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `Imagem` text,
   `Email` varchar(100) DEFAULT NULL,
   `Senha` varchar(25) DEFAULT NULL,
-  `FK_Empresa` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID_Usuario`),
+  `fk_empresa` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   UNIQUE KEY `Telefone` (`Telefone`),
   UNIQUE KEY `Email` (`Email`),
-  KEY `FK_Empresa` (`FK_Empresa`)
+  KEY `fk_empresa` (`fk_empresa`)
 );
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 

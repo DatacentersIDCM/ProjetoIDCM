@@ -1,32 +1,5 @@
-var usuarioModel = require("../models/usuarioModel");
-var empresaModel = require("../models/empresaModel");
-
-var sessoes = [];
-
-function testar(req, res) {
-  console.log("ENTRAMOS NA usuarioController");
-  res.json("ESTAMOS FUNCIONANDO!");
-}
-
-function listar(req, res) {
-  usuarioModel
-    .listar()
-    .then(function (resultado) {
-      if (resultado.length > 0) {
-        res.status(200).json(resultado);
-      } else {
-        res.status(204).send("Nenhum resultado encontrado!");
-      }
-    })
-    .catch(function (erro) {
-      console.log(erro);
-      console.log(
-        "Houve um erro ao realizar a consulta! Erro: ",
-        erro.sqlMessage
-      );
-      res.status(500).json(erro.sqlMessage);
-    });
-}
+const usuarioModel = require("../models/usuarioModel");
+const empresaModel = require("../models/empresaModel");
 
 function entrar(req, res) {
   var email = req.body.MyEmail;
@@ -121,7 +94,7 @@ function cadastrar(req, res) {
         empresaModel
           .listarUnicEmpresa(empresa)
           .then((dadosEmpresa) => {
-            const idEmpresa = dadosEmpresa[0].ID_Empresa;
+            const idEmpresa = dadosEmpresa[0].id;
             usuarioModel
               .casdastrarUsuario(nomeUser, email, senha, cargo, idEmpresa)
               .then((insertUser) => {
@@ -171,11 +144,37 @@ function cadastrar(req, res) {
 
 function myInformations(req, res) {
   const idUser = req.params.id;
-
   usuarioModel.myInformations(idUser).then((response) => {
     res.json({
       response,
     });
+  });
+}
+
+function recuperarSenha(req, res) {
+  const email = req.body.email;
+  const novaSenha = req.body.novaSenha;
+
+  usuarioModel.verifyEmail(email).then((response) => {
+    const tamanho = response.length;
+    if (tamanho > 0) {
+      usuarioModel.recuperarSenha(email, novaSenha).then((res2) => {
+        const stt = res2.affectedRows;
+        if (stt > 0) {
+          res.json({
+            mensagem: "success",
+          });
+        } else {
+          res.json({
+            mensagem: "error",
+          });
+        }
+      });
+    } else {
+      res.json({
+        mensagem: "email_inot",
+      });
+    }
   });
 }
 
@@ -201,8 +200,7 @@ function atualizarImg(req, res) {
 module.exports = {
   entrar,
   cadastrar,
-  listar,
-  testar,
   atualizarImg,
   myInformations,
+  recuperarSenha,
 };

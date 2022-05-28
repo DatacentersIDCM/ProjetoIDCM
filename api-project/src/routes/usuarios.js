@@ -3,11 +3,9 @@ var router = express.Router();
 
 var usuarioController = require("../controllers/usuarioController");
 
-router.get("/", usuarioController.testar);
-
-router.get("/listar", usuarioController.listar);
-
 router.get("/myinformation/:id", usuarioController.myInformations);
+
+router.post("/recuperarSenha", usuarioController.recuperarSenha);
 
 router.post("/cadastrar", usuarioController.cadastrar);
 

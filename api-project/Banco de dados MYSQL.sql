@@ -3,7 +3,7 @@ USE idcm;
 
 
 CREATE TABLE empresa (
-  ID_Empresa INT PRIMARY KEY AUTO_INCREMENT,
+  id INT PRIMARY KEY AUTO_INCREMENT,
   Nome_empresa varchar(100) NOT NULL,
   CNPJ varchar(20) UNIQUE NOT NULL,
   CEP varchar(20) NOT NULL,
@@ -16,12 +16,12 @@ CREATE TABLE assinatura (
   Status_assinatura tinyint(1) NOT NULL,
   Inicio date DEFAULT NULL,
   Vencimento date DEFAULT NULL,
-  FK_empresa int DEFAULT NULL,
-  FOREIGN KEY (FK_empresa) REFERENCES empresa(ID_Empresa)
+  fk_empresa int DEFAULT NULL,
+  FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
 CREATE TABLE usuario (
-  ID_Usuario int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   Nome varchar(100) DEFAULT NULL,
   Sobrenome varchar(100),
   Telefone varchar(100) UNIQUE,
@@ -29,8 +29,8 @@ CREATE TABLE usuario (
   Imagem text,
   Email varchar(100) UNIQUE DEFAULT NULL,
   Senha varchar(25) DEFAULT NULL,
-  FK_Empresa int DEFAULT NULL,
-  FOREIGN KEY (FK_Empresa) REFERENCES empresa(ID_Empresa)
+  fk_empresa int DEFAULT NULL,
+  FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
 CREATE TABLE sensor (
@@ -39,8 +39,8 @@ CREATE TABLE sensor (
   Quantidade int NOT NULL,
   Data_instalacao date DEFAULT NULL,
   Status_sensor tinyint(1) DEFAULT NULL,
-  FK_Empresa int DEFAULT NULL,
-  FOREIGN KEY (FK_Empresa) REFERENCES empresa(ID_Empresa)
+  fk_empresa int DEFAULT NULL,
+  FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
 CREATE TABLE registro (
