@@ -1,89 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IDCM</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IDCM</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/styleLogin.css" />
+    <link rel="stylesheet" href="./css/preloader.css" />
+    <link rel="stylesheet" href="./css/styleModal.css" />
+  </head>
 
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="./css/styleLogin.css" />
-  <link rel="stylesheet" href="./css/preloader.css" />
-  <link rel="stylesheet" href="./css/styleModal.css" />
-</head>
-
-<body>
-  <div id="preloader">
-    <div class="inner">
-      <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
-      <div class="bolas">
-        <div></div>
-        <div></div>
-        <div></div>
+  <body>
+    <div id="preloader">
+      <div class="inner">
+        <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
+        <div class="bolas">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     </div>
-  </div>
-  <header>
-    <nav>
-      <div class="logo"></div>
+    <header>
+      <nav>
+        <div class="logo"></div>
 
-      <ul>
-        <li><a class="now" href="login.html">login</a></li>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="calculator.html">Calculadora</a></li>
-      </ul>
-      <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
-      <button onclick="changeScreenLoginDark()" class="button2">
-        <img src="./assets/darkMode.png" alt="darkMode" />
-      </button>
-    </nav>
-  </header>
+        <ul>
+          <li><a class="now" href="login.html">login</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="calculator.html">Calculadora</a></li>
+        </ul>
+        <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
+        <button onclick="changeScreenLoginDark()" class="button2">
+          <img src="./assets/darkMode.png" alt="darkMode" />
+        </button>
+      </nav>
+    </header>
 
-  <div class="login">
-    <form action="">
-      <h1>Olá, Bem vindo</h1>
-      <div class="left">
-        <h3>Email:</h3>
-      </div>
-      <input class="inputLogin" type="email" id="inputEmail" />
-      <div class="left">
-        <h3>Senha:</h3>
-      </div>
-      <input class="inputPassword" type="password" id="inputPassword" />
-      <div class="row3">
-        <div>
-          <input class="inputCheck" onclick="remember()" id="rememberInput" type="radio" />Lembre me
+    <div class="login">
+      <form action="">
+        <h1>Olá, Bem vindo</h1>
+        <div class="left">
+          <h3>Email:</h3>
         </div>
-        <div>
-          <h3>
-            <a href="recoverPassword.html"><i style="color: #0099ff"> Esqueci a senha</i>
-            </a>
-          </h3>
+        <input class="inputLogin" type="email" id="inputEmail" />
+        <div class="left">
+          <h3>Senha:</h3>
         </div>
-      </div>
-      <button type="button" onclick="logar()" class="button5">Entrar</button>
-      <h3>
-        Não possui conta?
-        <a href="signUp.html"> <i style="color: #0099ff">Cadastre-se </i></a>
-      </h3>
-    </form>
-  </div>
-  <img class="wavesLogin" src="./assets/wavesLogin.svg" alt="wavesLogin" />
-  <div id="modal" class="modalBody">
-    <div class="modalReadPlus">
-      <div class="containerReadPlus">
-        <div class="modalCheck">
-          <img src="./assets/modalCheck.svg" id="imgModal" alt="check" />
+        <input class="inputPassword" type="password" id="inputPassword" />
+        <div class="row3">
+          <div>
+            <input
+              class="inputCheck"
+              onclick="remember()"
+              id="rememberInput"
+              type="radio"
+            />Lembre me
+          </div>
+          <div>
+            <h3>
+              <a href="recoverPassword.html"
+                ><i style="color: #0099ff"> Esqueci a senha</i>
+              </a>
+            </h3>
+          </div>
         </div>
-        <button onclick="buttonBack()" class="modalBack">&times;</button>
-      </div>
-      <h2 id="campo_alerta"></h2>
-      <button class="button8" onclick="buttonBack()">Fechar</button>
+        <button type="button" onclick="logar()" class="button5">Entrar</button>
+        <h3>
+          Não possui conta?
+          <a href="signUp.html"> <i style="color: #0099ff">Cadastre-se </i></a>
+        </h3>
+      </form>
     </div>
-  </div>
-</body>
-
+    <img class="wavesLogin" src="./assets/wavesLogin.svg" alt="wavesLogin" />
+    <div id="modal" class="modalBody">
+      <div class="modalReadPlus">
+        <div class="containerReadPlus">
+          <div class="modalCheck">
+            <img src="./assets/modalCheck.svg" id="imgModal" alt="check" />
+          </div>
+          <button onclick="buttonBack()" class="modalBack">&times;</button>
+        </div>
+        <h2 id="campo_alerta"></h2>
+        <button class="button8" onclick="buttonBack()">Fechar</button>
+      </div>
+    </div>
+  </body>
 </html>
 
 <script src="./js/changeScreens.js"></script>
@@ -96,7 +100,7 @@
   //      inputRemember.disable = "true"
   //  }
 
-  var loggIn = Number(sessionStorage.getItem("ID_USUARIO"));
+  var loggIn = Number(sessionStorage.getItem("id"));
 
   loggIn > 0 ? inLoggin() : null;
 
@@ -121,13 +125,13 @@
       }),
     }).then((response) => {
       response.json().then((json) => {
-        console.log(json);
         if (json.mensagem == "success") {
-          const idUser = json.resultado[0].ID_Usuario;
+          const idUser = json.resultado[0].id;
 
-          sessionStorage.ID_USUARIO = idUser;
+          sessionStorage.id = idUser;
+
           modal.style.display = "block";
-          imgModal.src = `./assets/modalCheck.svg`
+          imgModal.src = `./assets/modalCheck.svg`;
           campo_alerta.innerHTML = "Login efetuado com sucesso!";
           setTimeout(() => {
             window.location.href = "./dashboard.html";

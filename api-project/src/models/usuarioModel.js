@@ -1,11 +1,4 @@
-var database = require("../database/config");
-
-function listar() {
-  var instrucao = `
-        SELECT * FROM usuario;
-    `;
-  return database.executar(instrucao);
-}
+const database = require("../database/config");
 
 function entrar(email, senha) {
   var instrucao = `
@@ -18,21 +11,31 @@ function entrar(email, senha) {
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
 
 function casdastrarUsuario(nomeUser, email, senha, cargo, idEmpresa) {
-  const query = `INSERT INTO usuario (Nome, Cargo, Email, Senha, FK_Empresa)
+  const query = `INSERT INTO usuario (nome, cargo, email, senha, fk_empresa)
   VALUES ('${nomeUser}', '${cargo}', '${email}', '${senha}', ${idEmpresa})`;
 
   return database.executar(query);
 }
 
 function myInformations(idUser) {
-  const query = `SELECT * FROM usuario WHERE ID_Usuario = ${idUser}`;
+  const query = `SELECT * FROM usuario WHERE id = ${idUser}`;
 
   return database.executar(query);
 }
 
 function atualizarImg(idUser, img) {
-  const query = `UPDATE usuario SET Imagem = '${img}' WHERE ID_Usuario = ${idUser}`;
+  const query = `UPDATE usuario SET imagem = '${img}' WHERE id = ${idUser}`;
 
+  return database.executar(query);
+}
+
+function verifyEmail(email) {
+  const query = `SELECT email FROM usuario WHERE email = '${email}'`;
+  return database.executar(query);
+}
+
+function recuperarSenha(email, senha) {
+  const query = `UPDATE usuario SET senha = '${senha}' WHERE email = '${email}'`;
   return database.executar(query);
 }
 
@@ -40,6 +43,7 @@ module.exports = {
   entrar,
   casdastrarUsuario,
   myInformations,
-  listar,
   atualizarImg,
+  recuperarSenha,
+  verifyEmail,
 };

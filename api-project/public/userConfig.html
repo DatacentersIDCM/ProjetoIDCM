@@ -135,24 +135,9 @@
             </div>
           </div>
 
-          <div class="row3">
-            <div class="rowCenter">
-              <h4 class="h4Small">Nova senha:</h4>
-            </div>
-            <div class="rowCenter2">
-              <h4 class="h4Small">Repita a senha:</h4>
-            </div>
-          </div>
-          <div class="row3">
-            <div class="rowCenter">
-              <input class="input" type="text" />
-            </div>
-            <div class="rowCenter2">
-              <input class="input" type="text" />
-            </div>
-          </div>
-
-          <button class="button5">Atualizar informações</button>
+          <button onclick="AtualizarInformations()" class="button5">
+            Atualizar informações
+          </button>
         </div>
 
         <div class="subscription">
@@ -210,11 +195,11 @@
   carregando.innerHTML = `<img class="reloader" src="./assets/reload.gif" alt="FotoPerfil">`;
   setTimeout(() => {
     carregando.style.display = "none";
+    myEmpresa();
+    ListarAssinatura();
   }, 1000);
 
   listarInformations();
-  myEmpresa();
-  ListarAssinatura();
 
   function buttonBack() {
     modal.style.display = "none";
@@ -225,7 +210,7 @@
   }, 1000);
 
   function listarInformations() {
-    const idUser = sessionStorage.ID_USUARIO;
+    const idUser = sessionStorage.id;
 
     fetch(`http://localhost:3333/usuarios/myinformation/${idUser}`, {
       method: "GET",
@@ -234,13 +219,13 @@
       },
     }).then((response) => {
       response.json().then((data) => {
-        const nomeUser = data.response[0].Nome;
-        const sobrenomeUser = data.response[0].Sobrenome;
-        const CargoUser = data.response[0].Cargo;
-        const EmailUser = data.response[0].Email;
-        const TelefoneUser = data.response[0].Telefone;
-        const ImagemUser = data.response[0].Imagem;
-        const IdEmpresa = data.response[0].FK_Empresa;
+        const nomeUser = data.response[0].nome;
+        const sobrenomeUser = data.response[0].sobrenome;
+        const CargoUser = data.response[0].cargo;
+        const EmailUser = data.response[0].email;
+        const TelefoneUser = data.response[0].telefone;
+        const ImagemUser = data.response[0].imagem;
+        const IdEmpresa = data.response[0].fk_empresa;
         sessionStorage.setItem("fk_empresa", IdEmpresa);
         campo_nome.value = nomeUser;
         campo_sobrenome.value = sobrenomeUser;
@@ -271,8 +256,8 @@
       },
     }).then((response) => {
       response.json().then((data) => {
-        const nomeEmpresa = data.response[0].Nome_empresa;
-        const CnpjEmpresa = data.response[0].CNPJ;
+        const nomeEmpresa = data.response[0].nome;
+        const CnpjEmpresa = data.response[0].cnpj;
 
         campo_nome_empresa.value = nomeEmpresa;
         campo_cnpj.value = CnpjEmpresa;
@@ -290,9 +275,10 @@
       },
     }).then((response) => {
       response.json().then((data) => {
-        const plano_empresa = data.response[0].Plano;
-        const status_assinatura = data.response[0].Status_assinatura;
-        const vencimento = data.response[0].Vencimento;
+        console.log(data);
+        const plano_empresa = data.response[0].fk_assinatura;
+        const status_assinatura = data.response[0].status_ass;
+        const vencimento = data.response[0].renovacao;
 
         const myDate = new Date(vencimento);
 
@@ -327,7 +313,7 @@
 
   function salvarImagem() {
     const urlImg = attImg.value;
-    const idUser = sessionStorage.getItem("ID_USUARIO");
+    const idUser = sessionStorage.getItem("id");
 
     if (
       (urlImg != "" &&
@@ -384,5 +370,12 @@
         imgCircle.innerHTML = `<h1> URL Inválida! </h1>`;
       }
     }
+  }
+
+  function AtualizarInformations() {
+    const nome = campo_nome.value;
+    const sobrenome = campo_sobrenome.value;
+    const email = campo_email.value;
+    const telefone = campo_telefone.value;
   }
 </script>

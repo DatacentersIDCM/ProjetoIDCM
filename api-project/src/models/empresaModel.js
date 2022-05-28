@@ -1,40 +1,31 @@
-var database = require("../database/config");
+const database = require("../database/config");
 
 function cadastrarEmpresa(empresa, cnpj, cep) {
   const query = `
-          INSERT INTO empresa (Nome_empresa, CNPJ, CEP) VALUES ('${empresa}', '${cnpj}', '${cep}');
+          INSERT INTO empresa (nome, cnpj, cep) VALUES ('${empresa}', '${cnpj}', '${cep}');
       `;
   return database.executar(query);
 }
 
-function CreateAssinatura(
-  nome_assinature,
-  dateTime_atual,
-  dateTime_renovacao,
-  idEmpresa
-) {
-  const query = `INSERT INTO assinatura (Plano, Status_assinatura, Inicio, Vencimento, FK_empresa)
-    VALUES ('${nome_assinature}', 1, '${dateTime_atual}', '${dateTime_renovacao}',  ${idEmpresa})
+function CreateAssinatura(idEmpresa, idAssinatura, incio, renovacao) {
+  const query = `INSERT INTO plano (fk_empresa, fk_assinatura, status_ass, inicio, renovacao)
+    VALUES (${idEmpresa}, '${idAssinatura}', 1, '${incio}', '${renovacao}')
   `;
-
   return database.executar(query);
 }
 
 function listarUnicEmpresa(empresa) {
-  const query = `SELECT * FROM empresa WHERE Nome_empresa = '${empresa}'`;
-
+  const query = `SELECT * FROM empresa WHERE nome = '${empresa}'`;
   return database.executar(query);
 }
 
 function listarMyEmpresa(idEmpresa) {
-  const query = `SELECT * FROM empresa WHERE ID_Empresa = '${idEmpresa}'`;
-
+  const query = `SELECT * FROM empresa WHERE id = '${idEmpresa}'`;
   return database.executar(query);
 }
 
 function listarMyAssinature(idEmpresa) {
-  const query = `SELECT * FROM assinatura WHERE FK_Empresa = '${idEmpresa}'`;
-
+  const query = `SELECT * FROM plano WHERE fk_empresa = '${idEmpresa}'`;
   return database.executar(query);
 }
 
