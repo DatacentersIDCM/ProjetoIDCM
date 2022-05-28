@@ -197,10 +197,35 @@ function atualizarImg(req, res) {
   });
 }
 
+function atualizarInformation(req, res) {
+  const iduser = req.body.id;
+  const nome = req.body.nome;
+  const sobrenome = req.body.sobrenome;
+  const email = req.body.email;
+  const telefone = req.body.telefone;
+
+  usuarioModel
+    .atualizarInformation(iduser, nome, sobrenome, email, telefone)
+    .then((response) => {
+      const tamanho = response.affectedRows;
+
+      if (tamanho > 0) {
+        res.json({
+          mensagem: "success",
+        });
+      } else {
+        res.json({
+          mensagem: "error",
+        });
+      }
+    });
+}
+
 module.exports = {
   entrar,
   cadastrar,
   atualizarImg,
   myInformations,
   recuperarSenha,
+  atualizarInformation,
 };

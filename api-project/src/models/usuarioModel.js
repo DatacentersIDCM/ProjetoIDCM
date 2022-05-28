@@ -13,13 +13,11 @@ function entrar(email, senha) {
 function casdastrarUsuario(nomeUser, email, senha, cargo, idEmpresa) {
   const query = `INSERT INTO usuario (nome, cargo, email, senha, fk_empresa)
   VALUES ('${nomeUser}', '${cargo}', '${email}', '${senha}', ${idEmpresa})`;
-
   return database.executar(query);
 }
 
 function myInformations(idUser) {
   const query = `SELECT * FROM usuario WHERE id = ${idUser}`;
-
   return database.executar(query);
 }
 
@@ -39,11 +37,18 @@ function recuperarSenha(email, senha) {
   return database.executar(query);
 }
 
+function atualizarInformation(iduser, nome, sobrenome, email, telefone) {
+  const query = `UPDATE usuario SET nome = '${nome}', sobrenome = '${sobrenome}', 
+  email = '${email}', telefone = '${telefone}' WHERE id = ${iduser}`;
+  return database.executar(query);
+}
+
 module.exports = {
   entrar,
   casdastrarUsuario,
   myInformations,
   atualizarImg,
   recuperarSenha,
+  atualizarInformation,
   verifyEmail,
 };
