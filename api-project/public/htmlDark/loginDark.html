@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDCM</title>
+
+    <link rel="stylesheet" href="../css/styledark.css">
+    <link rel="stylesheet" href="../css/styleLoginDark.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+
+            <div class="logo">
+                <img src="../assets/logoDark.png" class="imgLogoDark" alt="logoLight">
+            </div>
+
+            <ul>
+                <li><a class="now" href="loginDark.html">login</a></li>
+                <li><a href="indexDark.html">Home</a></li>
+                <li><a href="calculatorDark.html">Calculadora</a></li>
+            </ul>
+            <button onclick="changeScreenSingIn()" class="button1">Entrar</button>
+            <button class="button2" onclick="changeScreenLogin()">
+                <img src="../assets/VectorSol.png" class="iconLightMode" alt="LightMode">
+            </button>
+        </nav>
+    </header>
+
+    <div class="login">
+
+
+        
+           
+            <form action="">
+                <h1>Olá, Bem vindo</h1>
+                <div class="left">
+                <h3>Email:</h3>
+            </div>
+                <input class="inputLogin" type="email"  id="inputEmail">
+                <div class="left">
+                <h3>Senha:</h3>
+            </div>
+                <input class="inputPassword" type="password" id="inputPassword">
+                <div class="row3">
+                <div>
+                    <input class="inputCheck" type="radio">Lembre me
+                </div>
+                    <div>
+                 <h3><a href="recoverPasswordDark.html"><i style="color: #0099FF;"> Esqueci a senha</i>  </a></h3>
+                </div>
+            </div>
+                <button type="button" onclick="a()" class="button5">Entrar</button>
+                <h3>Não possui conta? <a href="signUpDark.html"> <i style="color: #0099FF;">Cadastre-se </i></a></h3>
+            </form>
+    </div>
+    <img class="wavesLogin" src="../assets/wavesLogin.svg" alt="wavesLogin">
+
+
+    <script>
+       function changeScreenLogin() {
+        window.location.href = "../../Site Institucional/html/login.html";
+    }
+           
+        
+
+
+    </script>
