@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -23,171 +24,184 @@
           <li><a href="calculator.html">Calculadora</a></li>
         </ul>
         <button onclick="LoginOff()" class="button1">Sair</button>
-        <button class="button2">
+        <button onclick="changeScreenUserConfigDark()" class="button2">
           <img src="./assets/darkMode.png" alt="darkMode" />
         </button>
       </nav>
     </header>
 
-    <div class="main">
-      <div class="titleUser">
-        <h1>Configurações de usuário</h1>
-      </div>
 
-      <div class="mainCard">
-        <div class="userConfig">
-          <div class="centerImg">
-            <div id="imgCircle"></div>
-            <div id="carregando"></div>
-          </div>
-          <h2 id="nome_sobrenome"></h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IDCM</title>
 
-          <div class="upload-btn">
-            <div class="center">
-              <input
-                id="attImg"
-                onkeyup="mostrarImagem()"
-                placeholder="URL Imagem"
-              />
-              <button onclick="salvarImagem()" class="labelInput">
-                Salvar
-              </button>
-            </div>
-          </div>
+  <link rel="stylesheet" href="./css/styleUserConfig.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/styleModal.css" />
+</head>
 
-          <h2 class="h2Small">Infromações da Assinatura</h2>
-          <div class="row2">
-            <div class="column1">
-              <h2 class="h2Small">Plano</h2>
-              <h4 id="anos_assinatura" class="h4Small"></h4>
-            </div>
-            <div class="column2">
-              <h2 class="h2Small">Renovação do plano</h2>
-              <h4 id="data_renovacao" class="h4Small"></h4>
-            </div>
-            <div class="column3">
-              <h2 class="h2Small">Status</h2>
-              <h4 id="status_assis" class="h4Small"></h4>
-            </div>
-          </div>
-        </div>
+<body>
+  <header>
+    <nav>
+      <div class="logo"></div>
 
-        <div class="myProfile">
-          <h2 class="h2Profile">Meu perfil</h2>
-          <div class="row3">
-            <div class="rowCenter">
-              <h4 class="h4Small">Nome:</h4>
-            </div>
-            <div class="rowCenter2">
-              <h4 class="h4Small">Sobrenome:</h4>
-            </div>
-          </div>
-          <div class="row3">
-            <div class="rowCenter">
-              <input id="campo_nome" class="input" type="text" />
-            </div>
-            <div class="rowCenter2">
-              <input id="campo_sobrenome" class="input" type="text" />
-            </div>
-          </div>
+      <ul>
+        <li><a class="now" href="userConfig.html">Usuário</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">dashboard</a></li>
+        <li><a href="calculator.html">Calculadora</a></li>
+      </ul>
+      <button onclick="LoginOff()" class="button1">Sair</button>
+      <button class="button2">
+        <img src="./assets/darkMode.png" alt="darkMode" />
+      </button>
+    </nav>
+  </header>
 
-          <div class="row3">
-            <div class="rowCenter">
-              <h4 class="h4Small">Empresa:</h4>
-            </div>
-            <div class="rowCenter2">
-              <h4 class="h4Small">CNPJ:</h4>
-            </div>
-          </div>
-          <div class="row3">
-            <div class="rowCenter">
-              <input
-                id="campo_nome_empresa"
-                readonly="true"
-                class="input"
-                type="text"
-              />
-            </div>
-            <div class="rowCenter2">
-              <input
-                id="campo_cnpj"
-                readonly="true"
-                class="input"
-                type="text"
-              />
-            </div>
-          </div>
-
-          <div class="row3">
-            <div class="rowCenter">
-              <h4 class="h4Small">E-mail:</h4>
-            </div>
-            <div class="rowCenter2">
-              <h4 class="h4Small">Telefone:</h4>
-            </div>
-          </div>
-          <div class="row3">
-            <div class="rowCenter">
-              <input id="campo_email" class="input" type="text" />
-            </div>
-            <div class="rowCenter2">
-              <input id="campo_telefone" class="input" type="text" />
-            </div>
-          </div>
-
-          <button onclick="AtualizarInformations()" class="button5">
-            Atualizar informações
-          </button>
-        </div>
-
-        <div class="subscription">
-          <h4>Assinatura:<br />data+</h4>
-          <h2 class="h2Sub">$666666,66</h2>
-
-          <ul class="ul">
-            <h4 class="li">
-              <span style="color: #0099ff">◉</span> Suporte 24 hrs
-            </h4>
-            <h4 class="li">
-              <span style="color: #0099ff">◉</span> + Dashboards
-            </h4>
-            <h4 class="li">
-              <span style="color: #0099ff">◉</span> Relatórios ilimitados
-            </h4>
-            <h4 class="li">
-              <span style="color: #0099ff">◉</span> Manutenção 2x por mês
-            </h4>
-          </ul>
-
-          <button class="button5">Alterar plano</button>
-        </div>
-      </div>
+  <div class="main">
+    <div class="titleUser">
+      <h1>Configurações de usuário</h1>
     </div>
 
-    <div id="modal" class="modalBody">
-      <div class="modalReadPlus">
-        <div class="containerReadPlus">
-          <div class="modalCheck">
-            <img src="./assets/modalCheck.svg" alt="check" />
-          </div>
-          <button onclick="buttonBack()" class="modalBack">&times;</button>
+    <div class="mainCard">
+      <div class="userConfig">
+        <div class="centerImg">
+          <div id="imgCircle"></div>
+          <div id="carregando"></div>
         </div>
-        <h2 id="campo_alerta"></h2>
-        <button class="button8" onclick="buttonBack()">Fechar</button>
+        <h2 id="nome_sobrenome"></h2>
+
+        <div class="upload-btn">
+          <div class="center">
+            <input id="attImg" onkeyup="mostrarImagem()" placeholder="URL Imagem" />
+            <button onclick="salvarImagem()" class="labelInput">
+              Salvar
+            </button>
+          </div>
+        </div>
+
+        <h2 class="h2Small">Infromações da Assinatura</h2>
+        <div class="row2">
+          <div class="column1">
+            <h2 class="h2Small">Plano</h2>
+            <h4 id="anos_assinatura" class="h4Small"></h4>
+          </div>
+          <div class="column2">
+            <h2 class="h2Small">Renovação do plano</h2>
+            <h4 id="data_renovacao" class="h4Small"></h4>
+          </div>
+          <div class="column3">
+            <h2 class="h2Small">Status</h2>
+            <h4 id="status_assis" class="h4Small"></h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="myProfile">
+        <h4 class="h2Profile">Meu perfil</h4>
+        <div class="row3">
+          <div class="rowCenter">
+            <h4 class="h4Small">Nome:</h4>
+          </div>
+          <div class="rowCenter2">
+            <h4 class="h4Small">Sobrenome:</h4>
+          </div>
+        </div>
+        <div class="row3">
+          <div class="rowCenter">
+            <input id="campo_nome" class="input" type="text" />
+          </div>
+          <div class="rowCenter2">
+            <input id="campo_sobrenome" class="input" type="text" />
+          </div>
+        </div>
+
+        <div class="row3">
+          <div class="rowCenter">
+            <h4 class="h4Small">Empresa:</h4>
+          </div>
+          <div class="rowCenter2">
+            <h4 class="h4Small">CNPJ:</h4>
+          </div>
+        </div>
+        <div class="row3">
+          <div class="rowCenter">
+            <input id="campo_nome_empresa" readonly="true" class="input" type="text" />
+          </div>
+          <div class="rowCenter2">
+            <input id="campo_cnpj" readonly="true" class="input" type="text" />
+          </div>
+        </div>
+
+        <div class="row3">
+          <div class="rowCenter">
+            <h4 class="h4Small">E-mail:</h4>
+          </div>
+          <div class="rowCenter2">
+            <h4 class="h4Small">Telefone:</h4>
+          </div>
+        </div>
+        <div class="row3">
+          <div class="rowCenter">
+            <input id="campo_email" class="input" type="text" />
+          </div>
+          <div class="rowCenter2">
+            <input id="campo_telefone" class="input" type="text" />
+          </div>
+        </div>
+
+        <button onclick="AtualizarInformations()" class="button5">
+          Atualizar informações
+        </button>
+      </div>
+
+      <div class="subscription">
+        <h4>Funcionários:<span> 1</span></h4>
+        <h4>Adicionar Funcionarios</h4>
+        <div class="divCombo">
+          <select class="combo">
+            <option value="1">Funcionario</option>
+            <option value="2">Admin</option>
+          </select>
+          <div class="column">
+          <input id="addNome" class="inputAdd" type="text" placeholder="Nome" />
+          <input id="addSobrenome" class="inputAdd" type="text" placeholder="Sobrenome" />
+          <input id="addTelefone" class="inputAdd" type="text" placeholder="Telefone" />
+          <input id="addEmail" class="inputAdd" type="text" placeholder="Email" />
+        </div>
+      </div>
+
+
+        <button class="button5">Adicionar</button>
       </div>
     </div>
+  </div>
 
-    <img class="wavesLogin" src="./assets/wavesLogin.svg" alt="wavesLogin" />
-  </body>
+  <div id="modal" class="modalBody">
+    <div class="modalReadPlus">
+      <div class="containerReadPlus">
+        <div class="modalCheck">
+          <img src="./assets/modalCheck.svg" alt="check" />
+        </div>
+        <button onclick="buttonBack()" class="modalBack">&times;</button>
+      </div>
+      <h2 id="campo_alerta"></h2>
+      <button class="button8" onclick="buttonBack()">Fechar</button>
+    </div>
+  </div>
+
+  <img class="wavesLogin" src="./assets/wavesLogin.svg" alt="wavesLogin" />
+</body>
+
 </html>
 
 <script src="./js/changeScreens.js"></script>
 
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
   integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-  crossorigin="anonymous"
-></script>
+  crossorigin="anonymous"></script>
 
 <script>
   var ImagemUser = false;
@@ -379,3 +393,8 @@
     const telefone = campo_telefone.value;
   }
 </script>
+
+</script>
+
+<script src="./js/changeScreens.js"></script>
+
