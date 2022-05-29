@@ -129,6 +129,7 @@
           const idUser = json.resultado[0].id;
 
           sessionStorage.id = idUser;
+          sessionStorage.fk_empresa = json.resultado[0].fk_empresa
 
           modal.style.display = "block";
           imgModal.src = `./assets/modalCheck.svg`;
