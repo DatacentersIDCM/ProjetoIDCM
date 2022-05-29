@@ -179,11 +179,21 @@
     </div>
   </div>
 
+
+    <div id="modal" class="modalBody">
+      <div class="modalReadPlus">
+        <div class="containerReadPlus">
+          <div class="modalCheck" id="modalCheck">
+            <img src="./assets/modalCheck.svg" alt="check" />
+          </div>
+          <button onclick="buttonBack()" class="modalBack">&times;</button>
+
   <div id="modal" class="modalBody">
     <div class="modalReadPlus">
       <div class="containerReadPlus">
         <div class="modalCheck">
           <img src="./assets/modalCheck.svg" alt="check" />
+
         </div>
         <button onclick="buttonBack()" class="modalBack">&times;</button>
       </div>
@@ -387,10 +397,44 @@
   }
 
   function AtualizarInformations() {
+    const id = sessionStorage.getItem("id");
     const nome = campo_nome.value;
     const sobrenome = campo_sobrenome.value;
     const email = campo_email.value;
     const telefone = campo_telefone.value;
+
+    fetch("http://localhost:3333/usuarios/atualizarInformation", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id,
+        nome,
+        sobrenome,
+        email,
+        telefone,
+      }),
+    }).then((response) => {
+      response.json().then((data) => {
+        const msg = data.mensagem;
+
+        if (msg == "success") {
+          listarInformations();
+          modalCheck.innerHTML = `
+            <img src="./assets/modalCheck.svg" alt="check" />
+          `;
+          campo_alerta.innerHTML = `Informações atualizadas com sucesso`;
+        } else {
+          modalCheck.innerHTML = `
+            <img src="./assets/dangerModal.avg" alt="check" />
+          `;
+          campo_alerta.innerHTML = `Erro ao atualizar as informações`;
+        }
+
+        modal.style.display = "block";
+      });
+    });
   }
 </script>
 
