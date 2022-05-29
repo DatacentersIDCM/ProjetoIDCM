@@ -1,0 +1,139 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+.main {
+  padding-top: 9%;
+  width: 100%;
+  height: flex;
+  display: flex;
+  flex-direction: row;
+  background-color: #f5f5f5;
+}
+.sidebar {
+  background-color: #ffffff;
+  border-radius: 50px;
+  width: 26vw;
+  height: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.imgUser {
+  margin-top: 14%;
+  margin-bottom: 3%;
+  border-radius: 60px;
+  width: 200px;
+}
+
+.reloader {
+  margin-top: 14%;
+  margin-bottom: 3%;
+  border-radius: 60px;
+  width: 300px;
+  height: 200px;
+}
+
+.sidebar h2 {
+  font-size: 26px;
+}
+.row {
+  height: 7vh;
+  width: 90%;
+  justify-content: flex-start;
+  margin-top: 8%;
+}
+
+.row2 {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14%;
+}
+
+.button5 {
+  font-family: "Poppins", sans-serif;
+  width: 4vw;
+  height: 10vh;
+  background: #0099ff;
+  border-color: transparent;
+  border-radius: 16px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42px;
+  text-align: center;
+  color: #ffffff;
+}
+.button7 {
+  height: 10%;
+  background-color: transparent;
+  border-color: transparent;
+}
+.dashboard {
+  background-color: #f5f5f5;
+  width: 74vw;
+  height: flex;
+}
+.dashboard h4 {
+  font-size: 16px;
+}
+.row8 {
+  height: 18vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 4%;
+}
+.dash1 {
+  background-color: #fff;
+  width: 24%;
+  height: flex;
+  border: 1px solid rgba(50, 50, 50, 0.2);
+  box-sizing: border-box;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+}
+.rowDash {
+  display: flex;
+  flex-direction: row;
+}
+.dash2 {
+  background-color: #fff;
+  width: 24%;
+  height: flex;
+  border: 1px solid rgba(50, 50, 50, 0.2);
+  box-sizing: border-box;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dash3 {
+  background-color: #fff;
+  width: 24%;
+  height: flex;
+  border: 1px solid rgba(50, 50, 50, 0.2);
+  box-sizing: border-box;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dash {
+  margin-top: 3%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}

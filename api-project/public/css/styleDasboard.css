@@ -222,36 +222,137 @@ h1 {
   overflow-y: scroll;
   padding-top: 5%;
   padding-left: 8%;
+  display: flex;
+  flex-direction: column;
 }
 
 .card {
   margin-top: 4%;
-  width: 28vw;
-  height: 32vh;
+  width: 13.7vw;
+  height: 24vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   text-align: center;
+  border: #FFFFFF;
 }
 
 .rowCard {
   display: flex;
   flex-direction: row;
-  gap: 4%;
+  gap: 2%;
+}
+.rowCard h4 {
+  font-size: 1.1em;
 }
 
 .rowCard h1 {
-  font-size: 1.6em;
+  font-size: 1.2em;
 }
 
 .cardDashboard {
   margin-top: 5%;
   width: 58.5vw;
-  height: 50vh;
+  height: 400px;
   background: #FFFFFF;
-  border: 2px solid rgba(50, 50, 50, 0.2);
   box-sizing: border-box;
   border-radius: 40px;
   margin-bottom: 2%;
+}
+.containerGrafico{
+  width: 100%;
+  height: 100%;
+}
+.titulo1{
+  text-align: center;
+}
+
+=======
+.titleMetricas {
+  margin-top: 4%;
+}
+.metricas {
+  width: 91%;
+  height: flex;
+  display: flex;
+  flex-direction: row;
+}
+.metricas h4 {
+  color: #FFFFFF;
+  font-size: 19px;
+}
+.metrica1 {
+  width: 8.3vw;
+  height: 20vh;
+  background-color: #132e40;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.metrica2 {
+  width: 8.3vw;
+  height: 20vh;
+  background-color: #115B8C;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.metrica3 {
+  width: 8.3vw;
+  height: 20vh;
+  background-color: #208fda;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.metrica4 {
+  width: 8.3vw;
+  height: 20vh;
+  background-color: #119c3b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.metrica5 {
+  width: 8.3vw;
+  height: 20vh;
+  background-color: #d4db0b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.metrica6 {
+  width: 8.3vw;
+  height: 20vh;
+  background-color: #da9f20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.metrica7 {
+  width: 8.3vw;
+  height: 20vh;
+  background-color: #d41818;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
