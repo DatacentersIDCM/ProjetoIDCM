@@ -9,5 +9,6 @@ router.post("/realtime", medidaController.buscarMetricas);
 
 router.post("/atualizartime", medidaController.buscarMetricasTempoReal);
 
+router.post("/max_min_metricas", medidaController.buscarMaxMin);
 
 module.exports = router;

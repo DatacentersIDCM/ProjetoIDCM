@@ -419,6 +419,7 @@
       response.json().then((data) => {
         const msg = data.mensagem;
 
+          console.log(msg);
         if (msg == "success") {
           listarInformations();
           modalCheck.innerHTML = `
@@ -432,7 +433,7 @@
           campo_alerta.innerHTML = `Erro ao atualizar as informações`;
         }
 
-        modal.style.display = "block";
+        modal.style = "display: block";
       });
     });
   }
