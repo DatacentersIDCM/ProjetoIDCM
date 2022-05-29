@@ -197,6 +197,8 @@ function atualizarImg(req, res) {
   });
 }
 
+
+
 module.exports = {
   entrar,
   cadastrar,
