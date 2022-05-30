@@ -301,7 +301,7 @@
 
 </html>
 
-<!-- <script>
+ <script>
     function screenConfig() {
         window.location.href = `userConfig.html`
     }
@@ -310,7 +310,7 @@
         window.location.href = `login.html`
     }
 </script>
-
+<!--
 <script>
     const labels = [
         '1',
@@ -385,34 +385,34 @@
             datasets: [
                 {
                     yAxisID: 'y-temperatura',
-                    label: 'temperatura',
-                    borderColor: '#e63946',
-                    backgroundColor: '#ff595f73',
+                    label: 'rack1 temperatura',
+                    borderColor: '#FF0000',
+                    backgroundColor: '#FF0000',
                     fill: false,
                     data: []
                 },
                 {
                     yAxisID: 'y-temperatura',
-                    label: 'Temperatura',
-                    borderColor: '#e63946',
-                    backgroundColor: '#ff595f73',
-                    fill: true,
+                    label: 'rack2 temperatura',
+                    borderColor: '#FF2800',
+                    backgroundColor: '#FF2800',
+                    fill: false,
                     data: []
                 },
                 {
                     yAxisID: 'y-temperatura',
-                    label: 'Temperatura',
-                    borderColor: '#e63946',
-                    backgroundColor: '#ff595f73',
-                    fill: true,
+                    label: 'rack3 temperatura',
+                    borderColor: '#FFA500',
+                    backgroundColor: '#FFA500',
+                    fill:false,
                     data: []
                 },
                 {
                     yAxisID: 'y-temperatura',
-                    label: 'Temperatura',
-                    borderColor: '#e63946',
-                    backgroundColor: '#ff595f73',
-                    fill: true,
+                    label: 'rack4 temperatura',
+                    borderColor: '#FBA31A',
+                    backgroundColor: '#FBA31A',
+                    fill: false,
                     data: []
                 }
             ]
@@ -422,16 +422,16 @@
         for (contador = 0; contador < resposta.length; contador++) {
             var registro = resposta[contador];
             // dados.labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[1].data.push(registro.umidade);
-            dados.datasets[2].data.push(registro.umidade);
-            dados.datasets[3].data.push(registro.umidade);
+            dados.datasets[0].data.push(registro.temperatura);
+            dados.datasets[1].data.push(registro.temperatura);
+            dados.datasets[2].data.push(registro.temperatura);
+            dados.datasets[3].data.push(registro.temperatura);
 
         }
 
 
         var ctx = graficoDados1.getContext('2d');
-        window.grafico_linha = Chart.Bar(ctx, {
+        window.grafico_bar = Chart.Bar(ctx, {
             data: dados,
             options: {
                 responsive: true,
@@ -503,28 +503,37 @@
             if (response.ok) {
                 response.json().then((novoRegistro) => {
 
-                    const registros = novoRegistro.response;
                     // dados.datasets[0].data = [];
                     // dados.datasets[1].data = [];
 
                     // dados.labels.shift(); // apagar o primeiro
                     // dados.labels.push(registro[0].momento_grafico); // incluir um novo momento
 
-                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                    dados.datasets[0].data.push(registro[0].umidade); // incluir uma nova medida de umidade
+                    const registros = novoRegistro.response;
+                    console.log(registros);
+                        dados.datasets[0].data = [];
+                        dados.datasets[1].data = [];
+                        dados.datasets[2].data = [];
+                        dados.datasets[3].data = [];
 
-                    dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                    dados.datasets[1].data.push(registro[0].temperatura)
+                    for (i = 0; i < registros.length; i++) {
+                        var registro = registros[i];
+                        dados.datasets[0].data.push(registro.temperatura);
+                        dados.datasets[1].data.push(registro.temperatura);
+                        dados.datasets[2].data.push(registro.temperatura);
+                        dados.datasets[3].data.push(registro.temperatura);
+                    }
 
 
-                    window.grafico_linha.update();
 
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idEmpresa, resposta), 2000);
+                    window.grafico_bar.update();
+
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idEmpresa, resposta, dados), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idEmpresa, resposta), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idEmpresa, resposta, dados), 2000);
             }
         })
             .catch((error) => {
@@ -532,6 +541,14 @@
             });
 
     }
+
+
+
+
+
+
+
+
 
 //Obter Media em Tempo Real
 
@@ -541,13 +558,13 @@ if (proximaAtualizacao != undefined) {
     clearTimeout(proximaAtualizacao);
 }
 
-fetch(`http://localhost:3333/mediaTempoReal/${idEmpresa}`, {
+fetch(`http://localhost:3333/medidas/mediaTempoReal/${idEmpresa}`, {
 }).then((response) => {
     if (response.ok) {
         response.json().then((resposta) => {
             const dados = resposta.response
             console.log(dados);
-            plotarGraficoGraficoMedia(idEmpresa, resposta);
+            plotarGraficoGraficoMedia(idEmpresa, dados);
         });
     } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -565,33 +582,33 @@ var dados = {
     datasets: [
         {
             yAxisID: 'y-umidade',
-            label: 'Umidade',
-            borderColor: '#e63946',
-            backgroundColor: '#ff595f73',
+            label: 'rack1 umidade',
+            borderColor: '#0000FF',
+            backgroundColor: '#0000FF',
             fill: false,
             data: []
         },
         {
             yAxisID: 'y-umidade',
-            label: 'umidade',
-            borderColor: '#e63946',
-            backgroundColor: '#ff595f73',
+            label: 'rack2 umidade',
+            borderColor: '#054F77',
+            backgroundColor: '#054F77',
             fill: true,
             data: []
         },
         {
             yAxisID: 'y-umidade',
-            label: 'umidade',
-            borderColor: '#e63946',
-            backgroundColor: '#ff595f73',
+            label: 'rack3 umidade',
+            borderColor: '#4169E1',
+            backgroundColor: '#4169E1',
             fill: true,
             data: []
         },
         {
             yAxisID: 'y-umidade',
-            label: 'umidade',
-            borderColor: '#e63946',
-            backgroundColor: '#ff595f73',
+            label: 'rack4 umidade',
+            borderColor: '#87CEEB',
+            backgroundColor: '#87CEEB',
             fill: true,
             data: []
         }
@@ -611,7 +628,7 @@ for (contador = 0; contador < resposta.length; contador++) {
 
 
 var ctx = graficoDados2.getContext('2d');
-window.grafico_bar = Chart.Bar(ctx, {
+window.grafico_bar2 = Chart.Bar(ctx, {
     data: dados,
     options: {
         responsive: true,
@@ -627,7 +644,7 @@ window.grafico_bar = Chart.Bar(ctx, {
                 type: 'linear',
                 display: true,
                 position: 'left',
-                id: 'y-umidade',
+                id: 'y-medidas',
                 ticks: {
                     beginAtZero: true,
                     max: 100,
@@ -683,28 +700,35 @@ fetch(`http://localhost:3333/medidas/mediaTempoReal/${idEmpresa}`, {
     if (response.ok) {
         response.json().then((novoRegistro) => {
 
-            const registros = novoRegistro.response;
             // dados.datasets[0].data = [];
             // dados.datasets[1].data = [];
 
             // dados.labels.shift(); // apagar o primeiro
             // dados.labels.push(registro[0].momento_grafico); // incluir um novo momento
 
-            dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-            dados.datasets[0].data.push(registro[0].umidade); // incluir uma nova medida de umidade
+            const registros2 = novoRegistro.response;
+            console.log(registros2)
+                        dados.datasets[0].data = [];
+                        dados.datasets[1].data = [];
+                        dados.datasets[2].data = [];
+                        dados.datasets[3].data = [];
 
-            dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-            dados.datasets[1].data.push(registro[0].temperatura)
+                    for (i = 0; i < registros2.length; i++) {
+                        var registro2 = registros2[i];
+                        dados.datasets[0].data.push(registro2.umidade);
+                        dados.datasets[1].data.push(registro2.umidade);
+                        dados.datasets[2].data.push(registro2.umidade);
+                        dados.datasets[3].data.push(registro2.umidade);
+                    }
 
+            window.grafico_bar2.update();
 
-            window.grafico_bar.update();
-
-            proximaAtualizacao = setTimeout(() => atualizarGraficoGraficoMedia(idEmpresa, resposta), 2000);
+            proximaAtualizacao = setTimeout(() => atualizarGraficoGraficoMedia(idEmpresa, resposta, dados), 2000);
         });
     } else {
         console.error('Nenhum dado encontrado ou erro na API');
         // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-        proximaAtualizacao = setTimeout(() => atualizarGraficoGraficoMedia(idEmpresa, resposta), 2000);
+        proximaAtualizacao = setTimeout(() => atualizarGraficoGraficoMedia(idEmpresa, resposta, dados), 2000);
     }
 })
     .catch((error) => {
