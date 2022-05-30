@@ -126,6 +126,13 @@ canvas {
   height: 100%;
 }
 
+.grafico1 {
+  overflow: hidden;
+  height: 300px;
+  width: 100%;
+  border-radius: 0px 0px 20px 20px;
+}
+
 .rack:active {
   top: 2px;
 }
@@ -247,18 +254,14 @@ canvas {
 }
 
 .cardDashboard {
-  margin-top: 5%;
-  width: 58.5vw;
-  height: 50vh;
-  background: #ffffff;
-  border: 2px solid rgba(50, 50, 50, 0.2);
-  box-sizing: border-box;
-  border-radius: 40px;
-  margin-bottom: 2%;
+ width: 700px;
+ background-color: #fff;
+ padding: 20px;
+ border-radius: 20px;
+ margin-top: 5px;
 }
 .containerGrafico {
   width: 100%;
-  height: 100%;
 }
 .titulo1 {
   text-align: center;

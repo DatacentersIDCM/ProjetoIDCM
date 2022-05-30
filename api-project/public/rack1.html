@@ -76,10 +76,10 @@
                 <div class="titulo1">
                     <h1>Umidade e Temperatura Atual </h1>
                 </div>
-                <div class="grafico1">
-                    <canvas id="graficoDados1"  height="350"></canvas>
+                <div  class="grafico1">
+                    <canvas  id="graficoDados1"></canvas>
                 </div>
-            </div>
+            </div> 
         </div>
         <div class="cardDashboard">
             <div class="containerGrafico2">
@@ -430,12 +430,12 @@
                             
                     window.grafico_bar.update();
 
-                    proximaAtualizacao = setTimeout(() => atualizarGraficoMaxMin(idEmpresa,idRack,dados), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGraficoMaxMin(idEmpresa,idRack,dados), 20000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGraficoMaxMin(idEmpresa,idRack,dados), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGraficoMaxMin(idEmpresa,idRack,dados), 20000);
             }
         })
             .catch((error) => {
