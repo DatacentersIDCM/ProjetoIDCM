@@ -11,4 +11,8 @@ router.post("/atualizartime", medidaController.buscarMetricasTempoReal);
 
 router.post("/max_min_metricas", medidaController.buscarMaxMin);
 
+router.get("/media/:idEmpresa", medidaController.buscarMedia);
+
+router.get("/mediaTempoReal/:idEmpresa", medidaController.buscarMediaRealTime);
+
 module.exports = router;
