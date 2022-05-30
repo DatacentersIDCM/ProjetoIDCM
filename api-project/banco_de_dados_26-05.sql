@@ -40,7 +40,8 @@ primary key (fk_empresa, fk_assinatura)
 CREATE TABLE sensor(
 id int primary key auto_increment,
 rack int,
-status int
+status INT,
+fk_empresa INT, FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
 CREATE TABLE metrica (
