@@ -127,10 +127,43 @@ function buscarMaxMin(req, res) {
     });
 }
 
+
+function buscarMedia(req, res){
+  const idEmpresa = req.params.idEmpresa;
+  medidaModel.buscarMedia(idEmpresa).then((response) => {
+    res.json({response})
+  }).catch((erro) => {
+    console.log(erro);
+      console.log(
+        "Houve um erro ao buscar as media atualizadas.",
+        erro.sqlMessage
+      );
+      res.status(500).json(erro.sqlMessage);
+  })
+}
+
+
+function buscarMediaRealTime(req, res){
+  const idEmpresa = req.params.idEmpresa;
+  medidaModel.buscarMediaRealTime(idEmpresa).then((response) => {
+    res.json({response})
+  }).catch((erro) => {
+    console.log(erro);
+      console.log(
+        "Houve um erro ao buscar as media atualizadas em tempo real.",
+        erro.sqlMessage
+      );
+      res.status(500).json(erro.sqlMessage);
+  })
+}
+
+
 module.exports = {
   buscarUltimasMedidas,
   buscarMetricas,
   buscarMedidasEmTempoReal,
   buscarMetricasTempoReal,
   buscarMaxMin,
+  buscarMedia,
+  buscarMediaRealTime,
 };

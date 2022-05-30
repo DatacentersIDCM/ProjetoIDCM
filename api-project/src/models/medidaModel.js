@@ -50,10 +50,30 @@ function buscarMaxMin(idEmpresa, idRack) {
   return database.executar(query);
 }
 
+function buscarMedia(idEmpresa){
+  const query = `select empresa.nome, round(avg(temperatura),2) as temperatura, round(avg(umidade),2) as umidade from empresa 
+  join metrica on metrica.fk_empresa = empresa.id
+  join sensor on sensor.id = metrica.fk_sensor where empresa.id = ${idEmpresa} group by fk_sensor`
+
+  return database.executar(query);
+}
+
+function buscarMediaRealTime(idEmpresa){
+  const query = `select empresa.nome, round(avg(temperatura),2) as temperatura, round(avg(umidade),2) as umidade from empresa 
+  join metrica on metrica.fk_empresa = empresa.id
+  join sensor on sensor.id = metrica.fk_sensor where empresa.id = ${idEmpresa} group by fk_sensor`
+
+  return database.executar(query);
+}
+
+
+
 module.exports = {
   buscarUltimasMedidas,
   buscarMedidasEmTempoReal,
   buscarMetricas,
   buscarMetricasTempoReal,
   buscarMaxMin,
+  buscarMedia,
+  buscarMediaRealTime,
 };
