@@ -28,7 +28,7 @@ function buscarMedidasEmTempoReal(idAquario) {
 function buscarMetricas(idEmpresa, idRack) {
   const query = `SELECT M.temperatura, M.umidade, DATE_FORMAT(M.date_time,'%H:%i:%s') as momento_grafico FROM metrica AS M 
     JOIN sensor AS S ON S.id = M.fk_sensor 
-    WHERE M.fk_empresa = ${idEmpresa} AND S.rack = ${idRack} ORDER BY M.date_time ASC`;
+    WHERE M.fk_empresa = ${idEmpresa} AND S.rack = ${idRack} ORDER BY M.date_time ASC LIMIT 7`;
 
   return database.executar(query);
 }
