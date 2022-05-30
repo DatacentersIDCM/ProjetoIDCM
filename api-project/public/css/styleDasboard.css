@@ -10,7 +10,7 @@ body {
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: #0099FF;
+  background-color: #0099ff;
   /* color of the scroll thumb */
   border-radius: 120px;
   /* roundness of the scroll thumb */
@@ -27,14 +27,14 @@ body {
   justify-content: center;
   justify-items: center;
   align-items: center;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 16px;
   overflow-y: scroll;
   padding-top: 20%;
 }
 
 h1 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 800;
   font-size: 32px;
@@ -52,7 +52,6 @@ h1 {
   justify-content: right;
   margin-left: 8%;
   margin-bottom: 40%;
-
 }
 
 .alignTitles {
@@ -81,14 +80,13 @@ h1 {
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
-    7px 7px 20px 0px rgba(0, 0, 0, .1),
-    4px 4px 5px 0px rgba(0, 0, 0, .1);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
 }
 
 .rack h1 {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .rack {
@@ -106,8 +104,8 @@ h1 {
   left: 0;
   z-index: -1;
   border-radius: 16px;
-  background-color: #0099FF;
-  background-image: linear-gradient(315deg, #0099FF 0%, #0099FF 74%);
+  background-color: #0099ff;
+  background-image: linear-gradient(315deg, #0099ff 0%, #0099ff 74%);
   box-shadow: transparent;
   transition: all 0.3s ease;
 }
@@ -126,7 +124,6 @@ h1 {
   top: 2px;
 }
 
-
 .rowRacks {
   display: flex;
   width: 100%;
@@ -142,19 +139,19 @@ h1 {
   height: 16vh;
   margin-bottom: 30%;
   border-radius: 16px;
-  color: #FFFFFF;
+  color: #ffffff;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   text-align: center;
   font-size: 30px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 800;
   font-size: 1.6em;
   line-height: 48px;
-  color: #FFFFFF;
+  color: #ffffff;
   gap: 10%;
   position: relative;
   background: transparent;
@@ -165,7 +162,7 @@ h1 {
   z-index: 1;
 }
 .buttonSidebarConfig h1 {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .buttonSidebarConfig:after {
@@ -177,8 +174,8 @@ h1 {
   right: 0;
   z-index: -1;
   border-radius: 16px;
-  background-color: #0099FF;
-  background-image: linear-gradient(315deg, #0099FF 0%, #0099FF 74%);
+  background-color: #0099ff;
+  background-image: linear-gradient(315deg, #0099ff 0%, #0099ff 74%);
   box-shadow: transparent;
   transition: all 0.3s ease;
 }
@@ -210,14 +207,14 @@ h1 {
 }
 
 .main::-webkit-scrollbar-thumb {
-  background-color: #0099FF;
+  background-color: #0099ff;
   border-radius: 120px;
   border: 3px solid white;
 }
 
 .main {
   width: 70vw;
-  background-color: #F4F6F8;
+  background-color: #f4f6f8;
   border-radius: 16px;
   overflow-y: scroll;
   padding-top: 5%;
@@ -235,7 +232,7 @@ h1 {
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  border: #FFFFFF;
+  border: #ffffff;
 }
 
 .rowCard {
@@ -251,24 +248,33 @@ h1 {
   font-size: 1.2em;
 }
 
-.cardDashboard {
-  margin-top: 5%;
-  width: 58.5vw;
-  height: 400px;
-  background: #FFFFFF;
-  box-sizing: border-box;
-  border-radius: 40px;
-  margin-bottom: 2%;
+#center {
+  display: flex;
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
-.containerGrafico{
+
+.cardDashboard {
+  width: 700px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 5px;
+}
+.containerGrafico {
   width: 100%;
   height: 100%;
 }
-.titulo1{
+.titulo1 {
   text-align: center;
 }
 
-=======
+.grafico1 {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 0px 0px 20px 20px;
+}
+
 .titleMetricas {
   margin-top: 4%;
 }
@@ -279,7 +285,7 @@ h1 {
   flex-direction: row;
 }
 .metricas h4 {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 19px;
 }
 .metrica1 {
@@ -297,7 +303,7 @@ h1 {
 .metrica2 {
   width: 8.3vw;
   height: 20vh;
-  background-color: #115B8C;
+  background-color: #115b8c;
   display: flex;
   flex-direction: column;
   align-items: center;
