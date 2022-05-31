@@ -4,6 +4,6 @@
     "private": true,
     "scripts": {
       "start": "node .api-project/site/app.js",
-      "postinstall": "cd site && npm install"
+      "postinstall": "cd api-project/site && npm install"
     }
   }
