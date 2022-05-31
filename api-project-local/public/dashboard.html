@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IDCM</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/preloader.css">
+    <link rel="stylesheet" href="./css/styleDasboard.css">
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="rowImg">
+            <div class="alignTitles">
+                <h1 id="empresa"></h1>
+                <h4 id="nome_sobrenome"></h4>
+                <h4 id="email_user"></h4>
+            </div>
+            <div class="rowTitle" id="imagem_user"></div>
+        </div>
+        <h1 class="h1Admin">Admin</h1>
+        <div class="alignTitles">
+            <h1>Racks</h1>
+            <div class="rowRacks">
+                <div class="rack" onclick="window.location.href=`rack1.html`">
+                    <h1>1</h1>
+                </div>
+                <div class="rack" onclick="window.location.href=`rack2.html`">
+                    <h1>2</h1>
+                </div>
+            </div>
+
+            <div class="rowRacks">
+                <div class="rack" onclick="window.location.href=`rack3.html`">
+                    <h1>3</h1>
+                </div>
+                <div class="rack" onclick="window.location.href=`rack4.html`">
+                    <h1>4</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="divButton">
+            <button class="buttonSidebarConfig" onclick="screenConfig()">
+                <img src="assets/iconConfig2.svg" alt="">
+                Configurações
+            </button>
+        </div>
+
+        <div class="divButton">
+            <button class="buttonSidebarConfig" onclick="screenLogin()">
+                <img src="assets/iconExit.svg" alt="">
+                Sair
+            </button>
+        </div>
+    </div>
+
+
+    <div class="main">
+        <h1>Home</h1>
+
+        <h1 class="titleMetricas">Métricas Temperatura </h1>
+        <div class="metricas">
+            <div class="metrica1">
+                <h4>Crítico</h4>
+                <h4>
+                    < 13 </h4>
+            </div>
+            <div class="metrica2">
+                <h4>Emergêncial</h4>
+                <h4>
+                    < 15 </h4>
+            </div>
+            <div class="metrica3">
+                <h4>Alerta</h4>
+                <h4>
+                    < 17 </h4>
+            </div>
+            <div class="metrica4">
+                <h4>ideal</h4>
+                <h4>
+                    < 27 </h4>
+            </div>
+            <div class="metrica5">
+                <h4>Alerta</h4>
+                <h4>
+                    < 29 </h4>
+            </div>
+            <div class="metrica6">
+                <h4>Emergêncial</h4>
+                <h4>
+                    < 32 </h4>
+            </div>
+            <div class="metrica7">
+                <h4>Crítico</h4>
+                <h4> > 32 </h4>
+            </div>
+        </div>
+
+        <h1 class="titleMetricas">Métricas Umidade </h1>
+        <div class="metricas">
+            <div class="metrica1">
+                <h4>Crítico</h4>
+                <h4>
+                    > 62% </h4>
+            </div>
+            <div class="metrica2">
+                <h4>Emergêncial</h4>
+                <h4>
+                    < 62% </h4>
+            </div>
+            <div class="metrica3">
+                <h4>Alerta</h4>
+                <h4>
+                    < 56% </h4>
+            </div>
+            <div class="metrica4">
+                <h4>ideal</h4>
+                <h4>
+                    < 44% </h4>
+            </div>
+            <div class="metrica5">
+                <h4>Alerta</h4>
+                <h4>
+                    < 41% </h4>
+            </div>
+            <div class="metrica6">
+                <h4>Emergêncial</h4>
+                <h4>
+                    < 37% </h4>
+            </div>
+            <div class="metrica7">
+                <h4>Crítico</h4>
+                <h4>
+                    < 34% </h4>
+            </div>
+        </div>
+
+
+        <div class="rowCard">
+            <div class="card">
+                <div>
+                    <h4>Temperatura Atual</h4>
+                    <h4>Rack 1</h4>
+                </div>
+                <div class="rowCard">
+                    <h1>20°</h1>
+                    <img src="assets/iconTemp.svg" alt="">
+                </div>
+                <div class="rowCard">
+                    <img src="assets/iconCheck.svg" alt="">
+                    <h1>Ideal</h1>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h4>Umidade Atual</h4>
+                    <h4>Rack 1</h4>
+                </div>
+                <div class="rowCard">
+                    <h1>20%</h1>
+                    <img src="assets/iconUmidade.svg" alt="">
+                </div>
+                <div class="rowCard">
+                    <img src="assets/iconCheck.svg" alt="">
+                    <h1>Ideal</h1>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h4>Temperatura atual</h4>
+                    <h4>Rack 2</h4>
+                </div>
+                <div class="rowCard">
+                    <h1>20°</h1>
+                    <img src="assets/iconTemp.svg" alt="">
+                </div>
+                <div class="rowCard">
+                    <img src="assets/iconCheck.svg" alt="">
+                    <h1>Ideal</h1>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h4>Umidade atual</h4>
+                    <h4>Rack 2</h4>
+                </div>
+                <div class="rowCard">
+                    <h1>60%</h1>
+                    <img src="assets/iconUmidade.svg" alt="">
+                </div>
+                <div class="rowCard">
+                    <img src="assets/iconEmergency.svg" alt="">
+                    <h1>Emergêncial</h1>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="rowCard">
+            <div class="card">
+                <div>
+                    <h4>Temperatura Atual</h4>
+                    <h4>Rack 3</h4>
+                </div>
+                <div class="rowCard">
+                    <h1>20°</h1>
+                    <img src="assets/iconTemp.svg" alt="">
+                </div>
+                <div class="rowCard">
+                    <img src="assets/iconCheck.svg" alt="">
+                    <h1>Ideal</h1>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h4>Umidade Atual</h4>
+                    <h4>Rack 3</h4>
+                </div>
+                <div class="rowCard">
+                    <h1>20%</h1>
+                    <img src="assets/iconUmidade.svg" alt="">
+                </div>
+                <div class="rowCard">
+                    <img src="assets/iconCheck.svg" alt="">
+                    <h1>Ideal</h1>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h4>Temperatura atual</h4>
+                    <h4>Rack 4</h4>
+                </div>
+                <div class="rowCard">
+                    <h1>20°</h1>
+                    <img src="assets/iconTemp.svg" alt="">
+                </div>
+                <div class="rowCard">
+                    <img src="assets/iconCheck.svg" alt="">
+                    <h1>Ideal</h1>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h4>Umidade atual</h4>
+                    <h4>Rack 4</h4>
+                </div>
+                <div class="rowCard">
+                    <h1>60%</h1>
+                    <img src="assets/iconUmidade.svg" alt="">
+                </div>
+                <div class="rowCard">
+                    <img src="assets/iconEmergency.svg" alt="">
+                    <h1>Emergêncial</h1>
+                </div>
+            </div>
+            
+        </div>
+        <div id="center">
+            <div class="cardDashboard">
+                <div class="containerGrafico">
+                    <div class="titulo1">
+                        <h1>Racks - Temperatura Média</h1>
+                    </div>
+                    <div class="grafico1">
+                        <canvas id="graficoDados1"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="cardDashboard">
+                <div class="containerGrafico">
+                    <div class="titulo1">
+                        <h1>Racks - Umidade Média</h1>
+                    </div>
+                    <div class="grafico1">
+                        <canvas id="graficoDados2" ></canvas>
+                    </div>
+            </div>
+        <div>
+
+</body>
+
+</html>
+
+<script>
+
+    const idUser = sessionStorage.getItem("id");
+
+    window.onload = myInfomations();
+    function myInfomations(){
+
+        fetch(`http://localhost:3333/usuarios/myinformation/${idUser}`)
+        .then((response) => {
+            response.json().then((data) => {
+                const dados = data.response[0];
+
+                empresa.innerHTML = dados.empresa;
+                nome_sobrenome.innerHTML = `${dados.nome} ${dados.sobrenome}`;
+                email_user.innerHTML = dados.email;
+                imagem_user.innerHTML = `
+                <img id="imgUser" src="${dados.imagem}" width="80" alt="">
+                `
+
+            })
+        })
+
+    }
+</script>
+
+ <script>
+    function screenConfig() {
+        window.location.href = `userConfig.html`
+    }
+    function screenLogin() {
+        sessionStorage.clear()
+        window.location.href = `login.html`
+    }
+</script>
+<script>
+    const idEmpresa = sessionStorage.getItem("fk_empresa");
+
+    let proximaAtualizacao;
+
+    window.onload = obterDadosGrafico(idEmpresa);
+    window.onload = obterDadosGraficoMedia(idEmpresa);
+
+    function obterDadosGrafico(idEmpresa) {
+
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`http://localhost:3333/medidas/media/${idEmpresa}`, {
+        }).then((response) => {
+            if (response.ok) {
+                response.json().then((resposta) => {
+                    const dados = resposta.response
+                    console.log(dados);
+                    plotarGrafico(idEmpresa, dados);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(idEmpresa, resposta) {
+
+        var dados = {
+            labels: ["Dados Relevantes"],
+            datasets: [
+                {
+                    yAxisID: 'y-temperatura',
+                    label: 'RACK - 1',
+                    borderColor: '#FF0000',
+                    backgroundColor: '#FF0000',
+                    fill: false,
+                    data: []
+                },
+                {
+                    yAxisID: 'y-temperatura',
+                    label: 'RACK - 2',
+                    borderColor: '#FF2800',
+                    backgroundColor: '#FF2800',
+                    fill: false,
+                    data: []
+                },
+                {
+                    yAxisID: 'y-temperatura',
+                    label: 'RACK - 3',
+                    borderColor: '#FFA500',
+                    backgroundColor: '#FFA500',
+                    fill:false,
+                    data: []
+                },
+                {
+                    yAxisID: 'y-temperatura',
+                    label: 'RACK - 4',
+                    borderColor: '#FBA31A',
+                    backgroundColor: '#FBA31A',
+                    fill: false,
+                    data: []
+                }
+            ]
+        };
+
+
+        for (contador = 0; contador < resposta.length; contador++) {
+            var registro = resposta[contador];
+            // dados.labels.push(registro.momento_grafico);
+            dados.datasets[0].data.push(registro.temperatura);
+            dados.datasets[1].data.push(registro.temperatura);
+            dados.datasets[2].data.push(registro.temperatura);
+            dados.datasets[3].data.push(registro.temperatura);
+
+        }
+
+
+        var ctx = graficoDados1.getContext('2d');
+        window.grafico_bar = Chart.Bar(ctx, {
+            data: dados,
+            options: {
+                responsive: true,
+                animation: { duration: 500 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: false,
+                    text: 'Dados capturados'
+                },
+                scales: {
+                    yAxes: [{
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        id: 'y-temperatura',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0
+                        }
+                    }, {
+                        type: 'linear',
+                        display: false,
+                        position: 'right',
+                        id: 'y-umidade',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0
+                        }
+                    },
+                    {
+                        type: 'linear',
+                        display: false,
+                        position: 'right',
+                        id: 'y-umidade',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0
+                        }
+                    },
+                    {
+                        type: 'linear',
+                        display: false,
+                        position: 'right',
+                        id: 'y-umidade',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0
+                        },
+
+                        gridLines: {
+                            drawOnChartArea: false,
+                        },
+                }],
+                }
+            }
+        });
+        setTimeout(() => atualizarGrafico(idEmpresa, resposta, dados), 2000);
+    }
+
+    function atualizarGrafico(idEmpresa, resposta, dados) {
+
+        fetch(`http://localhost:3333/medidas/mediaTempoReal/${idEmpresa}`, {
+        }).then((response) => {
+            if (response.ok) {
+                response.json().then((novoRegistro) => {
+
+                    // dados.datasets[0].data = [];
+                    // dados.datasets[1].data = [];
+
+                    // dados.labels.shift(); // apagar o primeiro
+                    // dados.labels.push(registro[0].momento_grafico); // incluir um novo momento
+
+                    const registros = novoRegistro.response;
+                    console.log(registros);
+                        dados.datasets[0].data = [];
+                        dados.datasets[1].data = [];
+                        dados.datasets[2].data = [];
+                        dados.datasets[3].data = [];
+
+                    for (i = 0; i < registros.length; i++) {
+                        var registro = registros[i];
+                        dados.datasets[0].data.push(registro.temperatura);
+                        dados.datasets[1].data.push(registro.temperatura);
+                        dados.datasets[2].data.push(registro.temperatura);
+                        dados.datasets[3].data.push(registro.temperatura);
+                    }
+
+
+
+                    window.grafico_bar.update();
+
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idEmpresa, resposta, dados), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idEmpresa, resposta, dados), 2000);
+            }
+        })
+            .catch((error) => {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+
+
+
+
+
+
+
+
+//Obter Media em Tempo Real
+
+function obterDadosGraficoMedia(idEmpresa) {
+
+if (proximaAtualizacao != undefined) {
+    clearTimeout(proximaAtualizacao);
+}
+
+fetch(`http://localhost:3333/medidas/mediaTempoReal/${idEmpresa}`, {
+}).then((response) => {
+    if (response.ok) {
+        response.json().then((resposta) => {
+            const dados = resposta.response
+            console.log(dados);
+            plotarGraficoGraficoMedia(idEmpresa, dados);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+
+function plotarGraficoGraficoMedia(idEmpresa, resposta) {
+
+var dados = {
+    labels: ["Dados Relevantes"],
+    datasets: [
+        {
+            yAxisID: 'y-umidade',
+            label: 'RACK - 1',
+            borderColor: '#0000FF',
+            backgroundColor: '#0000FF',
+            fill: false,
+            data: []
+        },
+        {
+            yAxisID: 'y-umidade',
+            label: 'RACK - 2',
+            borderColor: '#054F77',
+            backgroundColor: '#054F77',
+            fill: true,
+            data: []
+        },
+        {
+            yAxisID: 'y-umidade',
+            label: 'RACK - 3',
+            borderColor: '#4169E1',
+            backgroundColor: '#4169E1',
+            fill: true,
+            data: []
+        },
+        {
+            yAxisID: 'y-umidade',
+            label: 'RACK - 4',
+            borderColor: '#87CEEB',
+            backgroundColor: '#87CEEB',
+            fill: true,
+            data: []
+        }
+    ]
+};
+
+
+for (contador = 0; contador < resposta.length; contador++) {
+    var registro = resposta[contador];
+    // dados.labels.push(registro.momento_grafico);
+    dados.datasets[0].data.push(registro.umidade);
+    dados.datasets[1].data.push(registro.umidade);
+    dados.datasets[2].data.push(registro.umidade);
+    dados.datasets[3].data.push(registro.umidade);
+
+}
+
+
+var ctx = graficoDados2.getContext('2d');
+window.grafico_bar2 = Chart.Bar(ctx, {
+    data: dados,
+    options: {
+        responsive: true,
+        animation: { duration: 500 },
+        hoverMode: 'index',
+        stacked: false,
+        title: {
+            display: false,
+            text: 'Dados capturados'
+        },
+        scales: {
+            yAxes: [{
+                type: 'linear',
+                display: true,
+                position: 'left',
+                id: 'y-medidas',
+                ticks: {
+                    beginAtZero: true,
+                    max: 100,
+                    min: 0
+                }
+            }, {
+                type: 'linear',
+                display: false,
+                position: 'right',
+                id: 'y-umidade',
+                ticks: {
+                    beginAtZero: true,
+                    max: 100,
+                    min: 0
+                }
+            },
+            {
+                type: 'linear',
+                display: false,
+                position: 'right',
+                id: 'y-umidade',
+                ticks: {
+                    beginAtZero: true,
+                    max: 100,
+                    min: 0
+                }
+            },
+            {
+                type: 'linear',
+                display: false,
+                position: 'right',
+                id: 'y-umidade',
+                ticks: {
+                    beginAtZero: true,
+                    max: 100,
+                    min: 0
+                },
+
+                gridLines: {
+                    drawOnChartArea: false,
+                },
+        }],
+        }
+    }
+});
+setTimeout(() => atualizarGraficoGraficoMedia(idEmpresa, resposta, dados), 2000);
+}
+
+function atualizarGraficoGraficoMedia(idEmpresa, resposta, dados) {
+
+fetch(`http://localhost:3333/medidas/mediaTempoReal/${idEmpresa}`, {
+}).then((response) => {
+    if (response.ok) {
+        response.json().then((novoRegistro) => {
+
+            // dados.datasets[0].data = [];
+            // dados.datasets[1].data = [];
+
+            // dados.labels.shift(); // apagar o primeiro
+            // dados.labels.push(registro[0].momento_grafico); // incluir um novo momento
+
+            const registros2 = novoRegistro.response;
+            console.log(registros2)
+                        dados.datasets[0].data = [];
+                        dados.datasets[1].data = [];
+                        dados.datasets[2].data = [];
+                        dados.datasets[3].data = [];
+
+                    for (i = 0; i < registros2.length; i++) {
+                        var registro2 = registros2[i];
+                        dados.datasets[0].data.push(registro2.umidade);
+                        dados.datasets[1].data.push(registro2.umidade);
+                        dados.datasets[2].data.push(registro2.umidade);
+                        dados.datasets[3].data.push(registro2.umidade);
+                    }
+
+            window.grafico_bar2.update();
+
+            proximaAtualizacao = setTimeout(() => atualizarGraficoGraficoMedia(idEmpresa, resposta, dados), 2000);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+        proximaAtualizacao = setTimeout(() => atualizarGraficoGraficoMedia(idEmpresa, resposta, dados), 2000);
+    }
+})
+    .catch((error) => {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+}
+
+
+</script>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IDCM</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/preloader.css">
+    <link rel="stylesheet" href="./css/styleRack1.css">
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="rowImg">
+            <div class="alignTitles">
+                <h1 id="empresa"></h1>
+                <h4 id="nome_sobrenome"></h4>
+                <h4 id="email_user"></h4>
+            </div>
+            <div class="rowTitle" id="imagem_user"></div>
+        </div>
+        <h1 class="h1Admin">Admin</h1>
+        <div class="alignTitles">
+            <h1>Racks</h1>
+            <div class="rowRacks">
+             <div class="rack" onclick="window.location.href=`rack1.html`">
+                   <h1>1</h1> 
+                </div>
+                <div class="rack" style="background-color: #0099FF;">
+                    <h1>2</h1>
+                </div>
+            </div>
+
+            <div class="rowRacks">
+                <div class="rack" onclick="window.location.href=`rack3.html`">
+                    <h1>3</h1>
+                </div>
+                <div class="rack" onclick="window.location.href=`rack4.html`">
+                    <h1>4</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="divButton">
+            <button class="buttonSidebarConfig" onclick="screenConfig()">
+                <img src="assets/iconConfig2.svg" alt="">
+                Configurações
+            </button>
+        </div>
+
+        <div class="divButton">
+            <button class="buttonSidebarConfig" onclick="window.location.href=`dashboard.html`">
+                <img src="assets/iconHomeDash.svg" alt="">
+                Home
+            </button>
+        </div>
+    </div>
+
+
+    <div class="main">
+        <h1>Rack2</h1>
+
+        <div class="cardDashboard">
+            <div class="containerGrafico">
+                <div class="titulo1">
+                    <h1>Umidade e Temperatura Atual </h1>
+                </div>
+                <div class="grafico1">
+                    <canvas id="graficoDados1"  height="350"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="cardDashboard">
+            <div class="containerGrafico2">
+                <div class="titulo1">
+                    <h1>Dados relevantes da Temperatura e Umidade</h1>
+                </div>
+                <div class="grafico1">
+                    <canvas id="myChart2" height="350"></canvas>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
+
+<script>
+
+    const idUser = sessionStorage.getItem("id");
+
+    window.onload = myInfomations();
+    function myInfomations(){
+
+        fetch(`http://localhost:3333/usuarios/myinformation/${idUser}`)
+        .then((response) => {
+            response.json().then((data) => {
+                const dados = data.response[0];
+
+                empresa.innerHTML = dados.empresa;
+                nome_sobrenome.innerHTML = `${dados.nome} ${dados.sobrenome}`;
+                email_user.innerHTML = dados.email;
+                imagem_user.innerHTML = `
+                <img id="imgUser" src="${dados.imagem}" width="80" alt="">
+                `
+
+            })
+        })
+
+    }
+</script>
+<script>
+    function screenConfig() {
+        window.location.href = `userConfig.html`
+    }
+    function screenLogin() {
+        sessionStorage.clear() 
+        window.location.href = `login.html`
+    }
+</script>
+<script>
+    const Rack1 = 2;
+    const idEmpresa = sessionStorage.getItem("fk_empresa");
+
+    let proximaAtualizacao;
+
+    window.onload = obterDadosGrafico(idEmpresa, Rack1);
+    window.onload = obterDadosGraficoMaxMin(idEmpresa, Rack1);
+
+    function obterDadosGrafico(idEmpresa,idRack) {
+
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`http://localhost:3333/medidas/realtime`, {
+            cache: 'no-store',
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                MyEmpresa: idEmpresa,
+                MyRack: idRack
+            })
+        }).then((response) => {
+            if (response.ok) {
+                response.json().then((resposta) => {
+                    const tamanho = resposta.response.length;
+
+                    plotarGrafico(resposta.response, tamanho,  idEmpresa, idRack);  
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resposta, tamanho, idEmpresa, idRack) {
+       
+    var dados = {
+        labels: [],
+        datasets: [
+            {
+                yAxisID: 'y-umidade',
+                label: 'Umidade',
+                borderColor: '#32B9CD',
+                backgroundColor: '#32b9cd8f',
+                fill: false,
+                data: []
+            },
+            {
+                yAxisID: 'y-temperatura',
+                label: 'Temperatura',
+                borderColor: '#e63946',
+                backgroundColor: '#ff595f73',
+                fill: true,
+                data: []
+            }
+        ]
+    };
+
+
+    for (i = 0; i < tamanho; i++) {
+        var registro = resposta[i];
+        dados.labels.push(registro.momento_grafico);
+        dados.datasets[0].data.push(registro.umidade);
+        dados.datasets[1].data.push(registro.temperatura);
+    }
+
+
+    var ctx = graficoDados1.getContext('2d');
+    window.grafico_linha = Chart.Line(ctx, {
+        data: dados,
+        options: {
+            responsive: true,
+            animation: { duration: 500 },
+            hoverMode: 'index',
+            stacked: false,
+            title: {
+                display: false,
+                text: 'Dados capturados'
+            },
+            scales: {
+                yAxes: [{
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    id: 'y-temperatura',
+                    ticks: {
+                        beginAtZero: true,
+                        max: 100,
+                        min: 0
+                    }
+                }, {
+                    type: 'linear',
+                    display: false,
+                    position: 'right',
+                    id: 'y-umidade',
+                    ticks: {
+                        beginAtZero: true,
+                        max: 100,
+                        min: 0
+                    },
+
+                    gridLines: {
+                        drawOnChartArea: false,
+                    },
+                }],
+            }
+        }
+    });
+        setTimeout(() => atualizarGrafico(idEmpresa,idRack, dados), 2000);
+    }
+
+    function atualizarGrafico(idEmpresa,idRack, dados) {
+
+        fetch(`http://localhost:3333/medidas/atualizartime`, { 
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idEmpresa,
+                idRack
+            })
+        }).then((response) => {
+            if (response.ok) {
+                response.json().then((novoRegistro) => {
+
+                    const registro = novoRegistro.response;
+
+                    // // tirando e colocando valores no gráfico
+                    dados.labels.shift(); // apagar o primeiro
+                    dados.labels.push(registro[0].momento_grafico); // incluir um novo momento
+
+                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                    dados.datasets[0].data.push(registro[0].umidade); // incluir uma nova medida de umidade
+
+                    dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+                    dados.datasets[1].data.push(registro[0].temperatura); // incluir uma nova medida de temperatura
+
+                    window.grafico_linha.update();
+
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idEmpresa,idRack,dados), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idEmpresa,idRack,dados), 2000);
+            }
+        })
+            .catch((error) => {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+    // MAX MIN GRAFIC
+
+    function obterDadosGraficoMaxMin(idEmpresa,idRack) {
+
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`http://localhost:3333/medidas/max_min_metricas`, {
+            cache: 'no-store',
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idEmpresa,
+                idRack
+            })
+        }).then((response) => {
+            if (response.ok) {
+                response.json().then((resposta) => {
+                    const tamanho = resposta.response.length;
+                    // resposta.response.reverse();
+
+                    console.log(resposta.response);
+                    plotarGraficoMaxMin(resposta.response, tamanho,  idEmpresa, idRack);  
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+    function plotarGraficoMaxMin(resposta, tamanho, idEmpresa, idRack) {
+       
+       var dados = {
+           labels: ["Dados Relevantes"],
+           datasets: [
+               {
+                   yAxisID: 'y-umidade',
+                   label: 'Máximo Umidade',
+                   borderColor: '#3a0ca3',
+                   backgroundColor: '#390ca3b6',
+                   fill: true,
+                   data: []
+               },
+               {
+                   yAxisID: 'y-umidade',
+                   label: 'Minimo Umidade',
+                   borderColor: '#32B9CD',
+                   backgroundColor: '#32b9cd8f',
+                   fill: true,
+                   data: []
+               },
+               {
+                   yAxisID: 'y-temperatura',
+                   label: 'Máximo Temperatura',
+                   borderColor: '#d00000',
+                   backgroundColor: '#c1121ece',
+                   fill: true,
+                   data: []
+               },
+               {
+                   yAxisID: 'y-temperatura',
+                   label: 'Minimo Temperatura',
+                   borderColor: '#f48c06',
+                   backgroundColor: '#f48d06c6',
+                   fill: true,
+                   data: []
+               }
+           ]
+       };
+   
+   
+       for (i = 0; i < tamanho; i++) {
+           var registro = resposta[i];
+           dados.datasets[0].data.push(registro.maximo_umid);
+           dados.datasets[1].data.push(registro.minimo_umid);
+           dados.datasets[2].data.push(registro.maximo_temp);
+           dados.datasets[3].data.push(registro.minimo_temp);
+        }
+   
+   
+       var ctx = myChart2.getContext('2d');
+       window.grafico_bar = Chart.Bar(ctx, {
+           data: dados,
+           options: {
+               responsive: true,
+               animation: { duration: 500 },
+               hoverMode: 'index',
+               stacked: false,
+               title: {
+                   display: false,
+                   text: 'Dados capturados'
+               },
+               scales: {
+                   yAxes: [{
+                       type: 'linear',
+                       display: true,
+                       position: 'left',
+                       id: 'y-temperatura',
+                       ticks: {
+                           beginAtZero: true,
+                           max: 100,
+                           min: 0
+                       }
+                   }, {
+                       type: 'linear',
+                       display: false,
+                       position: 'right',
+                       id: 'y-umidade',
+                       ticks: {
+                           beginAtZero: true,
+                           max: 100,
+                           min: 0
+                       },
+   
+                       gridLines: {
+                           drawOnChartArea: false,
+                       },
+                   }],
+               }
+           }
+       });
+           setTimeout(() => atualizarGraficoMaxMin(idEmpresa,idRack, dados), 2000);
+       }
+
+
+       function atualizarGraficoMaxMin(idEmpresa,idRack, dados) {
+
+        fetch(`http://localhost:3333/medidas/max_min_metricas`, { 
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idEmpresa,
+                idRack
+            })
+        }).then((response) => {
+            if (response.ok) {
+                response.json().then((novoRegistro) => {
+
+                    const registros = novoRegistro.response;
+                        dados.datasets[0].data = [];
+                        dados.datasets[1].data = [];
+                        dados.datasets[2].data = [];
+                        dados.datasets[3].data = [];
+
+                    for (i = 0; i < registros.length; i++) {
+                        var registro = registros[i];
+                        dados.datasets[0].data.push(registro.maximo_umid);
+                        dados.datasets[1].data.push(registro.minimo_umid);
+                        dados.datasets[2].data.push(registro.maximo_temp);
+                        dados.datasets[3].data.push(registro.minimo_temp);
+                    }
+                            
+                    window.grafico_bar.update();
+
+                    proximaAtualizacao = setTimeout(() => atualizarGraficoMaxMin(idEmpresa,idRack,dados), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                proximaAtualizacao = setTimeout(() => atualizarGraficoMaxMin(idEmpresa,idRack,dados), 2000);
+            }
+        })
+            .catch((error) => {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+        }
+
+
+
+
+
+
+</script>
