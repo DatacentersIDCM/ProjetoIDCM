@@ -250,7 +250,6 @@
         const TelefoneUser = data.response[0].telefone;
         const ImagemUser = data.response[0].imagem;
         const IdEmpresa = data.response[0].fk_empresa;
-        sessionStorage.setItem("fk_empresa", IdEmpresa);
         campo_nome.value = nomeUser;
         campo_sobrenome.value = sobrenomeUser;
         campo_email.value = EmailUser;
