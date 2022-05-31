@@ -20,15 +20,12 @@
 
     <div class="sidebar">
         <div class="rowImg">
-
             <div class="alignTitles">
-                <h1>IDCM</h1>
-                <h4>Lucas Bispo</h4>
-                <h4>lucas@gmail.com</h4>
+                <h1 id="empresa"></h1>
+                <h4 id="nome_sobrenome"></h4>
+                <h4 id="email_user"></h4>
             </div>
-            <div class="rowTitle">
-                <img src="assets/iconFoto.svg" width="80" alt="">
-            </div>
+            <div class="rowTitle" id="imagem_user"></div>
         </div>
         <h1 class="h1Admin">Admin</h1>
         <div class="alignTitles">
@@ -299,6 +296,31 @@
 </body>
 
 </html>
+
+<script>
+
+    const idUser = sessionStorage.getItem("id");
+
+    window.onload = myInfomations();
+    function myInfomations(){
+
+        fetch(`http://localhost:3333/usuarios/myinformation/${idUser}`)
+        .then((response) => {
+            response.json().then((data) => {
+                const dados = data.response[0];
+
+                empresa.innerHTML = dados.empresa;
+                nome_sobrenome.innerHTML = `${dados.nome} ${dados.sobrenome}`;
+                email_user.innerHTML = dados.email;
+                imagem_user.innerHTML = `
+                <img id="imgUser" src="${dados.imagem}" width="80" alt="">
+                `
+
+            })
+        })
+
+    }
+</script>
 
  <script>
     function screenConfig() {

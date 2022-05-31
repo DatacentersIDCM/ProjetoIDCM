@@ -17,7 +17,12 @@ function casdastrarUsuario(nomeUser, email, senha, cargo, idEmpresa) {
 }
 
 function myInformations(idUser) {
-  const query = `SELECT * FROM usuario WHERE id = ${idUser}`;
+  const query = `SELECT U.nome AS 'nome', 
+  E.nome AS 'empresa', U.sobrenome AS 'sobrenome',
+  U.email AS 'email', U.imagem AS 'imagem'
+  FROM usuario AS U 
+  JOIN empresa AS E 
+  ON U.fk_empresa = E.id WHERE U.id = ${idUser}`;
   return database.executar(query);
 }
 

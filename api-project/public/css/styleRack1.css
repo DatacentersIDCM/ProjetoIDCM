@@ -254,11 +254,15 @@ canvas {
 }
 
 .cardDashboard {
- width: 700px;
- background-color: #fff;
- padding: 20px;
- border-radius: 20px;
- margin-top: 5px;
+  width: 700px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 5px;
+}
+
+#imgUser {
+  border-radius: 100%;
 }
 .containerGrafico {
   width: 100%;

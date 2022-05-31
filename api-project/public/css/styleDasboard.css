@@ -54,6 +54,10 @@ h1 {
   margin-bottom: 40%;
 }
 
+#imgUser {
+  border-radius: 100%;
+}
+
 .alignTitles {
   display: flex;
   flex-direction: column;
