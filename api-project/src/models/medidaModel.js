@@ -28,14 +28,14 @@ function buscarMedidasEmTempoReal(idAquario) {
 function buscarMetricas(idEmpresa, idRack) {
   const query = `SELECT M.temperatura, M.umidade, DATE_FORMAT(M.date_time,'%H:%i:%s') as momento_grafico FROM metrica AS M 
     JOIN sensor AS S ON S.id = M.fk_sensor 
-    WHERE M.fk_empresa = ${idEmpresa} AND S.rack = ${idRack} ORDER BY M.date_time ASC LIMIT 7`;
+    WHERE S.fk_empresa = ${idEmpresa} AND S.rack = ${idRack} ORDER BY M.date_time ASC LIMIT 7`;
 
   return database.executar(query);
 }
 function buscarMetricasTempoReal(idEmpresa, idRack) {
   const query = `SELECT M.temperatura, M.umidade, DATE_FORMAT(M.date_time,'%H:%i:%s') AS momento_grafico FROM metrica AS M 
   JOIN sensor AS S ON S.id = M.fk_sensor 
-  WHERE M.fk_empresa = ${idEmpresa} AND S.rack = ${idRack} ORDER BY M.date_time DESC LIMIT 1`;
+  WHERE S.fk_empresa = ${idEmpresa} AND S.rack = ${idRack} ORDER BY M.date_time DESC LIMIT 1`;
 
   return database.executar(query);
 }
@@ -45,28 +45,28 @@ function buscarMaxMin(idEmpresa, idRack) {
   MIN(M.temperatura) AS 'minimo_temp', MAX(M.umidade) AS 'maximo_umid', 
   MIN(M.umidade) AS 'minimo_umid' FROM metrica AS M 
   JOIN sensor AS S ON S.id = M.fk_sensor 
-  WHERE M.fk_empresa = ${idEmpresa} AND S.rack = ${idRack} LIMIT 1`;
+  WHERE S.fk_empresa = ${idEmpresa} AND S.rack = ${idRack} LIMIT 1`;
 
   return database.executar(query);
 }
 
-function buscarMedia(idEmpresa){
-  const query = `select empresa.nome, round(avg(temperatura),2) as temperatura, round(avg(umidade),2) as umidade from empresa 
-  join metrica on metrica.fk_empresa = empresa.id
-  join sensor on sensor.id = metrica.fk_sensor where empresa.id = ${idEmpresa} group by fk_sensor`
+function buscarMedia(idEmpresa) {
+  const query = `SELECT E.nome, ROUND(AVG(temperatura),2) AS 'temperatura', ROUND(AVG(umidade),2) AS 'umidade'
+  FROM empresa AS E 
+  JOIN metrica AS M
+  JOIN sensor AS S ON S.id = M.fk_sensor WHERE E.id = ${idEmpresa} GROUP BY M.fk_sensor`;
 
   return database.executar(query);
 }
 
-function buscarMediaRealTime(idEmpresa){
-  const query = `select empresa.nome, round(avg(temperatura),2) as temperatura, round(avg(umidade),2) as umidade from empresa 
-  join metrica on metrica.fk_empresa = empresa.id
-  join sensor on sensor.id = metrica.fk_sensor where empresa.id = ${idEmpresa} group by fk_sensor`
+function buscarMediaRealTime(idEmpresa) {
+  const query = `SELECT E.nome, ROUND(AVG(temperatura),2) AS 'temperatura', ROUND(AVG(umidade),2) AS 'umidade'
+  FROM empresa AS E 
+  JOIN metrica AS M
+  JOIN sensor AS S ON S.id = M.fk_sensor WHERE E.id = ${idEmpresa} GROUP BY M.fk_sensor`;
 
   return database.executar(query);
 }
-
-
 
 module.exports = {
   buscarUltimasMedidas,

@@ -60,6 +60,7 @@ function cadastrar(req, res) {
   // Assinature
   const assinatura = req.body.NewAssinatura;
   let nome_assinature = "";
+  let fk_assinatura = 0;
 
   // Date
   const data_atual = new Date();
@@ -71,12 +72,15 @@ function cadastrar(req, res) {
   if (assinatura <= 1.2) {
     nome_assinature = "Anual";
     renovacao = ano_atual + 1;
+    fk_assinatura = 1;
   } else if (assinatura <= 1.8) {
     nome_assinature = "Bianual";
     renovacao = ano_atual + 2;
+    fk_assinatura = 2;
   } else {
     nome_assinature = "Quinquenal";
     renovacao = ano_atual + 5;
+    fk_assinatura = 3;
   }
 
   if (mes_atual < 10) {
@@ -102,17 +106,33 @@ function cadastrar(req, res) {
                 if (tamanhoUser > 0) {
                   empresaModel
                     .CreateAssinatura(
-                      nome_assinature,
+                      idEmpresa,
+                      fk_assinatura,
                       dateTime_atual,
-                      dateTime_renovacao,
-                      idEmpresa
+                      dateTime_renovacao
                     )
                     .then((resAssinature) => {
                       const tamanhoAssinature = resAssinature.affectedRows;
                       if (tamanhoAssinature > 0) {
-                        res.json({
-                          mensagem: "success",
-                        });
+                        empresaModel
+                          .newSensor(idEmpresa)
+                          .then((response) => {
+                            const tamanhoNewSensor = response.affectedRows;
+                            if (tamanhoNewSensor > 0) {
+                              res.json({
+                                mensagem: "success",
+                              });
+                            } else {
+                              res.json({
+                                mensagem: "error",
+                              });
+                            }
+                          })
+                          .catch(() => {
+                            res.json({
+                              mensagem: "error_cadastrar_new_sensores",
+                            });
+                          });
                       }
                     })
                     .catch(() => {
