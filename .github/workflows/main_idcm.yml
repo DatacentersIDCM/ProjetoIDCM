@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'IDCM'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D3658092BC9C4310A6CE4E75D91FB6BF }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_82F1513882D74607BEEB8AF2F3CAA862 }}
           package: .
