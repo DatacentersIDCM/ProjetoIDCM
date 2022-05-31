@@ -88,7 +88,7 @@
     <div id="modal" class="modalBody">
       <div class="modalReadPlus">
         <div class="containerReadPlus">
-          <div class="modalCheck">
+          <div class="modalCheck" id="modalCheck">
             <img src="./assets/dangerModal.svg" id="imgModal" alt="check" />
           </div>
           <button onclick="buttonBack()" class="modalBack">&times;</button>
@@ -306,18 +306,31 @@
   });
 
   inputHidden2.addEventListener("click", () => {
+    modalCheck.innerHTML = `
+    <img src="./assets/modalCheck.svg" id="imgModal" alt="check" />
+    `
     if (inputHidden2.value <= 1.2) {
       Bh3.style.color = "green";
       Bh3.style.fontSize = "x-large";
-      Bh3.innerHTML = `Assinatura: Gratis!`;
+      Bh3.innerHTML = `Assinatura: Gold!`;
+      modal.style.display = "block";
+      campo_alerta.innerHTML = `A assinatura gold tem a duração de um ano com 5% de desconto no valor total. <br>Também tem direito a uma manutanção mensal`;
+
     } else if (inputHidden2.value <= 1.8) {
       Bh3.style.color = "orange";
       Bh3.style.fontSize = "x-large";
-      Bh3.innerHTML = "Assinatura: dataNormal!";
-    } else {
+      Bh3.innerHTML = "Assinatura: Platinum!";
+      modal.style.display = "block";
+      campo_alerta.innerHTML = `A assinatura platinum tem a duração de dois anos e 10% de desconto no valor total <br> Também tem direito a três manutanções mensais`;
+    }
+     else {
       Bh3.style.color = "#0099FF";
       Bh3.style.fontSize = "x-large";
-      Bh3.innerHTML = "Assinatura: data+";
+      Bh3.innerHTML = "Assinatura: Diamond";
+      modal.style.display = "block";
+      campo_alerta.innerHTML = `A assinatura Diamond tem a duração de cinco anos e 15% de desconto
+no valor total <br>
+Também tem direito a quantas manutanções mensais necessitar`;
     }
   });
 </script>
