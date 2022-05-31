@@ -20,7 +20,7 @@ function listarUnicEmpresa(empresa) {
 }
 
 function listarMyEmpresa(idEmpresa) {
-  const query = `SELECT * FROM empresa WHERE id = '${idEmpresa}'`;
+  const query = `SELECT * FROM empresa WHERE id = ${idEmpresa}`;
   return database.executar(query);
 }
 
