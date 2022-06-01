@@ -178,22 +178,12 @@
       </div>
     </div>
   </div>
-
-
-    <div id="modal" class="modalBody">
-      <div class="modalReadPlus">
-        <div class="containerReadPlus">
-          <div class="modalCheck" id="modalCheck">
-            <img src="./assets/modalCheck.svg" alt="check" />
-          </div>
-          <button onclick="buttonBack()" class="modalBack">&times;</button>
-
+  
   <div id="modal" class="modalBody">
     <div class="modalReadPlus">
       <div class="containerReadPlus">
-        <div class="modalCheck">
-          <img src="./assets/modalCheck.svg" alt="check" />
-
+        <div class="modalCheck" id="modalCheck">
+          <img src="./assets/dangerModal.svg" id="imgModal" alt="check" />
         </div>
         <button onclick="buttonBack()" class="modalBack">&times;</button>
       </div>
@@ -422,18 +412,14 @@
           console.log(msg);
         if (msg == "success") {
           listarInformations();
-          modalCheck.innerHTML = `
-            <img src="./assets/modalCheck.svg" alt="check" />
-          `;
+          modal.style.display = "block";
+          imgModal.src = `./assets/modalCheck.svg`
           campo_alerta.innerHTML = `Informações atualizadas com sucesso`;
         } else {
-          modalCheck.innerHTML = `
-            <img src="./assets/dangerModal.avg" alt="check" />
-          `;
+          modal.style.display = "block";
+          imgModal.src = `./assets/modalError.svg`
           campo_alerta.innerHTML = `Erro ao atualizar as informações`;
         }
-
-        modal.style = "display: block";
       });
     });
   }
