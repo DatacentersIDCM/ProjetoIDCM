@@ -55,7 +55,7 @@ function cadastrar(req, res) {
   const nomeUser = req.body.NewNomeUser;
   const email = req.body.NewEmail;
   const senha = req.body.NewSenha;
-  const cargo = "Admin";
+  const cargo = 1;
 
   // Assinature
   const assinatura = req.body.NewAssinatura;
