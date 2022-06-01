@@ -16,6 +16,13 @@ function casdastrarUsuario(nomeUser, email, senha, cargo, idEmpresa) {
   return database.executar(query);
 }
 
+function casdastrarFuncionario(nomeUser, email, telefone, senha, cargo, idEmpresa) {
+  const query = `INSERT INTO usuario (nome, telefone, cargo, email, senha, fk_empresa)
+  VALUES ('${nomeUser}', '${telefone}', '${cargo}', '${email}', '${senha}', ${idEmpresa})`;
+  return database.executar(query);
+}
+
+
 function myInformations(idUser) {
   const query = `SELECT U.nome AS 'nome', 
   E.nome AS 'empresa', U.sobrenome AS 'sobrenome',
@@ -49,9 +56,14 @@ function atualizarInformation(iduser, nome, sobrenome, email, telefone) {
   return database.executar(query);
 }
 
+
+
+
+
 module.exports = {
   entrar,
   casdastrarUsuario,
+  casdastrarFuncionario,
   myInformations,
   atualizarImg,
   recuperarSenha,

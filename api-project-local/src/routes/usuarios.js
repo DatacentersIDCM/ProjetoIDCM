@@ -15,4 +15,6 @@ router.post("/atualizar/imagem", usuarioController.atualizarImg);
 
 router.post("/autenticar", usuarioController.entrar);
 
+router.post("/cadastrar/funcionario", usuarioController.creatingFuncionario);
+
 module.exports = router;

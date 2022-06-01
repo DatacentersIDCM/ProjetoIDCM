@@ -221,25 +221,46 @@
     const passwordTest2 = regex.test(hidden4);
 
     if (inputHidden.value == "") {
+      modalCheck.innerHTML = `
+        <img src="./assets/dangerModal.svg" id="imgModal" alt="check" />
+    `
       modal.style.display = "block";
       campo_alerta.innerHTML = "Não deixe o campo nome vazio!";
     } else if (!isNaN(inputHidden.value)) {
+      modalCheck.innerHTML = `
+        <img src="./assets/dangerModal.svg" id="imgModal" alt="check" />
+    `
       modal.style.display = "block";
       campo_alerta.innerHTML = "Digite apenas letras no campo nome!";
     } else if (inputHidden2.value == 0) {
+      modalCheck.innerHTML = `
+        <img src="./assets/dangerModal.svg" id="imgModal" alt="check" />
+    `
       modal.style.display = "block";
       campo_alerta.innerHTML = "Não deixe o campo Assinatura vazio!";
     } else if (inputHidden3.value == "") {
+      modalCheck.innerHTML = `
+        <img src="./assets/dangerModal.svg" id="imgModal" alt="check" />
+    `
       modal.style.display = "block";
       campo_alerta.innerHTML = "Não deixe o campo senha vazio!";
     } else if (inputHidden4.value == "") {
+      modalCheck.innerHTML = `
+        <img src="./assets/dangerModal.svg" id="imgModal" alt="check" />
+    `
       modal.style.display = "block";
       campo_alerta.innerHTML = "Não deixe o campo Confirmar Senha vazio!";
     } else if (!passwordTest || !passwordTest2) {
+      modalCheck.innerHTML = `
+        <img src="./assets/dangerModal.svg" id="imgModal" alt="check" />
+    `
       modal.style.display = "block";
       campo_alerta.innerHTML = `insira uma senha entre 8 e 20 caracteres, com pelo menos uma letra
           maiuscula e uma letra minuscula, um número e um caractere especial!`;
     } else if (hidden3.length != hidden4.length) {
+      modalCheck.innerHTML = `
+        <img src="./assets/dangerModal.svg" id="imgModal" alt="check" />
+    `
       modal.style.display = "block";
       campo_alerta.innerHTML = "Digite senhas iguais!";
     } else {
