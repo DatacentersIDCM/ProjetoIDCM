@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `sensor` (
 );
 -- Copiando estrutura para tabela idcm.metrica
 CREATE TABLE IF NOT EXISTS `metrica` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `fk_sensor` int DEFAULT NULL,
   `temperatura` float DEFAULT NULL,
   `umidade` float DEFAULT NULL,
