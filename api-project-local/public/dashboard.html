@@ -141,7 +141,7 @@
             <div class="metrica7">
                 <h4>Crítico</h4>
                 <h4>
-                    < 34% </h4>
+                    < 33% </h4>
             </div>
         </div>
 
@@ -152,13 +152,12 @@
                     <h4>Temperatura Atual</h4>
                     <h4>Rack 1</h4>
                 </div>
-                <div class="rowCard">
-                    <h1>20°</h1>
+                <div class="rowCard" >
+                    <h1 id="temp_rack_1"></h1>
                     <img src="assets/iconTemp.svg" alt="">
                 </div>
-                <div class="rowCard">
-                    <img src="assets/iconCheck.svg" alt="">
-                    <h1>Ideal</h1>
+                <div class="rowCard" id="temp_status_rack_1">
+                    
                 </div>
             </div>
 
@@ -168,12 +167,11 @@
                     <h4>Rack 1</h4>
                 </div>
                 <div class="rowCard">
-                    <h1>20%</h1>
+                    <h1 id="umid_rack1"></h1>
                     <img src="assets/iconUmidade.svg" alt="">
                 </div>
-                <div class="rowCard">
-                    <img src="assets/iconCheck.svg" alt="">
-                    <h1>Ideal</h1>
+                <div class="rowCard" id="umid_status_rack_1">
+                    
                 </div>
             </div>
 
@@ -183,13 +181,10 @@
                     <h4>Rack 2</h4>
                 </div>
                 <div class="rowCard">
-                    <h1>20°</h1>
+                    <h1 id="temp_rack2"></h1>
                     <img src="assets/iconTemp.svg" alt="">
                 </div>
-                <div class="rowCard">
-                    <img src="assets/iconCheck.svg" alt="">
-                    <h1>Ideal</h1>
-                </div>
+                <div class="rowCard" id="temp_status_rack_2"></div>
             </div>
 
             <div class="card">
@@ -198,13 +193,10 @@
                     <h4>Rack 2</h4>
                 </div>
                 <div class="rowCard">
-                    <h1>60%</h1>
+                    <h1 id="umid_rack2"></h1>
                     <img src="assets/iconUmidade.svg" alt="">
                 </div>
-                <div class="rowCard">
-                    <img src="assets/iconEmergency.svg" alt="">
-                    <h1>Emergêncial</h1>
-                </div>
+                <div class="rowCard" id="umid_status_rack_2"></div>
             </div>
         </div>
 
@@ -216,13 +208,10 @@
                     <h4>Rack 3</h4>
                 </div>
                 <div class="rowCard">
-                    <h1>20°</h1>
+                    <h1 id="temp_rack3"></h1>
                     <img src="assets/iconTemp.svg" alt="">
                 </div>
-                <div class="rowCard">
-                    <img src="assets/iconCheck.svg" alt="">
-                    <h1>Ideal</h1>
-                </div>
+                <div class="rowCard" id="temp_status_rack_3"></div>
             </div>
 
             <div class="card">
@@ -231,13 +220,10 @@
                     <h4>Rack 3</h4>
                 </div>
                 <div class="rowCard">
-                    <h1>20%</h1>
+                    <h1 id="umid_rack3"></h1>
                     <img src="assets/iconUmidade.svg" alt="">
                 </div>
-                <div class="rowCard">
-                    <img src="assets/iconCheck.svg" alt="">
-                    <h1>Ideal</h1>
-                </div>
+                <div class="rowCard" id="umid_status_rack_3"></div>
             </div>
 
             <div class="card">
@@ -246,13 +232,10 @@
                     <h4>Rack 4</h4>
                 </div>
                 <div class="rowCard">
-                    <h1>20°</h1>
+                    <h1 id="temp_rack4"></h1>
                     <img src="assets/iconTemp.svg" alt="">
                 </div>
-                <div class="rowCard">
-                    <img src="assets/iconCheck.svg" alt="">
-                    <h1>Ideal</h1>
-                </div>
+                <div class="rowCard" id="temp_status_rack_4"></div>
             </div>
 
             <div class="card">
@@ -261,13 +244,10 @@
                     <h4>Rack 4</h4>
                 </div>
                 <div class="rowCard">
-                    <h1>60%</h1>
+                    <h1 id="umid_rack4"></h1>
                     <img src="assets/iconUmidade.svg" alt="">
                 </div>
-                <div class="rowCard">
-                    <img src="assets/iconEmergency.svg" alt="">
-                    <h1>Emergêncial</h1>
-                </div>
+                <div class="rowCard" id="umid_status_rack_4"></div>
             </div>
             
         </div>
@@ -300,10 +280,15 @@
 <script>
 
     const idUser = sessionStorage.getItem("id");
+    const idEmpresa = sessionStorage.getItem("fk_empresa");
 
     window.onload = myInfomations();
-    function myInfomations(){
+    window.onload = MetragensRack1();
+    window.onload = MetragensRack2();
+    window.onload = MetragensRack3();
+    window.onload = MetragensRack4();
 
+    function myInfomations(){
         fetch(`http://localhost:3333/usuarios/myinformation/${idUser}`)
         .then((response) => {
             response.json().then((data) => {
@@ -320,9 +305,341 @@
         })
 
     }
-</script>
+    function MetragensRack1() {
+        const idRack = 1;
+        fetch(`http://localhost:3333/medidas/atualizartime`, { 
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idEmpresa,
+                    idRack
+                })
+            }).then((response) => {
+            response.json().then((data) => {
+                const dados = data.response[0].temperatura;
+                const dados1 = data.response[0].umidade;
 
- <script>
+                let icon = "";
+                let status = "";
+
+                let icon1 = "";
+                let status1 = "";
+                if(dados < 13){
+                    icon = "assets/critico_frio.svg";
+                    status = "Crítico"
+                }else if (dados < 15){
+                    icon = "assets/iconEmergency.svg";
+                    status = "Emergêncial"
+                }else if(dados < 17){
+                    icon = "assets/iconAlert.svg";
+                    status = "Alerta"
+                }else if(dados < 27){
+                    icon = "assets/iconCheck.svg";
+                    status = "Ideal"
+                }else if(dados < 29){
+                    icon = "assets/alert_quente.svg";
+                    status = "Alerta"
+                }else if(dados < 32){
+                    icon = "assets/emergencial_quente.svg";
+                    status = "Emergêncial"
+                }else {
+                    icon = "assets/iconDanger.svg";
+                    status = "Crítico"
+                }
+
+                temp_rack_1.innerHTML = `${dados}º`
+                temp_status_rack_1.innerHTML = `
+                <img src="${icon}" alt="">
+                    <h1>${status}</h1>
+                
+                `;
+
+                if(dados1 < 33) {
+                    icon1 = "assets/iconDanger.svg";
+                    status1 = "Crítico"
+                }else if(dados1 < 37){
+                    icon1 = "assets/emergencial_quente.svg";
+                    status1 = "Emergêncial"
+                }else if (dados1 < 41){
+                    icon1 = "assets/alert_quente.svg";
+                    status1 = "Alerta"
+                }else if(dados1 < 44){
+                    icon1 = "assets/iconCheck.svg";
+                    status1 = "Ideal"
+                }else if (dados1 < 56){
+                    icon1 = "assets/iconAlert.svg";
+                    status1 = "Alerta"
+                }else if (dados1 < 62){
+                    icon1 = "assets/iconEmergency.svg";
+                    status1 = "Emergêncial"
+                }else {
+                    icon1 = "assets/critico_frio.svg";
+                    status1 = "Crítico"
+                }
+
+                umid_rack1.innerHTML = `${dados1}%`
+                umid_status_rack_1.innerHTML = `
+                <img src="${icon1}" alt="">
+                    <h1>${status1}</h1>
+                
+                `;
+
+            })
+        })
+         setTimeout(() => MetragensRack1(), 2000);
+    }
+
+    function MetragensRack2() {
+        const idRack = 2;
+        fetch(`http://localhost:3333/medidas/atualizartime`, { 
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idEmpresa,
+                    idRack
+                })
+            }).then((response) => {
+            response.json().then((data) => {
+                const dados = data.response[0].temperatura;
+                const dados1 = data.response[0].umidade;
+
+                let icon = "";
+                let status = "";
+
+                let icon1 = "";
+                let status1 = "";
+                if(dados < 13){
+                    icon = "assets/critico_frio.svg";
+                    status = "Crítico"
+                }else if (dados < 15){
+                    icon = "assets/iconEmergency.svg";
+                    status = "Emergêncial"
+                }else if(dados < 17){
+                    icon = "assets/iconAlert.svg";
+                    status = "Alerta"
+                }else if(dados < 27){
+                    icon = "assets/iconCheck.svg";
+                    status = "Ideal"
+                }else if(dados < 29){
+                    icon = "assets/alert_quente.svg";
+                    status = "Alerta"
+                }else if(dados < 32){
+                    icon = "assets/emergencial_quente.svg";
+                    status = "Emergêncial"
+                }else {
+                    icon = "assets/iconDanger.svg";
+                    status = "Crítico"
+                }
+
+                temp_rack2.innerHTML = `${dados}º`
+                temp_status_rack_2.innerHTML = `
+                <img src="${icon}" alt="">
+                    <h1>${status}</h1>
+                `;
+
+                if(dados1 < 33) {
+                    icon1 = "assets/iconDanger.svg";
+                    status1 = "Crítico"
+                }else if(dados1 < 37){
+                    icon1 = "assets/emergencial_quente.svg";
+                    status1 = "Emergêncial"
+                }else if (dados1 < 41){
+                    icon1 = "assets/alert_quente.svg";
+                    status1 = "Alerta"
+                }else if(dados1 < 44){
+                    icon1 = "assets/iconCheck.svg";
+                    status1 = "Ideal"
+                }else if (dados1 < 56){
+                    icon1 = "assets/iconAlert.svg";
+                    status1 = "Alerta"
+                }else if (dados1 < 62){
+                    icon1 = "assets/iconEmergency.svg";
+                    status1 = "Emergêncial"
+                }else {
+                    icon1 = "assets/critico_frio.svg";
+                    status1 = "Crítico"
+                }
+
+                umid_rack2.innerHTML = `${dados1}%`
+                umid_status_rack_2.innerHTML = `
+                <img src="${icon1}" alt="">
+                    <h1>${status1}</h1>
+                `;
+            })
+        })
+         setTimeout(() => MetragensRack2(), 2000);
+    }
+
+    function MetragensRack3() {
+        const idRack = 3;
+        fetch(`http://localhost:3333/medidas/atualizartime`, { 
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idEmpresa,
+                    idRack
+                })
+            }).then((response) => {
+            response.json().then((data) => {
+                const dados = data.response[0].temperatura;
+                const dados1 = data.response[0].umidade;
+
+                let icon = "";
+                let status = "";
+
+                let icon1 = "";
+                let status1 = "";
+                if(dados < 13){
+                    icon = "assets/critico_frio.svg";
+                    status = "Crítico"
+                }else if (dados < 15){
+                    icon = "assets/iconEmergency.svg";
+                    status = "Emergêncial"
+                }else if(dados < 17){
+                    icon = "assets/iconAlert.svg";
+                    status = "Alerta"
+                }else if(dados < 27){
+                    icon = "assets/iconCheck.svg";
+                    status = "Ideal"
+                }else if(dados < 29){
+                    icon = "assets/alert_quente.svg";
+                    status = "Alerta"
+                }else if(dados < 32){
+                    icon = "assets/emergencial_quente.svg";
+                    status = "Emergêncial"
+                }else {
+                    icon = "assets/iconDanger.svg";
+                    status = "Crítico"
+                }
+
+                temp_rack3.innerHTML = `${dados}º`
+                temp_status_rack_3.innerHTML = `
+                <img src="${icon}" alt="">
+                    <h1>${status}</h1>
+                `;
+
+                if(dados1 < 33) {
+                    icon1 = "assets/iconDanger.svg";
+                    status1 = "Crítico"
+                }else if(dados1 < 37){
+                    icon1 = "assets/emergencial_quente.svg";
+                    status1 = "Emergêncial"
+                }else if (dados1 < 41){
+                    icon1 = "assets/alert_quente.svg";
+                    status1 = "Alerta"
+                }else if(dados1 < 44){
+                    icon1 = "assets/iconCheck.svg";
+                    status1 = "Ideal"
+                }else if (dados1 < 56){
+                    icon1 = "assets/iconAlert.svg";
+                    status1 = "Alerta"
+                }else if (dados1 < 62){
+                    icon1 = "assets/iconEmergency.svg";
+                    status1 = "Emergêncial"
+                }else {
+                    icon1 = "assets/critico_frio.svg";
+                    status1 = "Crítico"
+                }
+
+                umid_rack3.innerHTML = `${dados1}%`
+                umid_status_rack_3.innerHTML = `
+                <img src="${icon1}" alt="">
+                    <h1>${status1}</h1>
+                `;
+            })
+        })
+         setTimeout(() => MetragensRack3(), 2000);
+    }
+
+    function MetragensRack4() {
+        const idRack = 4;
+        fetch(`http://localhost:3333/medidas/atualizartime`, { 
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idEmpresa,
+                    idRack
+                })
+            }).then((response) => {
+            response.json().then((data) => {
+                const dados = data.response[0].temperatura;
+                const dados1 = data.response[0].umidade;
+
+                let icon = "";
+                let status = "";
+
+                let icon1 = "";
+                let status1 = "";
+                if(dados < 13){
+                    icon = "assets/critico_frio.svg";
+                    status = "Crítico"
+                }else if (dados < 15){
+                    icon = "assets/iconEmergency.svg";
+                    status = "Emergêncial"
+                }else if(dados < 17){
+                    icon = "assets/iconAlert.svg";
+                    status = "Alerta"
+                }else if(dados < 27){
+                    icon = "assets/iconCheck.svg";
+                    status = "Ideal"
+                }else if(dados < 29){
+                    icon = "assets/alert_quente.svg";
+                    status = "Alerta"
+                }else if(dados < 32){
+                    icon = "assets/emergencial_quente.svg";
+                    status = "Emergêncial"
+                }else {
+                    icon = "assets/iconDanger.svg";
+                    status = "Crítico"
+                }
+
+                temp_rack4.innerHTML = `${dados}º`
+                temp_status_rack_4.innerHTML = `
+                <img src="${icon}" alt="">
+                    <h1>${status}</h1>
+                `;
+
+                if(dados1 < 33) {
+                    icon1 = "assets/iconDanger.svg";
+                    status1 = "Crítico"
+                }else if(dados1 < 37){
+                    icon1 = "assets/emergencial_quente.svg";
+                    status1 = "Emergêncial"
+                }else if (dados1 < 41){
+                    icon1 = "assets/alert_quente.svg";
+                    status1 = "Alerta"
+                }else if(dados1 < 44){
+                    icon1 = "assets/iconCheck.svg";
+                    status1 = "Ideal"
+                }else if (dados1 < 56){
+                    icon1 = "assets/iconAlert.svg";
+                    status1 = "Alerta"
+                }else if (dados1 < 62){
+                    icon1 = "assets/iconEmergency.svg";
+                    status1 = "Emergêncial"
+                }else {
+                    icon1 = "assets/critico_frio.svg";
+                    status1 = "Crítico"
+                }
+
+                umid_rack4.innerHTML = `${dados1}%`
+                umid_status_rack_4.innerHTML = `
+                <img src="${icon1}" alt="">
+                    <h1>${status1}</h1>
+                `;
+            })
+        })
+         setTimeout(() => MetragensRack4(), 2000);
+    }
+
     function screenConfig() {
         window.location.href = `userConfig.html`
     }
@@ -330,9 +647,6 @@
         sessionStorage.clear()
         window.location.href = `login.html`
     }
-</script>
-<script>
-    const idEmpresa = sessionStorage.getItem("fk_empresa");
 
     let proximaAtualizacao;
 
@@ -350,7 +664,6 @@
             if (response.ok) {
                 response.json().then((resposta) => {
                     const dados = resposta.response
-                    console.log(dados);
                     plotarGrafico(idEmpresa, dados);
                 });
             } else {
@@ -494,7 +807,6 @@
                     // dados.labels.push(registro[0].momento_grafico); // incluir um novo momento
 
                     const registros = novoRegistro.response;
-                    console.log(registros);
                         dados.datasets[0].data = [];
                         dados.datasets[1].data = [];
                         dados.datasets[2].data = [];
@@ -547,7 +859,6 @@ fetch(`http://localhost:3333/medidas/mediaTempoReal/${idEmpresa}`, {
     if (response.ok) {
         response.json().then((resposta) => {
             const dados = resposta.response
-            console.log(dados);
             plotarGraficoGraficoMedia(idEmpresa, dados);
         });
     } else {
@@ -691,7 +1002,6 @@ fetch(`http://localhost:3333/medidas/mediaTempoReal/${idEmpresa}`, {
             // dados.labels.push(registro[0].momento_grafico); // incluir um novo momento
 
             const registros2 = novoRegistro.response;
-            console.log(registros2)
                         dados.datasets[0].data = [];
                         dados.datasets[1].data = [];
                         dados.datasets[2].data = [];
