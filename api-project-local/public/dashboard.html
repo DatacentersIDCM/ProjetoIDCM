@@ -147,7 +147,7 @@
 
 
         <div class="rowCard">
-            <div class="card">
+            <div class="card" id="card_temp_rack1">
                 <div>
                     <h4>Temperatura Atual</h4>
                     <h4>Rack 1</h4>
@@ -161,7 +161,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" id="card_umid_rack1">
                 <div>
                     <h4>Umidade Atual</h4>
                     <h4>Rack 1</h4>
@@ -170,12 +170,10 @@
                     <h1 id="umid_rack1"></h1>
                     <img src="assets/iconUmidade.svg" alt="">
                 </div>
-                <div class="rowCard" id="umid_status_rack_1">
-                    
-                </div>
+                <div class="rowCard" id="umid_status_rack_1"></div>
             </div>
 
-            <div class="card">
+            <div class="card" id="card_temp_rack2">
                 <div>
                     <h4>Temperatura atual</h4>
                     <h4>Rack 2</h4>
@@ -187,7 +185,7 @@
                 <div class="rowCard" id="temp_status_rack_2"></div>
             </div>
 
-            <div class="card">
+            <div class="card" id="card_umid_rack2">
                 <div>
                     <h4>Umidade atual</h4>
                     <h4>Rack 2</h4>
@@ -202,7 +200,7 @@
 
 
         <div class="rowCard">
-            <div class="card">
+            <div class="card" id="card_temp_rack3">
                 <div>
                     <h4>Temperatura Atual</h4>
                     <h4>Rack 3</h4>
@@ -214,7 +212,7 @@
                 <div class="rowCard" id="temp_status_rack_3"></div>
             </div>
 
-            <div class="card">
+            <div class="card" id="card_umid_rack3">
                 <div>
                     <h4>Umidade Atual</h4>
                     <h4>Rack 3</h4>
@@ -226,7 +224,7 @@
                 <div class="rowCard" id="umid_status_rack_3"></div>
             </div>
 
-            <div class="card">
+            <div class="card" id="card_temp_rack4">
                 <div>
                     <h4>Temperatura atual</h4>
                     <h4>Rack 4</h4>
@@ -238,7 +236,7 @@
                 <div class="rowCard" id="temp_status_rack_4"></div>
             </div>
 
-            <div class="card">
+            <div class="card" id="card_umid_rack4">
                 <div>
                     <h4>Umidade atual</h4>
                     <h4>Rack 4</h4>
@@ -329,24 +327,45 @@
                 if(dados < 13){
                     icon = "assets/critico_frio.svg";
                     status = "Crítico"
+                    card_temp_rack1.style = `
+                    box-shadow: 3px 3px 10px #132E40;
+                    `;
                 }else if (dados < 15){
                     icon = "assets/iconEmergency.svg";
                     status = "Emergêncial"
+                    card_temp_rack1.style = `
+                    box-shadow: 3px 3px 10px #115B8C;
+                    `;
                 }else if(dados < 17){
                     icon = "assets/iconAlert.svg";
                     status = "Alerta"
+                    card_temp_rack1.style = `
+                    box-shadow: 3px 3px 10px #208FDA;
+                    `;
                 }else if(dados < 27){
                     icon = "assets/iconCheck.svg";
                     status = "Ideal"
+                    card_temp_rack1.style = `
+                    box-shadow: 3px 3px 10px #119C3B;
+                    `;
                 }else if(dados < 29){
                     icon = "assets/alert_quente.svg";
                     status = "Alerta"
+                    card_temp_rack1.style = `
+                    box-shadow: 3px 3px 10px #D4DB0B;
+                    `;
                 }else if(dados < 32){
                     icon = "assets/emergencial_quente.svg";
                     status = "Emergêncial"
+                    card_temp_rack1.style = `
+                    box-shadow: 3px 3px 10px #DA9F20;
+                    `;
                 }else {
                     icon = "assets/iconDanger.svg";
                     status = "Crítico"
+                    card_temp_rack1.style = `
+                    box-shadow: 3px 3px 10px #D41818;
+                    `;
                 }
 
                 temp_rack_1.innerHTML = `${dados}º`
@@ -355,28 +374,50 @@
                     <h1>${status}</h1>
                 
                 `;
+                
 
                 if(dados1 < 33) {
                     icon1 = "assets/iconDanger.svg";
                     status1 = "Crítico"
+                    card_umid_rack1.style = `
+                        box-shadow: 3px 3px 10px #D41818;
+                    `;
                 }else if(dados1 < 37){
                     icon1 = "assets/emergencial_quente.svg";
-                    status1 = "Emergêncial"
+                    status1 = "Emergêncial";
+                    card_umid_rack1.style = `
+                        box-shadow: 3px 3px 10px #E19F20;
+                    `;
                 }else if (dados1 < 41){
                     icon1 = "assets/alert_quente.svg";
-                    status1 = "Alerta"
+                    status1 = "Alerta";
+                    card_umid_rack1.style = `
+                        box-shadow: 3px 3px 10px #D4DB0B;
+                    `;
                 }else if(dados1 < 44){
                     icon1 = "assets/iconCheck.svg";
-                    status1 = "Ideal"
+                    status1 = "Ideal";
+                    card_umid_rack1.style = `
+                        box-shadow: 3px 3px 10px #119C3B;
+                    `;
                 }else if (dados1 < 56){
                     icon1 = "assets/iconAlert.svg";
-                    status1 = "Alerta"
+                    status1 = "Alerta";
+                    card_umid_rack1.style = `
+                        box-shadow: 3px 3px 10px #208FDA;
+                    `;
                 }else if (dados1 < 62){
                     icon1 = "assets/iconEmergency.svg";
-                    status1 = "Emergêncial"
+                    status1 = "Emergêncial";
+                    card_umid_rack1.style = `
+                        box-shadow: 3px 3px 10px #115B8C;
+                    `;
                 }else {
                     icon1 = "assets/critico_frio.svg";
                     status1 = "Crítico"
+                    card_umid_rack1.style = `
+                        box-shadow: 3px 3px 10px #132E40;
+                    `;
                 }
 
                 umid_rack1.innerHTML = `${dados1}%`
@@ -415,24 +456,45 @@
                 if(dados < 13){
                     icon = "assets/critico_frio.svg";
                     status = "Crítico"
+                    card_temp_rack2.style = `
+                    box-shadow: 3px 3px 10px #132E40;
+                    `;
                 }else if (dados < 15){
                     icon = "assets/iconEmergency.svg";
                     status = "Emergêncial"
+                    card_temp_rack2.style = `
+                    box-shadow: 3px 3px 10px #115B8C;
+                    `;
                 }else if(dados < 17){
                     icon = "assets/iconAlert.svg";
                     status = "Alerta"
+                    card_temp_rack2.style = `
+                    box-shadow: 3px 3px 10px #208FDA;
+                    `;
                 }else if(dados < 27){
                     icon = "assets/iconCheck.svg";
                     status = "Ideal"
+                    card_temp_rack2.style = `
+                    box-shadow: 3px 3px 10px #119C3B;
+                    `;
                 }else if(dados < 29){
                     icon = "assets/alert_quente.svg";
                     status = "Alerta"
+                    card_temp_rack2.style = `
+                    box-shadow: 3px 3px 10px #D4DB0B;
+                    `;
                 }else if(dados < 32){
                     icon = "assets/emergencial_quente.svg";
                     status = "Emergêncial"
+                    card_temp_rack2.style = `
+                    box-shadow: 3px 3px 10px #DA9F20;
+                    `;
                 }else {
                     icon = "assets/iconDanger.svg";
                     status = "Crítico"
+                    card_temp_rack2.style = `
+                    box-shadow: 3px 3px 10px #D41818;
+                    `;
                 }
 
                 temp_rack2.innerHTML = `${dados}º`
@@ -444,26 +506,46 @@
                 if(dados1 < 33) {
                     icon1 = "assets/iconDanger.svg";
                     status1 = "Crítico"
+                    card_umid_rack2.style = `
+                        box-shadow: 3px 3px 10px #D41818;
+                    `;
                 }else if(dados1 < 37){
                     icon1 = "assets/emergencial_quente.svg";
-                    status1 = "Emergêncial"
+                    status1 = "Emergêncial";
+                    card_umid_rack2.style = `
+                        box-shadow: 3px 3px 10px #E19F20;
+                    `;
                 }else if (dados1 < 41){
                     icon1 = "assets/alert_quente.svg";
-                    status1 = "Alerta"
+                    status1 = "Alerta";
+                    card_umid_rack2.style = `
+                        box-shadow: 3px 3px 10px #D4DB0B;
+                    `;
                 }else if(dados1 < 44){
                     icon1 = "assets/iconCheck.svg";
-                    status1 = "Ideal"
+                    status1 = "Ideal";
+                    card_umid_rack2.style = `
+                        box-shadow: 3px 3px 10px #119C3B;
+                    `;
                 }else if (dados1 < 56){
                     icon1 = "assets/iconAlert.svg";
-                    status1 = "Alerta"
+                    status1 = "Alerta";
+                    card_umid_rack2.style = `
+                        box-shadow: 3px 3px 10px #208FDA;
+                    `;
                 }else if (dados1 < 62){
                     icon1 = "assets/iconEmergency.svg";
-                    status1 = "Emergêncial"
+                    status1 = "Emergêncial";
+                    card_umid_rack2.style = `
+                        box-shadow: 3px 3px 10px #115B8C;
+                    `;
                 }else {
                     icon1 = "assets/critico_frio.svg";
                     status1 = "Crítico"
+                    card_umid_rack2.style = `
+                        box-shadow: 3px 3px 10px #132E40;
+                    `;
                 }
-
                 umid_rack2.innerHTML = `${dados1}%`
                 umid_status_rack_2.innerHTML = `
                 <img src="${icon1}" alt="">
@@ -498,24 +580,45 @@
                 if(dados < 13){
                     icon = "assets/critico_frio.svg";
                     status = "Crítico"
+                    card_temp_rack3.style = `
+                    box-shadow: 3px 3px 10px #132E40;
+                    `;
                 }else if (dados < 15){
                     icon = "assets/iconEmergency.svg";
                     status = "Emergêncial"
+                    card_temp_rack3.style = `
+                    box-shadow: 3px 3px 10px #115B8C;
+                    `;
                 }else if(dados < 17){
                     icon = "assets/iconAlert.svg";
                     status = "Alerta"
+                    card_temp_rack3.style = `
+                    box-shadow: 3px 3px 10px #208FDA;
+                    `;
                 }else if(dados < 27){
                     icon = "assets/iconCheck.svg";
                     status = "Ideal"
+                    card_temp_rack3.style = `
+                    box-shadow: 3px 3px 10px #119C3B;
+                    `;
                 }else if(dados < 29){
                     icon = "assets/alert_quente.svg";
                     status = "Alerta"
+                    card_temp_rack3.style = `
+                    box-shadow: 3px 3px 10px #D4DB0B;
+                    `;
                 }else if(dados < 32){
                     icon = "assets/emergencial_quente.svg";
                     status = "Emergêncial"
+                    card_temp_rack3.style = `
+                    box-shadow: 3px 3px 10px #DA9F20;
+                    `;
                 }else {
                     icon = "assets/iconDanger.svg";
                     status = "Crítico"
+                    card_temp_rack3.style = `
+                    box-shadow: 3px 3px 10px #D41818;
+                    `;
                 }
 
                 temp_rack3.innerHTML = `${dados}º`
@@ -527,26 +630,46 @@
                 if(dados1 < 33) {
                     icon1 = "assets/iconDanger.svg";
                     status1 = "Crítico"
+                    card_umid_rack3.style = `
+                        box-shadow: 3px 3px 10px #D41818;
+                    `;
                 }else if(dados1 < 37){
                     icon1 = "assets/emergencial_quente.svg";
-                    status1 = "Emergêncial"
+                    status1 = "Emergêncial";
+                    card_umid_rack3.style = `
+                        box-shadow: 3px 3px 10px #E19F20;
+                    `;
                 }else if (dados1 < 41){
                     icon1 = "assets/alert_quente.svg";
-                    status1 = "Alerta"
+                    status1 = "Alerta";
+                    card_umid_rack3.style = `
+                        box-shadow: 3px 3px 10px #D4DB0B;
+                    `;
                 }else if(dados1 < 44){
                     icon1 = "assets/iconCheck.svg";
-                    status1 = "Ideal"
+                    status1 = "Ideal";
+                    card_umid_rack3.style = `
+                        box-shadow: 3px 3px 10px #119C3B;
+                    `;
                 }else if (dados1 < 56){
                     icon1 = "assets/iconAlert.svg";
-                    status1 = "Alerta"
+                    status1 = "Alerta";
+                    card_umid_rack3.style = `
+                        box-shadow: 3px 3px 10px #208FDA;
+                    `;
                 }else if (dados1 < 62){
                     icon1 = "assets/iconEmergency.svg";
-                    status1 = "Emergêncial"
+                    status1 = "Emergêncial";
+                    card_umid_rack3.style = `
+                        box-shadow: 3px 3px 10px #115B8C;
+                    `;
                 }else {
                     icon1 = "assets/critico_frio.svg";
                     status1 = "Crítico"
+                    card_umid_rack3.style = `
+                        box-shadow: 3px 3px 10px #132E40;
+                    `;
                 }
-
                 umid_rack3.innerHTML = `${dados1}%`
                 umid_status_rack_3.innerHTML = `
                 <img src="${icon1}" alt="">
@@ -581,26 +704,46 @@
                 if(dados < 13){
                     icon = "assets/critico_frio.svg";
                     status = "Crítico"
+                    card_temp_rack4.style = `
+                    box-shadow: 3px 3px 10px #132E40;
+                    `;
                 }else if (dados < 15){
                     icon = "assets/iconEmergency.svg";
                     status = "Emergêncial"
+                    card_temp_rack4.style = `
+                    box-shadow: 3px 3px 10px #115B8C;
+                    `;
                 }else if(dados < 17){
                     icon = "assets/iconAlert.svg";
                     status = "Alerta"
+                    card_temp_rack3.style = `
+                    box-shadow: 3px 3px 10px #208FDA;
+                    `;
                 }else if(dados < 27){
                     icon = "assets/iconCheck.svg";
                     status = "Ideal"
+                    card_temp_rack4.style = `
+                    box-shadow: 3px 3px 10px #119C3B;
+                    `;
                 }else if(dados < 29){
                     icon = "assets/alert_quente.svg";
                     status = "Alerta"
+                    card_temp_rack4.style = `
+                    box-shadow: 3px 3px 10px #D4DB0B;
+                    `;
                 }else if(dados < 32){
                     icon = "assets/emergencial_quente.svg";
                     status = "Emergêncial"
+                    card_temp_rack4.style = `
+                    box-shadow: 3px 3px 10px #DA9F20;
+                    `;
                 }else {
                     icon = "assets/iconDanger.svg";
                     status = "Crítico"
+                    card_temp_rack4.style = `
+                    box-shadow: 3px 3px 10px #D41818;
+                    `;
                 }
-
                 temp_rack4.innerHTML = `${dados}º`
                 temp_status_rack_4.innerHTML = `
                 <img src="${icon}" alt="">
@@ -610,24 +753,45 @@
                 if(dados1 < 33) {
                     icon1 = "assets/iconDanger.svg";
                     status1 = "Crítico"
+                    card_umid_rack4.style = `
+                        box-shadow: 3px 3px 10px #D41818;
+                    `;
                 }else if(dados1 < 37){
                     icon1 = "assets/emergencial_quente.svg";
-                    status1 = "Emergêncial"
+                    status1 = "Emergêncial";
+                    card_umid_rack4.style = `
+                        box-shadow: 3px 3px 10px #E19F20;
+                    `;
                 }else if (dados1 < 41){
                     icon1 = "assets/alert_quente.svg";
-                    status1 = "Alerta"
+                    status1 = "Alerta";
+                    card_umid_rack4.style = `
+                        box-shadow: 3px 3px 10px #D4DB0B;
+                    `;
                 }else if(dados1 < 44){
                     icon1 = "assets/iconCheck.svg";
-                    status1 = "Ideal"
+                    status1 = "Ideal";
+                    card_umid_rack4.style = `
+                        box-shadow: 3px 3px 10px #119C3B;
+                    `;
                 }else if (dados1 < 56){
                     icon1 = "assets/iconAlert.svg";
-                    status1 = "Alerta"
+                    status1 = "Alerta";
+                    card_umid_rack4.style = `
+                        box-shadow: 3px 3px 10px #208FDA;
+                    `;
                 }else if (dados1 < 62){
                     icon1 = "assets/iconEmergency.svg";
-                    status1 = "Emergêncial"
+                    status1 = "Emergêncial";
+                    card_umid_rack4.style = `
+                        box-shadow: 3px 3px 10px #115B8C;
+                    `;
                 }else {
                     icon1 = "assets/critico_frio.svg";
                     status1 = "Crítico"
+                    card_umid_rack4.style = `
+                        box-shadow: 3px 3px 10px #132E40;
+                    `;
                 }
 
                 umid_rack4.innerHTML = `${dados1}%`
@@ -716,15 +880,12 @@
         };
 
 
-        for (contador = 0; contador < resposta.length; contador++) {
-            var registro = resposta[contador];
             // dados.labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.temperatura);
-            dados.datasets[1].data.push(registro.temperatura);
-            dados.datasets[2].data.push(registro.temperatura);
-            dados.datasets[3].data.push(registro.temperatura);
+            dados.datasets[0].data.push(resposta[0].temperatura);
+            dados.datasets[1].data.push(resposta[1].temperatura);
+            dados.datasets[2].data.push(resposta[2].temperatura);
+            dados.datasets[3].data.push(resposta[3].temperatura);
 
-        }
 
 
         var ctx = graficoDados1.getContext('2d');
@@ -800,27 +961,16 @@
             if (response.ok) {
                 response.json().then((novoRegistro) => {
 
-                    // dados.datasets[0].data = [];
-                    // dados.datasets[1].data = [];
-
-                    // dados.labels.shift(); // apagar o primeiro
-                    // dados.labels.push(registro[0].momento_grafico); // incluir um novo momento
-
                     const registros = novoRegistro.response;
                         dados.datasets[0].data = [];
                         dados.datasets[1].data = [];
                         dados.datasets[2].data = [];
                         dados.datasets[3].data = [];
 
-                    for (i = 0; i < registros.length; i++) {
-                        var registro = registros[i];
-                        dados.datasets[0].data.push(registro.temperatura);
-                        dados.datasets[1].data.push(registro.temperatura);
-                        dados.datasets[2].data.push(registro.temperatura);
-                        dados.datasets[3].data.push(registro.temperatura);
-                    }
-
-
+                        dados.datasets[0].data.push(registros[0].temperatura);
+                        dados.datasets[1].data.push(registros[1].temperatura);
+                        dados.datasets[2].data.push(registros[2].temperatura);
+                        dados.datasets[3].data.push(registros[3].temperatura);
 
                     window.grafico_bar.update();
 
@@ -911,15 +1061,11 @@ var dados = {
 };
 
 
-for (contador = 0; contador < resposta.length; contador++) {
-    var registro = resposta[contador];
-    // dados.labels.push(registro.momento_grafico);
-    dados.datasets[0].data.push(registro.umidade);
-    dados.datasets[1].data.push(registro.umidade);
-    dados.datasets[2].data.push(registro.umidade);
-    dados.datasets[3].data.push(registro.umidade);
+    dados.datasets[0].data.push(resposta[0].umidade);
+    dados.datasets[1].data.push(resposta[1].umidade);
+    dados.datasets[2].data.push(resposta[2].umidade);
+    dados.datasets[3].data.push(resposta[3].umidade);
 
-}
 
 
 var ctx = graficoDados2.getContext('2d');
@@ -995,25 +1141,16 @@ fetch(`http://localhost:3333/medidas/mediaTempoReal/${idEmpresa}`, {
     if (response.ok) {
         response.json().then((novoRegistro) => {
 
-            // dados.datasets[0].data = [];
-            // dados.datasets[1].data = [];
-
-            // dados.labels.shift(); // apagar o primeiro
-            // dados.labels.push(registro[0].momento_grafico); // incluir um novo momento
-
-            const registros2 = novoRegistro.response;
+            const registros = novoRegistro.response;
                         dados.datasets[0].data = [];
                         dados.datasets[1].data = [];
                         dados.datasets[2].data = [];
                         dados.datasets[3].data = [];
 
-                    for (i = 0; i < registros2.length; i++) {
-                        var registro2 = registros2[i];
-                        dados.datasets[0].data.push(registro2.umidade);
-                        dados.datasets[1].data.push(registro2.umidade);
-                        dados.datasets[2].data.push(registro2.umidade);
-                        dados.datasets[3].data.push(registro2.umidade);
-                    }
+                        dados.datasets[0].data.push(registros[0].umidade);
+                        dados.datasets[1].data.push(registros[1].umidade);
+                        dados.datasets[2].data.push(registros[2].umidade);
+                        dados.datasets[3].data.push(registros[3].umidade);
 
             window.grafico_bar2.update();
 
