@@ -13,29 +13,18 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
   return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
-  instrucaoSql = `select 
-                        temperatura, 
-                        umidade, DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        from medida where fk_aquario = ${idAquario} 
-                    order by id desc limit 1`;
-
-  console.log("Executando a instrução SQL: \n" + instrucaoSql);
-  return database.executar(instrucaoSql);
-}
 
 function buscarMetricas(idEmpresa, idRack) {
   const query = `SELECT M.temperatura, M.umidade, DATE_FORMAT(M.date_time,'%H:%i:%s') as momento_grafico FROM metrica AS M 
     JOIN sensor AS S ON S.id = M.fk_sensor 
-    WHERE S.fk_empresa = ${idEmpresa} AND S.rack = ${idRack} ORDER BY M.date_time ASC LIMIT 7`;
+    WHERE S.fk_empresa = ${idEmpresa} AND S.rack = ${idRack} ORDER BY M.id DESC LIMIT 7`;
 
   return database.executar(query);
 }
 function buscarMetricasTempoReal(idEmpresa, idRack) {
   const query = `SELECT M.temperatura, M.umidade, DATE_FORMAT(M.date_time,'%H:%i:%s') AS momento_grafico FROM metrica AS M 
   JOIN sensor AS S ON S.id = M.fk_sensor 
-  WHERE S.fk_empresa = ${idEmpresa} AND S.rack = ${idRack} ORDER BY M.date_time DESC LIMIT 1`;
+  WHERE S.fk_empresa = ${idEmpresa} AND S.rack = ${idRack} ORDER BY M.id DESC LIMIT 1`;
 
   return database.executar(query);
 }
@@ -70,7 +59,6 @@ function buscarMediaRealTime(idEmpresa) {
 
 module.exports = {
   buscarUltimasMedidas,
-  buscarMedidasEmTempoReal,
   buscarMetricas,
   buscarMetricasTempoReal,
   buscarMaxMin,
