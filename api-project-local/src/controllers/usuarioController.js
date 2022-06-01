@@ -59,7 +59,6 @@ function cadastrar(req, res) {
 
   // Assinature
   const assinatura = req.body.NewAssinatura;
-  let nome_assinature = "";
   let fk_assinatura = 0;
 
   // Date
@@ -241,9 +240,40 @@ function atualizarInformation(req, res) {
     });
 }
 
+function creatingFuncionario(req, res) {
+  const idEmpresa = Number(req.body.idEmpresa);
+  const nomeUser = req.body.NewNomeUser;
+  const email = req.body.NewEmail;
+  const telefone = req.body.NewTelefone;
+  const senha = req.body.NewSenha;
+  const cargo = req.body.NewCargo;
+
+  usuarioModel.casdastrarFuncionario(
+    nomeUser, email, telefone, senha, cargo, idEmpresa
+  ).then((response) => {
+    const tamanho = response.affectedRows;
+
+    if(tamanho > 0){
+      res.json({
+        mensagem: "success"
+      })
+    }else {
+      res.json({
+        mensagem: "error"
+      })
+    }
+  }).catch((error) => {
+    console.log(error);
+      res.json({
+        mensagem: "error_usuario",
+      });
+  })
+}
+
 module.exports = {
   entrar,
   cadastrar,
+  creatingFuncionario,
   atualizarImg,
   myInformations,
   recuperarSenha,

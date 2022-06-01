@@ -160,20 +160,20 @@
         <h4>Funcionários:<span> 1</span></h4>
         <h4>Adicionar Funcionarios</h4>
         <div class="divCombo">
-          <select class="combo">
-            <option value="1">Funcionario</option>
-            <option value="2">Admin</option>
+          <select class="combo" id="addCargo">
+            <option value="0">Funcionario</option>
+            <option value="1">Admin</option>
           </select>
           <div class="column">
           <input id="addNome" class="inputAdd" type="text" placeholder="Nome" />
-          <input id="addSobrenome" class="inputAdd" type="text" placeholder="Sobrenome" />
           <input id="addTelefone" class="inputAdd" type="text" placeholder="Telefone" />
           <input id="addEmail" class="inputAdd" type="text" placeholder="Email" />
+          <input id="addSenha" class="inputAdd" type="text" placeholder="Senha" />
         </div>
       </div>
 
 
-        <button class="button5">Adicionar</button>
+        <button onclick="cadastrarFuncionario()" class="button5">Adicionar</button>
       </div>
     </div>
   </div>
@@ -199,8 +199,8 @@
 <script src="./js/changeScreens.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-  crossorigin="anonymous"></script>
+integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+crossorigin="anonymous"></script>
 
 <script>
   var ImagemUser = false;
@@ -221,6 +221,46 @@
   const imagem_de_perfil = setInterval(() => {
     ImagemUndefine();
   }, 1000);
+  
+  
+  function cadastrarFuncionario(){
+    const idEmpresa = sessionStorage.getItem("fk_empresa");
+    const nome = addNome.value;
+    const telefone = addTelefone.value;
+    const email = addEmail.value;
+    const senha = addSenha.value;
+    const cargo = parseInt(addCargo.value);
+
+
+    fetch('http://localhost:3333/usuarios/cadastrar/funcionario', {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({
+        idEmpresa,
+        NewNomeUser: nome,
+        NewEmail: email,
+        NewTelefone: telefone,
+        NewSenha: senha,
+        NewCargo: cargo
+      })
+    }).then((response) => {
+      response.json().then((data) => {
+
+        const mensagem = data.mensagem;
+
+        if(mensagem == "success"){
+          modalCheck.innerHTML = `
+          <img src="./assets/modalCheck.svg" id="imgModal" alt="check" />
+          `;
+          campo_alerta.innerHTML = `O usuario ( ${nome} ) foi cadastrado com sucesso.`
+          modal.style.display = "block";
+        }
+      })
+    })
+
+  }
 
   
 
@@ -262,7 +302,6 @@
 
   function myEmpresa() {
     const idEmpresa = sessionStorage.getItem("fk_empresa");
-
     fetch(`http://localhost:3333/empresa/myempresa/${idEmpresa}`, {
       method: "GET",
       headers: {
