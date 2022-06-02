@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IDCM</title>
+
+    <link rel="stylesheet" href="./css/styleUserConfig.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/styleModal.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="logo"></div>
+        <ul>
+          <li><a class="now" href="userConfig.html">Usuário</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="dashboard.html">dashboard</a></li>
+          <li><a href="calculator.html">Calculadora</a></li>
+        </ul>
+        <button onclick="LoginOff()" class="button1">Sair</button>
+        <button onclick="changeScreenUserConfigDark()" class="button2">
+          <img src="./assets/darkMode.png" alt="darkMode" />
+        </button>
+      </nav>
+    </header>
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IDCM</title>
+
+  <link rel="stylesheet" href="./css/styleUserConfig.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/styleModal.css" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo"></div>
+
+      <ul>
+        <li><a class="now" href="userConfig.html">Usuário</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">dashboard</a></li>
+        <li><a href="calculator.html">Calculadora</a></li>
+      </ul>
+      <button onclick="LoginOff()" class="button1">Sair</button>
+      <button class="button2">
+        <img src="./assets/darkMode.png" alt="darkMode" />
+      </button>
+    </nav>
+  </header>
+
+  <div class="main">
+    <div class="titleUser">
+      <h1>Configurações de usuário</h1>
+    </div>
+
+    <div class="mainCard">
+      <div class="userConfig">
+        <div class="centerImg">
+          <div id="imgCircle"></div>
+          <div id="carregando"></div>
+        </div>
+        <h2 id="nome_sobrenome"></h2>
+
+        <div class="upload-btn">
+          <div class="center">
+            <input id="attImg" onkeyup="mostrarImagem()" placeholder="URL Imagem" />
+            <button onclick="salvarImagem()" class="labelInput">
+              Salvar
+            </button>
+          </div>
+        </div>
+
+        <h2 class="h2Small">Infromações da Assinatura</h2>
+        <div class="row2">
+          <div class="column1">
+            <h2 class="h2Small">Plano</h2>
+            <h4 id="anos_assinatura" class="h4Small"></h4>
+          </div>
+          <div class="column2">
+            <h2 class="h2Small">Renovação do plano</h2>
+            <h4 id="data_renovacao" class="h4Small"></h4>
+          </div>
+          <div class="column3">
+            <h2 class="h2Small">Status</h2>
+            <h4 id="status_assis" class="h4Small"></h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="myProfile">
+        <h4 class="h2Profile">Meu perfil</h4>
+        <div class="row3">
+          <div class="rowCenter">
+            <h4 class="h4Small">Nome:</h4>
+          </div>
+          <div class="rowCenter2">
+            <h4 class="h4Small">Sobrenome:</h4>
+          </div>
+        </div>
+        <div class="row3">
+          <div class="rowCenter">
+            <input id="campo_nome" class="input" type="text" />
+          </div>
+          <div class="rowCenter2">
+            <input id="campo_sobrenome" class="input" type="text" />
+          </div>
+        </div>
+
+        <div class="row3">
+          <div class="rowCenter">
+            <h4 class="h4Small">Empresa:</h4>
+          </div>
+          <div class="rowCenter2">
+            <h4 class="h4Small">CNPJ:</h4>
+          </div>
+        </div>
+        <div class="row3">
+          <div class="rowCenter">
+            <input id="campo_nome_empresa" readonly="true" class="input" type="text" />
+          </div>
+          <div class="rowCenter2">
+            <input id="campo_cnpj" readonly="true" class="input" type="text" />
+          </div>
+        </div>
+
+        <div class="row3">
+          <div class="rowCenter">
+            <h4 class="h4Small">E-mail:</h4>
+          </div>
+          <div class="rowCenter2">
+            <h4 class="h4Small">Telefone:</h4>
+          </div>
+        </div>
+        <div class="row3">
+          <div class="rowCenter">
+            <input id="campo_email" class="input" type="text" />
+          </div>
+          <div class="rowCenter2">
+            <input id="campo_telefone" class="input" type="text" />
+          </div>
+        </div>
+
+        <button onclick="AtualizarInformations()" class="button5">
+          Atualizar informações
+        </button>
+      </div>
+
+      <div class="subscription">
+        <h4>Funcionários:<span> 1</span></h4>
+        <h4>Adicionar Funcionarios</h4>
+        <div class="divCombo">
+          <select class="combo" id="addCargo">
+            <option value="0">Funcionario</option>
+            <option value="1">Admin</option>
+          </select>
+          <div class="column">
+          <input id="addNome" class="inputAdd" type="text" placeholder="Nome" />
+          <input id="addTelefone" class="inputAdd" type="text" placeholder="Telefone" />
+          <input id="addEmail" class="inputAdd" type="text" placeholder="Email" />
+          <input id="addSenha" class="inputAdd" type="text" placeholder="Senha" />
+        </div>
+      </div>
+
+
+        <button onclick="cadastrarFuncionario()" class="button5">Adicionar</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="modal" class="modalBody">
+    <div class="modalReadPlus">
+      <div class="containerReadPlus">
+        <div class="modalCheck" id="modalCheck">
+          <img src="./assets/dangerModal.svg" id="imgModal" alt="check" />
+        </div>
+        <button onclick="buttonBack()" class="modalBack">&times;</button>
+      </div>
+      <h2 id="campo_alerta"></h2>
+      <button class="button8" onclick="buttonBack()">Fechar</button>
+    </div>
+  </div>
+
+  <img class="wavesLogin" src="./assets/wavesLogin.svg" alt="wavesLogin" />
+</body>
+
+</html>
+
+<script src="./js/changeScreens.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+crossorigin="anonymous"></script>
+
+<script>
+  var ImagemUser = false;
+  var urlImagem = "";
+  carregando.innerHTML = `<img class="reloader" src="./assets/reload.gif" alt="FotoPerfil">`;
+  setTimeout(() => {
+    carregando.style.display = "none";
+    myEmpresa();
+    ListarAssinatura();
+  }, 1000);
+
+  listarInformations();
+
+  function buttonBack() {
+    modal.style.display = "none";
+  }
+
+  const imagem_de_perfil = setInterval(() => {
+    ImagemUndefine();
+  }, 1000);
+  
+  
+  function cadastrarFuncionario(){
+    const idEmpresa = sessionStorage.getItem("fk_empresa");
+    const nome = addNome.value;
+    const telefone = addTelefone.value;
+    const email = addEmail.value;
+    const senha = addSenha.value;
+    const cargo = parseInt(addCargo.value);
+
+
+    fetch('/usuarios/cadastrar/funcionario', {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({
+        idEmpresa,
+        NewNomeUser: nome,
+        NewEmail: email,
+        NewTelefone: telefone,
+        NewSenha: senha,
+        NewCargo: cargo
+      })
+    }).then((response) => {
+      response.json().then((data) => {
+
+        const mensagem = data.mensagem;
+
+        if(mensagem == "success"){
+          modalCheck.innerHTML = `
+          <img src="./assets/modalCheck.svg" id="imgModal" alt="check" />
+          `;
+          campo_alerta.innerHTML = `O usuario ( ${nome} ) foi cadastrado com sucesso.`
+          modal.style.display = "block";
+        }
+      })
+    })
+
+  }
+
+  
+
+  function listarInformations() {
+    const idUser = sessionStorage.id;
+
+    fetch(`/usuarios/myinformation/${idUser}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      response.json().then((data) => {
+        const nomeUser = data.response[0].nome;
+        const sobrenomeUser = data.response[0].sobrenome;
+        const CargoUser = data.response[0].cargo;
+        const EmailUser = data.response[0].email;
+        const TelefoneUser = data.response[0].telefone;
+        const ImagemUser = data.response[0].imagem;
+        const IdEmpresa = data.response[0].fk_empresa;
+        campo_nome.value = nomeUser;
+        campo_sobrenome.value = sobrenomeUser;
+        campo_email.value = EmailUser;
+        campo_telefone.value = TelefoneUser;
+
+        const sobrenome = sobrenomeUser == null ? "" : sobrenomeUser;
+
+        setTimeout(() => {
+          nome_sobrenome.innerHTML = `${nomeUser}  ${sobrenome}`;
+        }, 1000);
+
+        ImagemUser == null || ImagemUser == ""
+          ? (imagemUsuario = true)
+          : (imagemUsuario = false);
+        urlImagem = ImagemUser;
+      });
+    });
+  }
+
+  function myEmpresa() {
+    const idEmpresa = sessionStorage.getItem("fk_empresa");
+    fetch(`/empresa/myempresa/${idEmpresa}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      response.json().then((data) => {
+        const nomeEmpresa = data.response[0].nome;
+        const CnpjEmpresa = data.response[0].cnpj;
+
+        campo_nome_empresa.value = nomeEmpresa;
+        campo_cnpj.value = CnpjEmpresa;
+      });
+    });
+  }
+
+  function ListarAssinatura() {
+    const idEmpresa = sessionStorage.getItem("fk_empresa");
+
+    fetch(`/empresa/myassinature/${idEmpresa}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      response.json().then((data) => {
+        console.log(data);
+        const plano_empresa = data.response[0].fk_assinatura;
+        const status_assinatura = data.response[0].status_ass;
+        const vencimento = data.response[0].renovacao;
+
+        const myDate = new Date(vencimento);
+
+        const day = myDate.getDate();
+        const mes = myDate.getMonth() + 1;
+        const ano = myDate.getFullYear();
+
+        data_renovacao.innerHTML = `${day}/0${mes}/${ano}`;
+
+        if (plano_empresa == "Anual") {
+          anos_assinatura.innerHTML = "1 Ano";
+        } else if (plano_empresa == "Bianual") {
+          anos_assinatura.innerHTML = "2 Anos";
+        } else {
+          anos_assinatura.innerHTML = "5 Anos";
+        }
+
+        status_assinatura == 1
+          ? (status_assis.innerHTML = "Ativo")
+          : (status_assis.innerHTML = "Desativado");
+      });
+    });
+  }
+
+  function ImagemUndefine() {
+    if (imagemUsuario) {
+      imgCircle.innerHTML = `<img class="imgUser" src="./assets/user_undefined.png" alt="FotoPerfil">`;
+    } else {
+      imgCircle.innerHTML = `<img class="imgUser" src="${urlImagem}" alt="FotoPerfil">`;
+    }
+  }
+
+  function salvarImagem() {
+    const urlImg = attImg.value;
+    const idUser = sessionStorage.getItem("id");
+
+    if (
+      (urlImg != "" &&
+        urlImg != null &&
+        urlImg.length > 0 &&
+        urlImg.endsWith(".png")) ||
+      urlImg.endsWith(".jpg") ||
+      urlImg.endsWith(".jpeg")
+    ) {
+      fetch("/usuarios/atualizar/imagem", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: idUser,
+          img: urlImg,
+        }),
+      }).then((response) => {
+        response.json().then((data) => {
+          const mensagem = data.mensagem;
+
+          if (mensagem == "success") {
+            modal.style.display = "block";
+            campo_alerta.innerHTML = "Imagem de perfil atualizada!";
+            attImg.value = "";
+            listarInformations();
+            setTimeout(() => {
+              imgCircle.innerHTML = `<img class="imgUser" src="${urlImagem}" alt="FotoPerfil">`;
+            }, 1000);
+          }
+        });
+      });
+    }
+  }
+
+  function mostrarImagem() {
+    clearInterval(imagem_de_perfil);
+    const urlImg = attImg.value;
+
+    if (urlImg == "") {
+      imagemUsuario == true ? (imagemUsuario = true) : (imagemUsuario = false);
+      urlImagem != "" ? (imagemUsuario = false) : (imagemUsuario = true);
+      listarInformations();
+      ImagemUndefine();
+    } else {
+      if (
+        urlImg.endsWith(".png") ||
+        urlImg.endsWith(".jpg") ||
+        urlImg.endsWith(".jpeg")
+      ) {
+        imgCircle.innerHTML = `<img class="imgUser" src="${urlImg}" alt="Carregando...">`;
+      } else {
+        imgCircle.innerHTML = `<h1> URL Inválida! </h1>`;
+      }
+    }
+  }
+
+  function AtualizarInformations() {
+    const id = sessionStorage.getItem("id");
+    const nome = campo_nome.value;
+    const sobrenome = campo_sobrenome.value;
+    const email = campo_email.value;
+    const telefone = campo_telefone.value;
+
+    fetch("/usuarios/atualizarInformation", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id,
+        nome,
+        sobrenome,
+        email,
+        telefone,
+      }),
+    }).then((response) => {
+      response.json().then((data) => {
+        const msg = data.mensagem;
+
+          console.log(msg);
+        if (msg == "success") {
+          listarInformations();
+          modal.style.display = "block";
+          imgModal.src = `./assets/modalCheck.svg`
+          campo_alerta.innerHTML = `Informações atualizadas com sucesso`;
+        } else {
+          modal.style.display = "block";
+          imgModal.src = `./assets/modalError.svg`
+          campo_alerta.innerHTML = `Erro ao atualizar as informações`;
+        }
+      });
+    });
+  }
+</script>
+
+</script>
+
+<script src="./js/changeScreens.js"></script>
+
