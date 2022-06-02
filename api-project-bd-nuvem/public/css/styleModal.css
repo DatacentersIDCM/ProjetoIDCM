@@ -1,0 +1,84 @@
+.modalBody {
+    z-index: 3;
+    display: none;
+    left: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(41, 37, 37, 0.4);
+    transition: 0.3s;
+}
+
+.modalReadPlus {
+    position: relative;
+    width: 32%;
+    border-radius: 10px;
+    height: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    border: 2px solid #E5E5E5;
+    background-color: #FFFFFF;
+    margin: auto;
+    padding: 0;
+    outline: 0;
+    margin-top: 10%;
+}
+
+.containerReadPlus {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 100%;
+    height: 10vh;
+}
+
+.modalCheck {
+    margin-top: 2vh;
+    width: 3.6vw;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F5F5F5;
+    border-radius: 11px;
+    margin-bottom: 20vh;
+    margin-right: 35%;
+}
+
+.modalBack {
+    width: 2vw;
+    border-radius: 40px;
+    margin-right: 2%;
+    margin-top: 1%;
+    height: 4vh;
+    border: transparent;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 18px;
+    color: #54595E;
+}
+
+.button8 {
+    width: 20vw;
+    height: 8vh;
+    margin-bottom: 3%;
+    background: #0099FF;
+    border-radius: 40px;
+    border-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.5vw;
+    line-height: 36px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+}
